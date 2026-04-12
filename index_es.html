@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cynthia Goytia - Profesora de Economia Urbana</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.6; color: #333; background: #fff; }
+        .header { background: linear-gradient(135deg, #4E5869, #6F7D94); color: #fff; padding: 18px 0; border-bottom: 3px solid #B8860B; }
+        .header-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .header h1 { font-size: 26px; font-weight: normal; letter-spacing: 1px; }
+        .header h1 span { font-weight: bold; }
+        .header .subtitle { font-size: 13px; color: #d0d6e0; margin-top: 4px; }
+        .lang-toggle { float: right; margin-top: -30px; }
+        .lang-toggle a { color: #fff; text-decoration: none; font-size: 13px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.4); border-radius: 3px; transition: background 0.2s; }
+        .lang-toggle a:hover { background: rgba(255,255,255,0.15); }
+        nav { background: #f5f5f5; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+        nav ul { max-width: 1100px; margin: 0 auto; padding: 0 20px; list-style: none; display: flex; flex-wrap: wrap; }
+        nav ul li { border-left: 1px solid #ccc; }
+        nav ul li:last-child { border-right: 1px solid #ccc; }
+        nav ul li a { display: block; padding: 10px 16px; text-decoration: none; color: #4E5869; font-weight: bold; font-size: 12px; transition: color 0.2s, background 0.2s; }
+        nav ul li a:hover, nav ul li a.active { color: #B8860B; background: #eee; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 25px 20px; display: flex; gap: 30px; }
+        .sidebar-left { width: 250px; flex-shrink: 0; }
+        .content { flex: 1; min-width: 0; }
+        .sidebar-right { width: 220px; flex-shrink: 0; }
+        .profile-photo { width: 220px; border: 3px solid #ddd; border-radius: 4px; margin-bottom: 15px; }
+        .sidebar-left h3, .sidebar-right h3 { font-size: 13px; color: #4E5869; border-bottom: 2px solid #B8860B; padding-bottom: 5px; margin-bottom: 10px; margin-top: 20px; }
+        .sidebar-left h3:first-of-type, .sidebar-right h3:first-of-type { margin-top: 0; }
+        .sidebar-left p, .sidebar-left ul, .sidebar-right ul { font-size: 12px; color: #555; list-style: none; padding: 0; }
+        .sidebar-left ul li, .sidebar-right ul li { padding: 3px 0; }
+        .sidebar-right ul li { border-bottom: 1px dotted #ddd; padding: 4px 0; font-size: 11.5px; }
+        .sidebar-left a, .sidebar-right a, .content a { color: #B8860B; text-decoration: none; }
+        .sidebar-left a:hover, .sidebar-right a:hover, .content a:hover { color: #8B6914; text-decoration: underline; }
+        .icon-link { display: flex; align-items: center; gap: 6px; margin: 5px 0; font-size: 12px; }
+        .icon-link svg { width: 16px; height: 16px; fill: #4E5869; }
+        .content h2 { font-size: 18px; color: #4E5869; border-bottom: 2px solid #B8860B; padding-bottom: 6px; margin-bottom: 15px; margin-top: 30px; }
+        .content h2:first-child { margin-top: 0; }
+        .content h3 { font-size: 14px; color: #4E5869; margin-top: 20px; margin-bottom: 8px; }
+        .content p { margin-bottom: 12px; text-align: justify; }
+        .section { display: none; animation: fadeIn 0.3s ease-in; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .pub-year { font-weight: bold; color: #4E5869; font-size: 14px; margin-top: 18px; margin-bottom: 8px; border-left: 3px solid #B8860B; padding-left: 10px; }
+        .pub-item { margin-bottom: 10px; padding-left: 15px; font-size: 12.5px; line-height: 1.5; }
+        .pub-item em { color: #555; }
+        .teaching-item { margin-bottom: 14px; padding-left: 15px; border-left: 2px solid #ddd; }
+        .teaching-item strong { color: #4E5869; }
+        .consult-item { margin-bottom: 14px; padding: 10px 15px; background: #fafafa; border-left: 3px solid #B8860B; font-size: 12.5px; }
+        .consult-item strong { color: #4E5869; }
+        .consult-item .funder { color: #B8860B; font-weight: bold; }
+        .pres-item { margin-bottom: 8px; padding-left: 15px; font-size: 12.5px; }
+        footer { background: #4E5869; color: #ccc; text-align: center; padding: 15px; font-size: 11px; margin-top: 40px; }
+        footer a { color: #d4c088; text-decoration: none; }
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .sidebar-left, .sidebar-right { width: 100%; }
+            .profile-photo { width: 180px; }
+            nav ul { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-inner">
+        <h1>Profesora <span>Cynthia Goytia</span> (PhD)</h1>
+        <div class="subtitle">Economia Urbana &middot; Universidad Torcuato Di Tella &middot; Buenos Aires, Argentina</div>
+        <div class="lang-toggle"><a href="index.html">EN English</a></div>
+    </div>
+</div>
+
+<nav>
+    <ul>
+        <li><a href="#" class="active" onclick="showSection('home', this)">Inicio</a></li>
+        <li><a href="#" onclick="showSection('bio', this)">Bio</a></li>
+        <li><a href="#" onclick="showSection('publications', this)">Publicaciones</a></li>
+        <li><a href="#" onclick="showSection('working-papers', this)">Documentos de Trabajo</a></li>
+        <li><a href="#" onclick="showSection('teaching', this)">Docencia</a></li>
+        <li><a href="#" onclick="showSection('research', this)">Investigacion y Consultoria</a></li>
+        <li><a href="#" onclick="showSection('presentations', this)">Presentaciones</a></li>
+        <li><a href="#" onclick="showSection('contact', this)">Contacto</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <!-- BARRA LATERAL IZQUIERDA -->
+    <div class="sidebar-left">
+        <img src="photo.jpeg" alt="Cynthia Goytia" class="profile-photo">
+        <h3>Contacto</h3>
+        <p><a href="mailto:cgoytia@utdt.edu">cgoytia@utdt.edu</a></p>
+        <h3>Perfiles</h3>
+        <div class="icon-link">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <a href="https://scholar.google.com/citations?user=Q5xBXTUAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        </div>
+        <div class="icon-link">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <a href="https://www.linkedin.com/in/cynthia-goytia/" target="_blank">LinkedIn</a>
+        </div>
+        <h3>Afiliaciones</h3>
+        <ul>
+            <li><a href="https://www.utdt.edu/cipuv" target="_blank">CIPUV - UTDT</a></li>
+            <li><a href="https://www.utdt.edu/ver_contenido.php?id_contenido=807&id_item_menu=2051" target="_blank">MSc Economia Urbana</a></li>
+            <li>Lincoln Institute of Land Policy (Senior Fellow)</li>
+            <li>CEPE - UTDT</li>
+        </ul>
+        <h3>Intereses de Investigacion</h3>
+        <ul>
+            <li>Economia Urbana e Inmobiliaria</li>
+            <li>Mercados de Vivienda y Suelo</li>
+            <li>Regulacion del Uso del Suelo</li>
+            <li>Asentamientos Informales</li>
+            <li>Adaptacion Climatica y Financiamiento</li>
+            <li>Financiamiento Basado en el Suelo</li>
+            <li>Finanzas Publicas Locales y Subnacionales</li>
+            <li>Eficiencia Energetica en Ciudades</li>
+            <li>Inclusion e Inequidad Urbana</li>
+            <li>Evaluacion de Impacto</li>
+            <li>Mercados de Alquiler</li>
+        </ul>
+    </div>
+
+    <!-- CONTENIDO CENTRAL -->
+    <div class="content">
+
+        <!-- INICIO -->
+        <div id="home" class="section active">
+            <h2>Bienvenida</h2>
+            <p>Soy Profesora de Economia Urbana en la <strong>Universidad Torcuato Di Tella</strong> en Buenos Aires, Argentina. Dirijo la <strong>Maestria en Economia Urbana (MEU)</strong> y funde y presido el <strong>Centro de Investigacion de Politicas Urbanas y de Vivienda (CIPUV)</strong>, uno de los principales centros de investigacion urbana en America Latina.</p>
+            <p>Mi investigacion articula teoria y practica, con foco en politicas urbanas, vivienda, mercados de suelo y financiamiento del desarrollo, incluyendo adaptacion, mitigacion y financiamiento climatico. Pongo especial enfasis en revertir desigualdades y fomentar la inclusion urbana, particularmente en paises en desarrollo.</p>
+            <p>Tengo un Doctorado en Planificacion Urbana y Regional de la <strong>London School of Economics and Political Science</strong> (2008), con especializacion en Economia Espacial y Desarrollo. He sido docente en la Universidad de Cambridge, la LSE, UCLA, UC Berkeley, University of Southern California y el Institute of Housing Studies (Erasmus University, Paises Bajos). Me desempeno como <strong>David Rockefeller Visiting Scholar en la Universidad de Harvard</strong>.</p>
+            <p>Asesoro a gobiernos argentinos y de otros paises de America Latina y actuo como consultora senior del <strong>Banco Mundial</strong>, las <strong>Naciones Unidas</strong>, el <strong>Banco Interamericano de Desarrollo</strong> y <strong>CAF</strong> (Banco de Desarrollo de America Latina). Soy Senior Research Fellow del <strong>Lincoln Institute of Land Policy</strong>.</p>
+
+            <h2>Temas de Investigacion Actuales (2024&ndash;2025)</h2>
+            <ul style="margin-left:20px; margin-bottom:15px; font-size:12.5px;">
+                <li>Cambio climatico e inversion en adaptacion urbana, mitigacion, eficiencia energetica residencial e instrumentos de financiamiento basados en el suelo</li>
+                <li>Politicas habitacionales y financiamiento; descentralizacion de politicas de vivienda; cadena de valor del sector habitacional</li>
+                <li>Politicas de gestion del suelo y financiamiento basado en el suelo para el desarrollo urbano, adaptacion/mitigacion y mejoramiento de asentamientos informales</li>
+                <li>Evaluacion de programas para mejorar las condiciones termicas de la vivienda; impactos en la salud y gastos del hogar</li>
+                <li>Asentamientos informales y politicas preventivas contra la informalidad</li>
+                <li>Esquemas de financiamiento publico-privado para el mejoramiento de asentamientos informales en la region metropolitana de Buenos Aires</li>
+                <li>Mercado de alquiler y alquileres temporarios</li>
+                <li>Crecimiento urbano en la region metropolitana de Buenos Aires 2010&ndash;2024</li>
+            </ul>
+
+            <h2>Publicaciones Recientes</h2>
+            <div class="pub-item">Goytia, C. &amp; Gertner, G. (2025) "Equitable energy transitions in informal urban settlements: Lessons from energy audits in the City of Buenos Aires." <em>Journal of City Climate Policy and Economy</em>, 4(3). <a href="https://doi.org/10.3138/jccpe-2025-0022" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. &amp; Gertner, G. (2025) "Energy efficiency and climate adaptation: A behavioral lens on informal settlements housing in Argentina." Capitulo 6 en Belfiori &amp; Gertner (Eds.), <em>Climate Change and Economic Growth: Lessons from Argentina</em>. Springer.</div>
+            <div class="pub-item">Goytia, C. (2025) "Reversing displacement: The enforcement of inclusionary land management instruments." Capitulo 4 en <em>Displaced Urbanism</em>, Routledge.</div>
+            <div class="pub-item">Goytia, C. &amp; Gertner, G. (2025) "From Disparity to Sustainability: The Journey of Energy Efficiency in Buenos Aires' Low-Income Neighborhoods." Capitulo 3 en <em>Resilient Urbanism</em>, Routledge.</div>
+        </div>
+
+        <!-- BIO -->
+        <div id="bio" class="section">
+            <h2>Biografia</h2>
+            <p>La Profesora Cynthia Goytia es Directora de la Maestria en Economia Urbana de la Universidad Torcuato Di Tella en Buenos Aires, Argentina. Desde 2012, preside el Centro de Investigacion de Politicas Urbanas y de Vivienda (CIPUV) de la universidad, el cual fundo. CIPUV es uno de los principales centros de investigacion urbana en America Latina, donde ha desarrollado un influyente cuerpo de investigacion academica sobre politicas urbanas, vivienda y mercados de suelo.</p>
+            <p>Obtuvo un M.Sc. (2001) y un Doctorado (2008) en Economia Urbana de la London School of Economics (LSE), con especializacion en Economia Espacial y Desarrollo. Como Visiting Scholar de la Universidad de Harvard, ha sido docente en la LSE y la Universidad de Cambridge, y en otras universidades de Europa y las Americas.</p>
+            <p>Actualmente se desempena como consultora senior en temas urbanos para el Gobierno Nacional de Argentina, el Gobierno de la Ciudad de Buenos Aires, otros gobiernos de America Latina, el Banco Mundial, las Naciones Unidas, el Banco Interamericano de Desarrollo y CAF (Banco de Desarrollo de America Latina). Tambien es Senior Research Fellow del Lincoln Institute of Land Policy.</p>
+
+            <h2>Educacion</h2>
+            <div class="teaching-item"><strong>Doctorado en Planificacion Urbana y Regional (2008)</strong><br>Especializacion en Economia Espacial y Desarrollo<br>London School of Economics and Political Science, Departamento de Geografia y Medio Ambiente</div>
+            <div class="teaching-item"><strong>M.Sc., Economia Urbana (2001)</strong><br>Universidad Torcuato Di Tella (UTDT)</div>
+
+            <h2>Posiciones Actuales</h2>
+            <div class="teaching-item"><strong>Directora, MSc Economia Urbana (MEU)</strong> &mdash; Universidad Torcuato Di Tella (2011&ndash;presente)</div>
+            <div class="teaching-item"><strong>Fundadora y Directora, CIPUV</strong> &mdash; Universidad Torcuato Di Tella (2012&ndash;presente)</div>
+            <div class="teaching-item"><strong>Profesora de Economia Urbana</strong> &mdash; Universidad Torcuato Di Tella (2005&ndash;presente)</div>
+            <div class="teaching-item"><strong>Directora, Data Lab / CIPUV</strong> &mdash; UTDT (2017&ndash;presente)</div>
+            <div class="teaching-item"><strong>Investigadora, CEPE</strong> &mdash; UTDT (2018&ndash;presente)</div>
+
+            <h2>Posiciones Anteriores</h2>
+            <div class="teaching-item"><strong>Senior Research Fellow</strong> &mdash; Lincoln Institute of Land Policy (2016&ndash;presente)</div>
+            <div class="teaching-item"><strong>Fortabat Visiting Scholar</strong> &mdash; Harvard University, David Rockefeller Center for Latin American Studies (2016&ndash;2017, 2021)</div>
+            <div class="teaching-item"><strong>Profesora Visitante</strong> &mdash; Institute of Housing Studies, Erasmus University, Paises Bajos (2015&ndash;2017, 2021)</div>
+            <div class="teaching-item"><strong>Docente</strong> &mdash; London School of Economics and Political Science (2008&ndash;2011)</div>
+            <div class="teaching-item"><strong>Investigadora y Docente</strong> &mdash; CPI, University of Cambridge, Reino Unido (2002&ndash;2005)</div>
+            <div class="teaching-item"><strong>Investigadora</strong> &mdash; CEPAL, Chile (2002)</div>
+            <div class="teaching-item"><strong>Directora Asociada, MSc Economia Urbana</strong> &mdash; UTDT (2005&ndash;2010)</div>
+
+            <h2>Premios, Distinciones y Servicio Institucional</h2>
+            <div class="teaching-item"><strong>ONU-Habitat (2024)</strong> &mdash; Seleccionada como representante academica de America Latina para la Mesa Redonda Academica en el Foro Urbano Mundial 12, El Cairo</div>
+            <div class="teaching-item"><strong>Revisora</strong> &mdash; Reporte de Economia y Desarrollo (RED) 2025 de CAF sobre descentralizacion en America Latina</div>
+
+            <h2>Directorios y Consejos Asesores</h2>
+            <div class="teaching-item"><strong>Consejo Asesor</strong> &mdash; Lincoln Institute of Land Policy</div>
+            <div class="teaching-item"><strong>Miembro del Consejo Directivo</strong> &mdash; Fundacion Instituto Torcuato Di Tella (desde 2020)</div>
+            <div class="teaching-item"><strong>Miembro del Consejo Directivo</strong> &mdash; Fundacion Pro Vivienda Social</div>
+            <div class="teaching-item"><strong>Miembro</strong> &mdash; RIL &ndash; Red de Innovacion Local (Red de Accion Local)</div>
+            <div class="teaching-item"><strong>Representante</strong> &mdash; Consejo del Plan Estrategico de la Ciudad de Buenos Aires</div>
+            <div class="teaching-item"><strong>Miembro</strong> &mdash; Consejo Internacional de la Cumbre del Habitat para America Latina y el Caribe</div>
+            <div class="teaching-item"><strong>Evaluadora</strong> &mdash; Proyectos de Investigacion del Lincoln Institute of Land Policy</div>
+        </div>
+
+        <!-- PUBLICACIONES -->
+        <div id="publications" class="section">
+            <h2>Articulos en Revistas Academicas con Referato</h2>
+
+            <div class="pub-year">2025</div>
+            <div class="pub-item">Goytia, C. &amp; Gertner, G. (2025). Equitable energy transitions in informal urban settlements: Lessons from energy audits in the City of Buenos Aires. <em>Journal of City Climate Policy and Economy</em>, 4(3). <a href="https://doi.org/10.3138/jccpe-2025-0022" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. &amp; Gertner, G. (2025). The Interplay Between Rent Control, Credit Market Dysfunctions and Short-Term Rentals on Housing Markets: Evidence from the City of Buenos Aires. <em>Journal of Regional Studies</em> &ndash; Numero Especial. (Aceptado condicionalmente)</div>
+
+            <div class="pub-year">2022</div>
+            <div class="pub-item">Goytia, C., Heikkila, E.J. &amp; Pasquini, R.A. (2022). Do land use regulations help give rise to informal settlements? Evidence from Buenos Aires. <em>Land Use Policy</em>, 125, 106484. <a href="https://doi.org/10.1016/j.landusepol.2022.106484" target="_blank">[Link]</a></div>
+            <div class="pub-item">Situacion financiera de la movilidad urbana en Buenos Aires, 2015&ndash;2021. <em>Documentos de Proyectos</em> (LC/TS.2022/160). CEPAL, Santiago.</div>
+
+            <div class="pub-year">2018</div>
+            <div class="pub-item">Goytia, C., Guerra, E. &amp; Peralta Quiros, T. (2018). The geography of household transportation expenses in Greater Buenos Aires. <em>Journal of Transport Geography</em>, 72, 76&ndash;85. <a href="https://doi.org/10.1016/j.jtrangeo.2018.08.018" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2016</div>
+            <div class="pub-item">Goytia, C. &amp; Pasquini, R. (2016). Housing informality: The land use regulation link to informal tenure in developing countries. <em>Regional Studies</em>. <a href="https://www.regionalstudies.org/wp-content/uploads/2018/07/Goytia_-_Housing_informality_in_developing_countries_-The_Land_Use_Regulation_link.pdf" target="_blank">[PDF]</a></div>
+
+            <h2>Libros y Capitulos de Libros</h2>
+
+            <div class="pub-year">2025</div>
+            <div class="pub-item">Goytia, C. &amp; Gertner, G. (2025). Energy efficiency and climate adaptation: A behavioral lens on informal settlements housing in Argentina. En E. Belfiori &amp; G. Gertner (Eds.), <em>Climate Change and Economic Growth: Lessons from Argentina</em> (Cap. 6). SpringerBriefs. <a href="https://doi.org/10.1007/978-3-031-99637-5_6" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. (2025). Reversing displacement: The enforcement of inclusionary land management instruments. Capitulo 4 en G. Karunaratne (Ed.), <em>Displaced Urbanism</em>. Routledge. ISBN 9781032748283. <a href="https://www.taylorfrancis.com/books/edit/10.4324/9781003471134/displaced-urbanism-gihan-karunaratne" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. &amp; Gertner, G. (2025). From disparity to sustainability: The journey of energy efficiency in Buenos Aires' low-income neighborhoods. Capitulo 3 en G. Karunaratne (Ed.), <em>Resilient Urbanism</em>. Routledge. ISBN 9781032748320. <a href="https://www.taylorfrancis.com/books/edit/10.4324/9781003471141/resilient-urbanism-gihan-karunaratne" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2023</div>
+            <div class="pub-item">Goytia, C. (2023). The pandemic and informal settlements: New challenges. En <em>Informal Settlements of the Global South</em>. Routledge. ISBN 9781032043074. <a href="https://www.taylorfrancis.com/books/edit/10.4324/9781003191407/informal-settlements-global-south-gihan-karunaratne" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2022</div>
+            <div class="pub-item">Goytia, C. (2022). Land markets and land policy. Capitulo 7 en J. Gonzalez, C. Irazabal &amp; R. Lois (Eds.), <em>Handbook on Urban Studies in Latin America and the Caribbean</em>. Routledge. <a href="https://doi.org/10.4324/9781003132622-8" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. (2022). Urban challenges in post-COVID times: How can innovative land-use planning and inclusionary housing strategies support the post-pandemic recovery? URBANET, GTZ.</div>
+
+            <div class="pub-year">2021</div>
+            <div class="pub-item">Goytia, C. (2021). Enhancing the benefits of agglomeration in Latin American mega cities: The role of urban policies and a framework for policy action. Capitulo 4 en V. Shridhar &amp; G. Mavrotas (Eds.), <em>Urbanization in the Global South</em>. Routledge India. ISBN 9780367553906. <a href="https://www.taylorfrancis.com/chapters/edit/10.4324/9781003093282-17/enhancing-benefits-agglomeration-latin-american-megacities-cynthia-goytia" target="_blank">[Link]</a></div>
+            <div class="pub-item">Learning from Latin America's informal settlements and urban policies. URBANET, GTZ.</div>
+
+            <div class="pub-year">2020</div>
+            <div class="pub-item">Goytia, C. (2020). Un modelo urbano policentrico y multinodal para el AMBA. En <em>Postpandemia: 53 politicas publicas para el mundo que viene</em>. CEPE, UTDT.</div>
+            <div class="pub-item">Goytia, C. (2020). Vehiculos autonomos I &amp; II. Banco Interamericano de Desarrollo, Division de Transporte. Nota Tecnica IDB-1930.</div>
+
+            <div class="pub-year">2019</div>
+            <div class="pub-item">Goytia, C. (2019). Informal land markets. En A.M. Orum (Ed.), <em>The Wiley Blackwell Encyclopedia of Urban and Regional Studies</em>. <a href="https://onlinelibrary.wiley.com/doi/10.1002/9781118568446.eurs0158" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. &amp; Cristini, M. (2019). Subsidized affordable housing (homeownership). En <em>The Wiley Blackwell Encyclopedia of Urban and Regional Studies</em>. doi:10.1002/9781118568446.eurs0328</div>
+            <div class="pub-item">Goytia, C. &amp; Smolka, M.O. (2020). Land markets. En <em>The Wiley Blackwell Encyclopedia of Urban and Regional Studies</em>. <a href="https://onlinelibrary.wiley.com/doi/10.1002/9781118568446.eurs0176" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2018</div>
+            <div class="pub-item">Goytia, C. (2018). Metropolitan governance for land use. En <em>Steering the Metropolis</em>. BID, ONU-Habitat, CAF. <a href="https://publications.iadb.org/en/steering-metropolis-metropolitan-governance-sustainable-urban-development" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2017</div>
+            <div class="pub-item">Goytia, C. et al. (2017). Urban growth and access to opportunities: A challenge for Latin America. <em>CAF Reporte de Desarrollo</em>. Con J. Vargas, P. Brassiolo, P. Sanguinetti, C. Daude, F. Alvarez, G. Fajardo. <a href="https://scioteca.caf.com/handle/123456789/1091" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. (2017). Vivienda y habitat para revertir la desigualdad. En E. Levy Yeyati (Ed.), <em>100 Politicas para la Argentina del 2030</em>.</div>
+            <div class="pub-item">Goytia, C. (2017). Ciudades 2030: diagnostico sobre ciudades y desarrollo urbano para Argentina 2030. Documento de Base, Seminario Argentina 2030. Jefatura de Gabinete del Gobierno Nacional.</div>
+
+            <div class="pub-year">2016</div>
+            <div class="pub-item">Goytia, C. &amp; Dorna, G. (2016). What is the role of urban growth on inequality, and segregation? The case of Argentina's urban agglomerations. <em>CAF Working Papers</em> N. 2016/12.</div>
+            <div class="pub-item">Goytia, C. (2016). Vivienda y bienestar: diagnostico y politicas en America Latina. En CEPAL, <em>Urbanizacion y Politicas de Vivienda en China y America Latina y el Caribe</em>. Con P. Sanguinetti y D. Jordach.</div>
+
+            <div class="pub-year">2015</div>
+            <div class="pub-item">Goytia, C. &amp; Sanguinetti, P. (2015). Housing and welfare in Latin America. En <em>Housing Policy: Lessons for Latin America Urbanization</em>. Economic Management Press&ndash;ILAS, Chinese Academy of Sciences, Beijing. [Publicado en chino]</div>
+
+            <div class="pub-year">2014</div>
+            <div class="pub-item">Vivir en la ciudad. Plan Estrategico 2012&ndash;2016, Instituto de Vivienda, Gobierno de la Ciudad de Buenos Aires.</div>
+
+            <div class="pub-year">2013</div>
+            <div class="pub-item">Goytia, C., Pasquini, R. &amp; Sanguinetti, P. (2013). Public-private cooperation for gas provision in poor neighborhoods of Buenos Aires: institutional framework and impacts. En D. Rodgers, J. Beall &amp; R. Kanbur (Eds.), <em>Latin American Urban Development into the Twenty-First Century</em>. Palgrave.</div>
+            <div class="pub-item">Evaluacion del Mercado Inmobiliario y de Suelo de la Ciudad de Buenos Aires: El Distrito Tecnologico. <em>Cuadernos de Economia</em>, Ministerio de Desarrollo Economico de la Ciudad de Buenos Aires.</div>
+
+            <div class="pub-year">2009</div>
+            <div class="pub-item">Goytia, C. &amp; Lanfranchi, G. (2009). Informal neighbourhoods in Buenos Aires Metropolitan Region: Understanding the effects of land regulation on the welfare of the poor. En S.V. Lall et al. (Eds.), <em>Urban Land Markets: Improving Land Management for Successful Urbanization</em>. Springer, pp. 163&ndash;190. <a href="https://link.springer.com/chapter/10.1007/978-1-4020-8862-9_7" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2007</div>
+            <div class="pub-item">Goytia, C. (2007). Private residential investment growth: Implications on municipal revenues and socioeconomic indicators. En M. Freire et al. (Eds.), <em>Land and Urban Policies for Poverty Reduction</em>, vol. 2. IPEA y Banco Mundial.</div>
+            <div class="pub-item">Goytia, C. (2007). Effects of land regulation on the welfare of the poor: The case of informal neighborhoods in Buenos Aires Metropolitan Area. En M. Piedade Moraes (Ed.), <em>Land and Housing Markets in Latin America</em>. IPEA, Brasil.</div>
+            <div class="pub-item">Improving housing and living conditions for the poor: Does microfinance work? IBLF, Londres, Reino Unido.</div>
+
+            <div class="pub-year">2006</div>
+            <div class="pub-item">Goytia, C. (2006). Review of Argentina's Housing Sector: Options for Affordable Housing Policy. <em>World Bank Policy Research Working Paper</em>.</div>
+            <div class="pub-item">Goytia, C. (2006). Asentamientos informales y villas miseria en Argentina: diez anos para revertir el deficit. En S. Berensztein et al. (Eds.), <em>El pais que queremos</em>. Editorial Temas, Buenos Aires.</div>
+
+            <div class="pub-year">2004</div>
+            <div class="pub-item">Local Development: Partnerships for better governance. <em>Partnership Matters</em>, Cambridge University e IBLF, Reino Unido.</div>
+            <div class="pub-item">Local Economic Development in Buenos Aires: The municipality of Pilar. Banco Mundial, Washington D.C.</div>
+
+            <div class="pub-year">2000</div>
+            <div class="pub-item">Local Development in the Metropolitan Region of Buenos Aires: Public-private cooperation for the supply of services in informal neighborhoods. IETS, Brasil. Con P. Sanguinetti.</div>
+            <div class="pub-item">Another Path? The consolidation of Informal Neighbourhoods in Buenos Aires. London School of Economics and Political Science, Reino Unido.</div>
+        </div>
+
+        <!-- DOCUMENTOS DE TRABAJO -->
+        <div id="working-papers" class="section">
+            <h2>Documentos de Trabajo e Informes de Politica</h2>
+
+            <div class="pub-year">2025</div>
+            <div class="pub-item">Goytia, C. &amp; Dorna, G. (2025). Analisis del regimen para la integracion socio-urbana de los barrios populares y el Certificado de Vivienda Familiar. <em>Lincoln Institute of Land Policy Working Paper</em> WP25CG7. <a href="https://www.lincolninst.edu/publications/working-papers/analisis-regimen-integracion-socio-urbana-barrios-populares-certificado-vivienda-familiar/" target="_blank">[Link]</a></div>
+            <div class="pub-item">Drawing Insights From Latin America: Four Decades of Neighborhood (Slums) Upgrading Programs. Con M. Barchi. <em>Asian Development Bank, Urban Municipal Development Fund (UMDF)</em>.</div>
+            <div class="pub-item">Argentina: analisis de la cadena de valor del sector residencial y diseno de estrategias institucionales y operativas de acceso a vivienda asequible. Con M. Cristini y G. Bermudez. <em>Banco Interamericano de Desarrollo</em>.</div>
+            <div class="pub-item">Evaluacion final del Proyecto Integrado de Vivienda y Habitat de Argentina &ndash; Componente 1. <em>Banco Mundial</em>.</div>
+
+            <div class="pub-year">2024</div>
+            <div class="pub-item">Goytia, C. (2024). Examining opportunities and challenges for implementing land-based financing instruments for climate action: A study of land markets and flood risk pricing in different contexts. <em>Lincoln Institute of Land Policy Working Paper</em>. <a href="https://www.lincolninst.edu/publications/working-papers/examining-opportunities-challenges-implementing-land-based-financing-instruments-funding-climate-action/" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. et al. (2024). Estudio De Eficiencia Energetica Y Del Agua en Viviendas Sociales de CABA. <em>Instituto de Vivienda de la Ciudad de Buenos Aires y CIPUV-UTDT Working Paper</em>.</div>
+
+            <div class="pub-year">2021</div>
+            <div class="pub-item">On a better understanding of land-use regulation and enforcement and its relationship with informality in Latin American countries: An empirical analysis using Dose-Response-Function (DRF) methodology. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+            <div class="pub-item">Land-use regulation and enforcement in Latin American countries: Survey methodology and description of results. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+            <div class="pub-item">Goytia, C. &amp; Heikkila, E.J. (2021). A global perspective on land use regulations and housing outcomes. <em>Lincoln Institute of Land Policy Working Paper / Cities Journal</em>.</div>
+
+            <div class="pub-year">2020</div>
+            <div class="pub-item">Goytia, C. &amp; Cristini, M. (2020). Infrastructure investment in a messy urban growth scenario: The role of land value capture instruments in Argentina. <em>Lincoln Institute of Land Policy</em>. <a href="https://www.lincolninst.edu/publications/working-papers/infrastructure-investment-in-messy-urban-growth-scenario/" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C. &amp; Cristini, M. (2020). Poblacion y vivienda en la Argentina post-pandemia: los Barrios Populares. <em>CIPUV Working Paper</em>.</div>
+            <div class="pub-item">Goytia, C. et al. (2020). Evaluacion de Impacto del Programa Nacional de Mejoramiento de Barrios (PROMEBA). <em>BID y CIPUV, UTDT</em>.</div>
+
+            <div class="pub-year">2019</div>
+            <div class="pub-item">Goytia, C. &amp; Dorna, G. (2019). Doing bad by doing good? An empirical analysis of the incentives from informal settlements' upgrading programs on urban informality. <em>Lincoln Institute of Land Policy Working Paper</em> WP19CG1. <a href="https://www.lincolninst.edu/es/publications/working-papers/doing-bad-doing-good" target="_blank">[Link]</a></div>
+            <div class="pub-item">Goytia, C., Chapple, K., Montero, S., Pasquini, R. et al. (2019). Mitigating the displacement impact of special districts in Latin American cities. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+
+            <div class="pub-year">2018</div>
+            <div class="pub-item">Goytia, C. &amp; Cristini, M. (2018). Urban property and land taxation in Argentina: The challenge of decentralization. <em>Lincoln Institute of Land Policy Working Paper</em>. <a href="https://www.lincolninst.edu/publications/working-papers/urban-property-land-taxation-in-argentina/" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2017</div>
+            <div class="pub-item">Goytia, C., Dorna, G., Cohen, J. &amp; Pasquini, R. (2017). CIPUV Residential Land Use Regulatory Index. <em>Lincoln Institute of Land Policy Working Paper</em> WP15CG2. <a href="https://www.lincolninst.edu/publications/working-papers/cipuv-residential-land-use-regulatory-index/" target="_blank">[Link]</a></div>
+            <div class="pub-item">Urban Planning: Impacts of Land Market Regulation and Housing Affordability (RG-K1435) &ndash; Buenos Aires Case Study. <em>Banco Interamericano de Desarrollo</em>, IADB-ESW.</div>
+
+            <div class="pub-year">2016</div>
+            <div class="pub-item">Goytia, C. &amp; Dorna, G. (2016). What are the determinants of land market prices in Argentina's Metropolitan Region of Buenos Aires? A hedonic price model approach. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+            <div class="pub-item">Goytia, C. &amp; Dorna, G. (2016). Big Data for land markets analysis: The CIPUV Land Price Atlas for Buenos Aires Metropolitan Region. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+            <div class="pub-item">Goytia, C. et al. (2016). Crecimiento urbano y distribucion espacial de infraestructura en las 31 grandes ciudades de Argentina. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+            <div class="pub-item">Leveraging the Potential of Argentine Cities: A Framework for Policy Action. Documentos de base para el <em>Banco Mundial</em>. <a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/423671476947700973" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2015</div>
+            <div class="pub-item">Goytia, C. (2015). An empirical analysis of land use regulation determinants. <em>Lincoln Institute of Land Policy Working Paper</em> WP15CG1. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4465153" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2013</div>
+            <div class="pub-item">Goytia, C. &amp; Pasquini, R. (2013). Assessing urban land use regulation in Argentina: Literature review and research strategy. <em>Lincoln Institute of Land Policy</em>. <a href="https://www.lincolninst.edu/publications/working-papers/assessing-urban-land-use-regulation-argentina/" target="_blank">[Link]</a></div>
+
+            <div class="pub-year">2012</div>
+            <div class="pub-item">Goytia, C. &amp; Pasquini, R. (2012). Zoning and land cover metrics for municipalities in Argentina (1990&ndash;2001). <em>Lincoln Institute of Land Policy</em>.</div>
+            <div class="pub-item">Goytia, C. &amp; Pasquini, R. (2012). On a better understanding of land use regulation, its determinants, and its relationship with households' residential tenure condition. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+            <div class="pub-item">Goytia, C., Pasquini, R. &amp; Hagedorn, T. (2012). Land use regulation and practices in Argentina: 2011 survey results. <em>Lincoln Institute of Land Policy Working Paper</em>.</div>
+
+            <div class="pub-year">2011</div>
+            <div class="pub-item">Goytia, C., Pasquini, R. &amp; Sanguinetti, P. (2011). Public-private cooperation for gas provision in poor neighborhoods of Buenos Aires: Institutional framework and impacts. <em>UNU-WIDER Working Paper</em> 2011/23. <a href="https://www.wider.unu.edu/sites/default/files/wp2010-23.pdf" target="_blank">[PDF]</a></div>
+
+            <div class="pub-year">2010</div>
+            <div class="pub-item">Goytia, C. &amp; Pasquini, R. (2010). A comparative study of the land regulation in the urban agglomerates of Argentina and its relationship with the residential tenure condition. <em>Lincoln Institute of Land Policy Working Paper</em> WP10CC1.</div>
+
+            <div class="pub-year">2009</div>
+            <div class="pub-item">Housing Informality and Institutions: An experimental approach in Buenos Aires's informal neighbourhoods. <em>LSE Cities Working Paper</em>.</div>
+            <div class="pub-item">Caminos para el futuro. Gestion de la infraestructura en America Latina. <em>Reporte de Economia y Desarrollo</em>, CAF.</div>
+        </div>
+
+        <!-- DOCENCIA -->
+        <div id="teaching" class="section">
+            <h2>Cursos Regulares en UTDT</h2>
+            <div class="teaching-item"><strong>Economia Urbana I, II y III</strong><br>Maestria en Economia Urbana (2005&ndash;presente)</div>
+            <div class="teaching-item"><strong>Taller de Economia Urbana Aplicada</strong><br>Maestria en Economia Urbana (2005&ndash;presente)</div>
+            <div class="teaching-item"><strong>Tesis de la Maestria en Economia Urbana</strong><br>Directora del proyecto final (2005&ndash;presente)</div>
+            <div class="teaching-item"><strong>Politicas para Problemas Urbanos</strong><br><em>Urbanizacion, Politica Urbana y Vivienda en America Latina</em><br>Maestria en Politicas Publicas, Escuela de Gobierno (2010&ndash;presente)</div>
+            <div class="teaching-item"><strong>Innovaciones en Politicas de Suelo y Vivienda</strong><br>Maestria en Economia Urbana (2020&ndash;presente)</div>
+
+            <h2>Cursos en UTDT (2024)</h2>
+            <div class="teaching-item"><strong>Economia Urbana III (MU11)</strong> &mdash; 30 horas</div>
+            <div class="teaching-item"><strong>Taller de Trabajo Final I (MU198)</strong> &mdash; 15 horas</div>
+            <div class="teaching-item"><strong>Taller de Economia Urbana (MU10)</strong> &mdash; 60 horas</div>
+            <div class="teaching-item"><strong>Politicas Publicas para Problemas Urbanos (PP76)</strong> &mdash; 30 horas</div>
+            <div class="teaching-item"><strong>Innovaciones en Politicas Urbanas: Vivienda y Suelo (EAGOG53)</strong> &mdash; 30 horas</div>
+
+            <h2>Profesora Invitada (2025)</h2>
+            <div class="teaching-item"><strong>CEPAL</strong> (Comision Economica para America Latina y el Caribe) &mdash; Economia Urbana</div>
+            <div class="teaching-item"><strong>Lincoln Institute of Land Policy</strong> &mdash; Economia Urbana</div>
+
+            <h2>Direccion de Tesis</h2>
+            <p><em>Directora de Tesis de la Maestria en Economia Urbana (proyecto final) desde 2005. Mas de 200 tesis dirigidas. Tesis recientes seleccionadas:</em></p>
+
+            <div class="pub-year">2024</div>
+            <div class="pub-item"><strong>Diego Ricardo Rusticucci</strong> &mdash; "Accion Climatica y Desarrollo Territorial: Una aproximacion a la complejidad metropolitana" (MEU, abril 2024)</div>
+            <div class="pub-item"><strong>Pablo Sebastian Mariani</strong> &mdash; "El rol de los gobiernos locales y subnacionales en la gobernanza global de las perdidas y danos a causa del cambio climatico" (MEU, junio 2024)</div>
+            <div class="pub-item"><strong>Angeles Scetta</strong> &mdash; "La evolucion del mercado de viviendas en la Ciudad de Buenos Aires tras la implementacion de la Ley N. 27.551 y su derogacion con el DNU N. 70/2023" (MEU, junio 2024)</div>
+            <div class="pub-item"><strong>Magali Hovassapian</strong> &mdash; "Politicas de integracion en barrios informales y su efecto en el desarrollo de oportunidades: el caso del CEDEL de Barrio 31" (MPP, julio 2024)</div>
+            <div class="pub-item"><strong>Lucas Canda, Olivier Saint-Nom &amp; Valentina de Diego</strong> &mdash; Modelo de IA para identificar asentamientos informales en imagenes satelitales (Tecnologia Digital, diciembre 2024)</div>
+        </div>
+
+        <!-- INVESTIGACION Y CONSULTORIA -->
+        <div id="research" class="section">
+            <h2>Subsidios de Investigacion y Consultorias</h2>
+            <p><em>Investigadora Principal salvo indicacion contraria. Ordenados por fecha.</em></p>
+
+            <div class="pub-year">2026</div>
+            <div class="consult-item"><strong>Land value capture in practice: financing water resilience through an integrated framework in Argentina</strong><br><span class="funder">Lincoln Institute of Land Policy</span> &middot; Equipo: 2 investigadores</div>
+
+            <div class="pub-year">2025</div>
+            <div class="consult-item"><strong>Technical, Economic and Financial Analysis of the Residential Sector Value Chain: Institutional and Operational Strategies for Decentralizing Housing Policies and Reducing the Housing Deficit in Argentina</strong><br><span class="funder">Banco Interamericano de Desarrollo (BID)</span>, Division de Vivienda y Desarrollo Urbano (HUD-CAR) &middot; Equipo: 5 investigadores</div>
+            <div class="consult-item"><strong>Urban Transformations and Land Management Instruments in the Buenos Aires Metropolitan Region</strong><br><span class="funder">Banco Interamericano de Desarrollo (BID)</span>, Division de Vivienda y Desarrollo Urbano (CSD/HUD) &middot; Equipo: 2 investigadores</div>
+            <div class="consult-item"><strong>Urban Development, Land Value Generation and Capture Instruments for Local Governments</strong><br><span class="funder">Banco Interamericano de Desarrollo (BID)</span> &middot; Equipo: 1 investigador</div>
+            <div class="consult-item"><strong>Preventing Informal Settlements Through Effective Land Management</strong><br><span class="funder">Lincoln Institute of Land Policy</span> &middot; Equipo: 4 investigadores</div>
+
+            <div class="pub-year">2024</div>
+            <div class="consult-item"><strong>The Impact of Post-COVID Trends in Work from Home on Land Use, Property Prices, and Local Tax Revenues in the Buenos Aires Metropolitan Region</strong><br><span class="funder">Lincoln Institute of Land Policy</span> (con P. Sanguinetti)</div>
+            <div class="consult-item"><strong>Drawing Insights From Latin America: Four Decades of Neighborhood (Slums) Upgrading Programs</strong><br><span class="funder">Banco Africano de Desarrollo</span>, Urban Municipal Development Fund (UMDF)</div>
+            <div class="consult-item"><strong>Instrumentos de generacion y captacion de valor en gobiernos locales</strong><br><span class="funder">Banco Interamericano de Desarrollo (BID)</span>, HUD/CAR</div>
+            <div class="consult-item"><strong>Economic and Financial Analysis of the Integrated Housing and Habitat Project</strong><br><span class="funder">Banco Mundial</span></div>
+            <div class="consult-item"><strong>Facilitating Alternatives to Informal Settlements Through More Effective Land Management</strong><br><span class="funder">Lincoln Institute of Land Policy</span></div>
+            <div class="consult-item"><strong>Analisis de la cadena de valor del sector residencial &mdash; Argentina y Uruguay</strong> (dos proyectos)<br><span class="funder">Banco Interamericano de Desarrollo</span></div>
+
+            <div class="pub-year">2023&ndash;2024</div>
+            <div class="consult-item"><strong>Sectoral Analysis of Housing in Argentina and Uruguay: Challenges and Recommendations of the Value Chain of the Residential Sector</strong><br><span class="funder">Banco Interamericano de Desarrollo</span><br>Analisis de la cadena de valor de la vivienda y diseno de estrategias institucionales y operativas para el acceso a vivienda asequible.</div>
+            <div class="consult-item"><strong>Evaluacion final Economico-Financiera del Proyecto Integrado de Vivienda y Habitat de Argentina &mdash; Componente 1</strong><br><span class="funder">Banco Mundial</span></div>
+
+            <div class="pub-year">2023</div>
+            <div class="consult-item"><strong>Examining opportunities and challenges for implementing land-based financing instruments for funding climate action</strong><br>Estudio de mercados de suelo y precios del riesgo de inundacion en Miami, Lagos, Copenhague, Ho Chi Minh City, Buenos Aires<br><span class="funder">Lincoln Institute of Land Policy</span></div>
+            <div class="consult-item"><strong>Auditorias energeticas sociales en el uso eficiente de la energia en barrios vulnerables en Buenos Aires</strong><br><span class="funder">CAF e Instituto de Vivienda de Buenos Aires</span><br>Auditorias energeticas para la gestion eficiente de la energia en barrios informales con retornos personalizados por hogar.</div>
+            <div class="consult-item"><strong>El deficit de vivienda y las politicas habitacionales en la Ciudad Autonoma de Buenos Aires y en la Provincia de Buenos Aires</strong><br><span class="funder">Instituto de Vivienda del Gobierno de la Ciudad de Buenos Aires</span></div>
+            <div class="consult-item"><strong>New Tools for Urban Development and Finance in Tres de Febrero Municipality, Buenos Aires</strong><br><span class="funder">Municipio de Tres de Febrero</span></div>
+
+            <div class="pub-year">2022</div>
+            <div class="consult-item"><strong>Situacion Financiera de la Movilidad Urbana en Buenos Aires</strong><br><span class="funder">CEPAL</span><br>Analisis de fuentes de financiamiento y politicas tarifarias para el transporte publico en Buenos Aires, incluyendo impactos del COVID-19.</div>
+            <div class="consult-item"><strong>On a Better Understanding of Land Use Regulation and its Effects on Informality</strong> (2020&ndash;2022)<br><span class="funder">Lincoln Institute of Land Policy</span></div>
+            <div class="consult-item"><strong>Land Use Management and Informal Land and Housing Development in a Global Context</strong> (2022&ndash;2024)<br><span class="funder">Routledge</span> &middot; Con Eric Heikkila</div>
+
+            <div class="pub-year">2019</div>
+            <div class="consult-item"><strong>Integral Evaluation of National Programs of Urban Development and Housing</strong><br>Prestamo BIRF No. 8712-AR<br><span class="funder">Subsecretaria de Desarrollo Urbano y Vivienda (SSDUV)</span><br>Evaluacion de todos los programas de vivienda, evaluacion de PROCREAR, monitoreo del mercado habitacional.</div>
+            <div class="consult-item"><strong>Impact Assessment of the Neighborhood Improvement Program (PROMEBA)</strong><br><span class="funder">Secretaria de Infraestructura Urbana, Ministerio del Interior y Banco Interamericano de Desarrollo</span></div>
+
+            <div class="pub-year">2018&ndash;2019</div>
+            <div class="consult-item"><strong>Assessing the Feasibility of Adoption of Autonomous Vehicles (AV) in Latin America's Cities</strong><br><span class="funder">Banco Interamericano de Desarrollo</span></div>
+
+            <div class="pub-year">2017</div>
+            <div class="consult-item"><strong>Census and Analysis of Economic Activity in Barrio 31</strong><br><span class="funder">Secretaria de Integracion Social y Urbana, Gobierno de la Ciudad de Buenos Aires</span></div>
+            <div class="consult-item"><strong>Analysis of the Socio-economic Impact of Investment in UVA-denominated Negotiable Obligations for the Mortgage Market and PROCREAR</strong><br><span class="funder">Banco Hipotecario</span></div>
+            <div class="consult-item"><strong>Profile of the Demand for Housing in the Autonomous City of Buenos Aires</strong><br><span class="funder">Instituto de Vivienda de la Ciudad de Buenos Aires (IVC)</span></div>
+            <div class="consult-item"><strong>Urban Growth and Access to Opportunities: A Challenge for Latin America</strong><br><span class="funder">CAF, Banca de Desarrollo</span></div>
+            <div class="consult-item"><strong>Notes for Housing and Urban Planning Policy 2018&ndash;2023</strong><br><span class="funder">Subsecretaria de Vivienda y Desarrollo Urbano, Ministerio del Interior</span></div>
+
+            <div class="pub-year">2016&ndash;2018</div>
+            <div class="consult-item"><strong>Economic and Financial Analysis for the Argentina National Habitat and Housing Project (World Bank-P159929)</strong><br>Componente 2: Mayor Acceso a Vivienda para Segmentos de Ingresos Bajos y Medios<br><span class="funder">Banco Mundial</span>, Practica Global Social, Urbana, Rural y de Resiliencia</div>
+            <div class="consult-item"><strong>Programa PROCREAR 2016</strong><br><span class="funder">Subsecretaria de Vivienda, Ministerio del Interior</span></div>
+            <div class="consult-item"><strong>IADB-ESW Urban Planning: Impacts of Land Market Regulation and Housing Affordability (RG-K1435)</strong><br>Estudio de Caso Buenos Aires Fase I y Fase II<br><span class="funder">Banco Interamericano de Desarrollo</span></div>
+            <div class="consult-item"><strong>Housing and Transportation Affordability Index for Buenos Aires Metropolitan Area</strong><br><span class="funder">Banco Mundial</span> (noviembre 2016 &ndash; junio 2017)</div>
+            <div class="consult-item"><strong>IDB Affordable Housing Report in the Countries of the Southern Cone of Latin America</strong><br><span class="funder">Banco Interamericano de Desarrollo</span></div>
+
+            <div class="pub-year">2015</div>
+            <div class="consult-item"><strong>Urban Performance Diagnostic of Argentina</strong><br><span class="funder">Banco Mundial</span><br>Documentos de base sobre Analisis Territorial, Indicadores de Prosperidad y Habitabilidad para las Areas Metropolitanas de Argentina.</div>
+            <div class="consult-item"><strong>Impact Assessment of the Primera Casa Program</strong><br><span class="funder">Instituto de Vivienda de la Ciudad de Buenos Aires</span><br>Diseno de regresion discontinua y emparejamiento por puntaje de propension sobre 102.362 hogares registrados.</div>
+            <div class="consult-item"><strong>Housing Policy and Financing in the City of Buenos Aires</strong><br>Plan Estrategico IVC 2013&ndash;2015, Programas de Vivienda Social, Instrumentos de Uso del Suelo y Financieros<br><span class="funder">IVC, Instituto de Vivienda de la Ciudad de Buenos Aires</span></div>
+            <div class="consult-item"><strong>Evaluation of Buenos Aires City Program &lsquo;Alquilar se Puede&rsquo;</strong><br><span class="funder">Instituto de Vivienda de la Ciudad de Buenos Aires</span></div>
+
+            <div class="pub-year">2014</div>
+            <div class="consult-item"><strong>Housing: Analysis of Expenses, and Evaluation of Programs and Instruments at the IVC</strong> (2014&ndash;2015)<br><span class="funder">Instituto de Vivienda de la Ciudad de Buenos Aires</span></div>
+            <div class="consult-item"><strong>Evaluation of the National Housing Policy and Analysis of Future Strategy</strong><br><span class="funder">Secretaria de Vivienda, Ministerio del Interior, Argentina</span></div>
+            <div class="consult-item"><strong>Urban Growth and Spatial Distribution of Infrastructure in the Cities of Argentina</strong><br><span class="funder">Banco Mundial</span></div>
+            <div class="consult-item"><strong>Evaluation of Capacity and Willingness to Pay for Inhabitants of Informal Settlements</strong><br><span class="funder">Instituto de Vivienda de la Ciudad de Buenos Aires</span></div>
+            <div class="consult-item"><strong>Land Use Regulation and Practices in Argentina: 2011 Survey</strong><br><span class="funder">Ministerio del Interior, Secretaria de Asuntos Municipales y Lincoln Institute of Land Policy</span></div>
+
+            <div class="pub-year">2013&ndash;2014</div>
+            <div class="consult-item"><strong>Urban Growth, Spatial Efficiency and Transportation in Buenos Aires Metropolitan Area</strong><br><span class="funder">Banco Mundial</span> (Consultora)</div>
+            <div class="consult-item"><strong>Atlas of Urban Extension</strong><br><span class="funder">Lincoln Institute of Land Policy</span> (Directora del Proyecto)</div>
+            <div class="consult-item"><strong>Indicador de Movilidad Urbana en el Area Metropolitana de Buenos Aires</strong> (2013&ndash;2015)<br><span class="funder">CIPUV-UTDT y Fundacion Roman</span></div>
+            <div class="consult-item"><strong>Housing Policy: Argentina and the Buenos Aires City</strong><br><span class="funder">Gobierno de la Ciudad de Buenos Aires (IVC)</span> &middot; Con M. Cristini</div>
+            <div class="consult-item"><strong>Buenos Aires Informal Settlements Research and Transformation Strategy</strong><br><span class="funder">Gobierno de la Ciudad de Buenos Aires (SECHI)</span> &middot; Con F. Janches</div>
+
+            <div class="pub-year">2012&ndash;2013</div>
+            <div class="consult-item"><strong>Land Use Regulation in Argentina: Determinants and Effects</strong><br><span class="funder">Lincoln Institute of Land Policy</span> (Directora del Proyecto)</div>
+            <div class="consult-item"><strong>Subsidio de investigacion trianual sobre investigacion urbana cuantitativa</strong> (2012&ndash;2015)<br><span class="funder">CIPUV-UTDT</span></div>
+
+            <div class="pub-year">2011&ndash;2012</div>
+            <div class="consult-item"><strong>Evaluacion de Impacto del Distrito Tecnologico de Buenos Aires</strong><br><span class="funder">UBATEC y Gobierno de la Ciudad de Buenos Aires</span></div>
+
+            <div class="pub-year">2009&ndash;2011</div>
+            <div class="consult-item"><strong>Land Use Regulation &ndash; National Survey to Municipalities in Argentina</strong><br><span class="funder">Gobierno Nacional Argentino y Lincoln Institute of Land Policy</span></div>
+            <div class="consult-item"><strong>El Distrito Tecnologico de Buenos Aires</strong> (2009&ndash;2010)<br><span class="funder">Gobierno de Buenos Aires, Ministerio de Desarrollo Economico</span></div>
+            <div class="consult-item"><strong>Desarrollo Local en los Municipios de Argentina</strong> (2009)<br><span class="funder">CAF</span></div>
+            <div class="consult-item"><strong>Local Economic Development &ndash; National Survey to Municipalities</strong> (2009)<br><span class="funder">Gobierno Nacional Argentino y Lincoln Institute of Land Policy</span></div>
+
+            <div class="pub-year">2008</div>
+            <div class="consult-item"><strong>Public-private cooperation for gas provision in poor neighborhoods of Buenos Aires</strong><br><span class="funder">CAF</span></div>
+
+            <div class="pub-year">2006&ndash;2010</div>
+            <div class="consult-item"><strong>Observatorio de Desarrollo Barrial</strong><br><span class="funder">UTDT y Fundacion Pro Vivienda Social</span></div>
+
+            <div class="pub-year">2005</div>
+            <div class="consult-item"><strong>Review of Argentina's Housing Sector: Options for Affordable Housing Policy</strong><br><span class="funder">Banco Mundial</span></div>
+
+            <h2>CIPUV &ndash; Centro de Investigacion</h2>
+            <p>El Centro de Investigacion de Politicas Urbanas y de Vivienda (CIPUV) de la Universidad Torcuato Di Tella es un centro academico especificamente dedicado a la investigacion sobre vivienda y politicas urbanas &mdash; el unico de su tipo en Argentina. El equipo de CIPUV tiene una experiencia unica en la realizacion de investigacion urbana de vanguardia con estandares internacionales.</p>
+            <p>La investigacion de CIPUV se enfoca en seis ejes: (i) politicas de vivienda, mercados y financiamiento; (ii) uso del suelo y crecimiento urbano; (iii) calidad de vida e infraestructura; (iv) finanzas municipales y gestion urbana; (v) monitoreo y evaluacion de impacto de politicas urbanas; y (vi) datos urbanos.</p>
+            <p>CIPUV ha producido mas de 100 documentos de analisis para organismos publicos y multilaterales, incluyendo la Secretaria de Vivienda de Argentina, el Instituto de Vivienda de Buenos Aires, el Banco Mundial, CAF, el BID y las Naciones Unidas.</p>
+        </div>
+
+        <!-- PRESENTACIONES -->
+        <div id="presentations" class="section">
+            <h2>Presentaciones Seleccionadas y Participacion en Conferencias</h2>
+
+            <div class="pub-year">2025</div>
+            <div class="pres-item">"Examining Opportunities and Challenges for Implementing Land-Based Financing Instruments for Funding Climate Action." <strong>Conferencia de Tierras del Banco Mundial 2025</strong>, Washington DC &mdash; 6 de mayo de 2025.</div>
+            <div class="pres-item">"Post-COVID Trends in Working from Home and Property Prices: Evidence Using Cell Phone Data from the Buenos Aires Metropolitan Region." <strong>Conferencia del Lincoln Institute Land Policy 2025</strong>, Cambridge, MA &mdash; 22 de mayo de 2025.</div>
+            <div class="pres-item">"Land Use Regulation and Its Impacts." <strong>Seminario Internacional de Economia Urbana</strong>, UPB-CEPAL, Medellin &mdash; 28 de mayo de 2025.</div>
+            <div class="pres-item">"Oportunidades y desafios para implementar instrumentos de financiamiento basados en suelo." <strong>Argentina Lab 2025</strong>, USC-UTDT &mdash; 3 de junio de 2025.</div>
+
+            <div class="pub-year">2024</div>
+            <div class="pres-item">"Land Management, Urban Expansion and the Future Spatial Organisation of Cities." <strong>8va Conferencia de Investigacion sobre Urbanizacion y Reduccion de la Pobreza</strong>, Banco Mundial, Washington DC &mdash; 7 de marzo de 2024.</div>
+            <div class="pres-item">"Land Use Regulations and Informal Land Use in Cities." <strong>Reunion Norteamericana 2024 de la Urban Economics Association (UEA)</strong>, Georgetown University &mdash; 20 de septiembre de 2024.</div>
+            <div class="pres-item">Multiples sesiones: Mesa Redonda Academica; Captacion de Valor del Suelo para Vivienda Asequible; Innovacion en Resiliencia Urbana. <strong>Foro Urbano Mundial 12</strong>, El Cairo, Egipto &mdash; 4&ndash;7 de noviembre de 2024.</div>
+            <div class="pres-item">"Examining Opportunities and Challenges for Implementing Land-Based Financing Instruments." <strong>Conferencia de CEPAL sobre Desafios del Cambio Climatico para las Ciudades</strong>, Santiago &mdash; 28 de noviembre de 2024.</div>
+            <div class="pres-item">"Opportunities and Challenges of Land Management for Building Inclusive and Sustainable Cities." <strong>16ta Conferencia IFoU</strong> &mdash; Conferencia magistral &mdash; 12 de diciembre de 2024.</div>
+
+            <div class="pub-year">2022</div>
+            <div class="pres-item">"On a Better Understanding of Land-Use Regulation and its Relationship with Informality in Latin American Countries." <strong>Conferencia Anual ACSP</strong>, Toronto, Canada.</div>
+            <div class="pres-item">"A Global Perspective on Land Use Regulations and Informal Settlements." <strong>Conferencia Anual ACSP</strong>, Toronto, Canada.</div>
+            <div class="pres-item">"Innovative Land-use Planning and Inclusionary Housing Strategies." <strong>Foro Urbano Mundial 11</strong>, Katowice, Polonia.</div>
+            <div class="pres-item">"Lessons and Challenges from Special Districts: The Technology District in Buenos Aires." <strong>27ma Conferencia del Pacifico de RSAI</strong>, Kioto.</div>
+
+            <div class="pub-year">2021</div>
+            <div class="pres-item">"Accessibility: Beyond the False Dilemma of Densification and Expansion." <strong>Marron Institute</strong>, Serie de Seminarios de Expansion Urbana de NYU.</div>
+            <div class="pres-item">"Informal Settlements and Land Management." <strong>Conferencia Anual de Trialog</strong>, Erasmus University.</div>
+            <div class="pres-item">"Housing Policies in Latin America: What's Next?" <strong>UCLA</strong>, Politica Habitacional Internacional Comparada.</div>
+            <div class="pres-item">"A global perspective on land use regulations and housing outcomes." Reunion Anual de la <strong>Regional Studies Association</strong>; Reunion Anual de <strong>ACSP</strong>.</div>
+
+            <div class="pub-year">2020</div>
+            <div class="pres-item">"An empirical analysis of land use regulation determinants." <strong>Reunion Virtual de la Urban Economics Association</strong> (LSE y Wharton).</div>
+            <div class="pres-item"><strong>Simposio Big Data and Neighborhood Change 2020</strong> &mdash; Organizadora (con UC Berkeley y University of Sydney).</div>
+            <div class="pres-item">"Land use regulation for inclusion." Curso de formacion con M. Smolka y C. Acyoli. <strong>Foro Urbano Mundial 2020</strong>, ONU-Habitat, Abu Dhabi.</div>
+
+            <div class="pub-year">2019</div>
+            <div class="pres-item">"Urbanization, Land, and Urban Policies." <strong>UC Berkeley</strong> Center for Latin American Studies; <strong>UCLA</strong> Luskin Center.</div>
+            <div class="pres-item">"Mitigating the Displacement Impact of Special Districts in Latin American Cities." <strong>Lincoln Institute</strong>, Montevideo.</div>
+            <div class="pres-item">"Impact Evaluations of Informal Settlements Upgrading Interventions." <strong>Conferencia sobre Tierra y Pobreza</strong>, Banco Mundial, Washington DC.</div>
+            <div class="pres-item">"Infrastructure Finance in Messy Metropolitan Areas." <strong>Conferencia Internacional APPAM</strong>, ITAM.</div>
+            <div class="pres-item">"Urban Policy challenges for Latin American Cities." <strong>USC Sol Price School &ndash; UTDT Argentina Lab</strong>.</div>
+            <div class="pres-item"><strong>Conferencia SMU sobre Economia Urbana y Regional</strong>, Singapur.</div>
+        </div>
+
+        <!-- CONTACTO -->
+        <div id="contact" class="section">
+            <h2>Contacto</h2>
+            <p><strong>Profesora Cynthia Goytia, PhD</strong></p>
+            <p>Universidad Torcuato Di Tella<br>Av. Figueroa Alcorta 7350<br>Buenos Aires, Argentina</p>
+            <p>Email: <a href="mailto:cgoytia@utdt.edu">cgoytia@utdt.edu</a></p>
+            <p>
+                <a href="https://www.utdt.edu/cipuv" target="_blank">CIPUV &ndash; Centro de Investigaciones de Politicas Urbanas y de Vivienda</a><br>
+                <a href="https://www.utdt.edu/ver_contenido.php?id_contenido=807&id_item_menu=2051" target="_blank">MSc Economia Urbana (MEU)</a><br>
+                <a href="https://scholar.google.com/citations?user=Q5xBXTUAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            </p>
+
+            <h2>Presencia en Medios (Seleccion, 2024)</h2>
+            <div class="pub-item">"La hora de la eficiencia energetica" &mdash; <em>Perfil</em>, 7 de septiembre de 2024</div>
+            <div class="pub-item">"With buyers wary, Argentina's zombie mortgage market has a long road to revival" &mdash; <em>Reuters</em>, 17 de julio de 2024</div>
+            <div class="pub-item">"Murio la Ley de Alquileres" &mdash; <em>Cronista</em>, 30 de octubre de 2024</div>
+            <div class="pub-item">Control de Alquileres y Gentrificacion en Ciudades de America Latina &mdash; <em>Deutsche Welle</em>, 11 de enero de 2024</div>
+            <div class="pub-item">Cumbre Inmobiliaria 2024 &mdash; <em>Cronista Comercial</em>, 8 de abril de 2024</div>
+            <div class="pub-item">Cambio Climatico y Ciudades &mdash; <em>TV America, Transicion 2030</em>, 29 de diciembre de 2024</div>
+        </div>
+
+    </div>
+
+    <!-- BARRA LATERAL DERECHA -->
+    <div class="sidebar-right">
+        <h3>Asesora de</h3>
+        <ul>
+            <li>Banco Mundial</li>
+            <li>Naciones Unidas</li>
+            <li>Banco Interamericano de Desarrollo</li>
+            <li>CAF &ndash; Banco de Desarrollo de America Latina</li>
+            <li>Banco Africano de Desarrollo</li>
+            <li>Gobierno Nacional Argentino</li>
+            <li>Gobierno de la Ciudad de Buenos Aires</li>
+        </ul>
+
+        <h3>Posiciones Visitantes</h3>
+        <ul>
+            <li>Harvard University (David Rockefeller Visiting Scholar)</li>
+            <li>University of Cambridge</li>
+            <li>London School of Economics</li>
+            <li>UCLA</li>
+            <li>UC Berkeley</li>
+            <li>University of Southern California</li>
+            <li>Erasmus University, Paises Bajos</li>
+        </ul>
+
+        <h3>Directorios</h3>
+        <ul>
+            <li>Lincoln Institute of Land Policy (Consejo Asesor)</li>
+            <li>Fundacion Instituto Torcuato Di Tella</li>
+            <li>Fundacion Pro Vivienda Social</li>
+            <li>RIL &ndash; Red de Innovacion Local</li>
+        </ul>
+
+        <h3>Revision Editorial y de Pares</h3>
+        <ul>
+            <li>Planning Theory and Practice</li>
+            <li>Land Use Policy</li>
+            <li>Cities</li>
+            <li>Habitat International</li>
+            <li>Transportation Geography</li>
+            <li>Housing Policy Debate</li>
+            <li>Sustainable Development</li>
+            <li>Journal of Urban Affairs</li>
+        </ul>
+
+        <h3>Herramientas CIPUV</h3>
+        <ul>
+            <li><a href="https://www.utdt.edu/cipuv" target="_blank">Atlas de Precios del Suelo</a></li>
+            <li><a href="https://www.utdt.edu/cipuv" target="_blank">Simulador de Acceso a la Vivienda</a></li>
+            <li><a href="https://www.utdt.edu/cipuv" target="_blank">Atlas de Crecimiento Urbano</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2026 Cynthia Goytia &middot; Universidad Torcuato Di Tella &middot; Buenos Aires, Argentina &middot; Ultima actualizacion: marzo 2026
+    <br><a href="mailto:cgoytia@utdt.edu">cgoytia@utdt.edu</a> &middot; <a href="https://www.utdt.edu/cipuv" target="_blank">www.utdt.edu/cipuv</a>
+</footer>
+
+<script>
+function showSection(sectionId, navElement) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    navElement.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
