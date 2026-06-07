@@ -104,6 +104,35 @@ spatial signal. The value-capture m²/yr pipeline is assumed concentrated here.
 Baseline annual revenue covers ≈4–5%/yr pay-as-you-go; a green bond at 3–4× annual
 revenue (~USD 8–10 M) is the leverage mechanism that closes the gap.
 
+## Alignment of investment with the priority index (paper §7.5)
+
+Source: `Índice de Ciudad Deseada` (methodology doc) and `ÍNDICE DE PRIORIZACIÓN
+DE INFRAESTRUCTURA.pdf` (district results, Oct 2025) — ICD folder. The index
+scores each district A (≥90%) to E (<25%); lower = higher investment priority.
+Only the **green-space subindex** is computed so far; the other five
+(mobility, compactness, community services, equity, basic/water infrastructure)
+are still being assembled.
+
+**Where green investment is needed** (worst → highest priority):
+- E (very insufficient): Vistalba, Las Compuertas, Industrial
+- D (insufficient): Chacras de Coria, Agrelo, Mayor Drummond, Vertientes del Pedemonte
+- A/B (already good): La Puntilla, Ciudad (A); Carrodilla, Potrerillos (B)
+
+**Where it is being made (2026 works) → partial misalignment:**
+- Centrality Ciudad (395, ARS 1.5 B) → district scores **A** (not green-priority).
+- Centrality Carrodilla (773, ARS 1.5 B) → district scores **B** (not green-priority).
+- Sidewalk Mayor Drummond (452) → district **D** → **aligned**.
+- Vistalba / Las Compuertas / Industrial (worst) → **no dedicated 2026 green works**.
+- **Microplazas (865, ARS 1.2 B, ~20 squares, dept-wide)** = the decisive lever:
+  targeting them to D/E districts aligns investment with the index.
+
+**Capture-vs-need logic:** value capture is generated in high-value consolidated
+districts (Chacras de Coria, Vistalba, Carrodilla, Ciudad = densification zones),
+some of which rank poorly on green space; the equity subindex will likely flag
+peripheral low-income districts (Industrial, Las Compuertas). The Trust Fund +
+index allocation rule is what redirects capture from high-value to high-need
+areas (and guards against investing only where revenue is raised).
+
 ## What is real vs. still assumed
 
 - **Real / measured:** all realized-revenue figures; UT, FX, CPI; the 2026 works
