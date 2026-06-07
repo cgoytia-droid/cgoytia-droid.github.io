@@ -1,5 +1,14 @@
 # LVC Climate Adaptation Paper — Revised estimations (real data)
 
+> **v5 — Policy Guidelines companion added: `LVC_Policy_Guidelines_Companion_JCCPE.docx`.**
+> A 2,231-word practitioner playbook (JCCPE "Policy Guidelines" type) for municipal
+> finance teams in semi-arid Majority-World cities, in collaboration with LILP, as
+> the paired companion to the Original Research (the submission strategy's option C).
+> Sequenced Steps 1–8 (windfall → instrument menu → phased roadmap → trust-fund
+> design → allocate-by-need/incidence → leverage ladder → politics → data) + a
+> readiness checklist, a "Luján de Cuyo by the numbers" box, and ten transferable
+> principles. Uses the deterministic real figures (no Monte Carlo).
+
 > **v4 — call-aligned, deterministic only.** The Monte Carlo was removed at the
 > author's request: the headline is now the conservative real-data build-up
 > (realized ~USD 1 M/yr + ex-ante USD 1.8–5.6 M/yr, central ≈ USD 3 M, before
