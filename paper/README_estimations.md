@@ -1,5 +1,17 @@
 # LVC Climate Adaptation Paper — Revised estimations (real data)
 
+> **v4 — call-aligned, deterministic only.** The Monte Carlo was removed at the
+> author's request: the headline is now the conservative real-data build-up
+> (realized ~USD 1 M/yr + ex-ante USD 1.8–5.6 M/yr, central ≈ USD 3 M, before
+> leverage; Table 8). The abstract was rewritten for a perfect fit with the C40/
+> JCCPE call ("Financing Sustainable Cities"), echoing its language—municipalities
+> lacking financial tools/autonomy/access; closing the gap between climate ambition
+> and financial reality with equity, human wellbeing and environmental limits at
+> the centre; an *underexploited derisking mechanism*; Majority World; replicable—
+> and opening on Clifton et al. (2025) (finance follows capability, not need).
+> Abstract 250 w, Lessons 250 w. NOTE: the Clifton et al. exact title is not yet
+> indexed (advance online publication); confirm the DOI/title before submitting.
+
 > **v3 — FINAL submission build: `LVC_Climate_Adaptation_Paper_FINAL_JCCPE.docx`.**
 > Merges the best of (a) my full real-data manuscript and (b) C. Goytia's JCCPE
 > submission package. Adds: JCCPE front matter (title, author = Cynthia Goytia /
