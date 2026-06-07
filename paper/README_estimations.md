@@ -1,5 +1,15 @@
 # LVC Climate Adaptation Paper — Revised estimations (real data)
 
+> **v6 — JCCPE-compliant per official author guidelines.** Original Research:
+> main text **5,075 words** (limit 5,000–7,500, excl. refs); **structured abstract**
+> 238 w (Background/Methods/Results/Conclusions, ≤250); **Summary for Policymakers**
+> 160 w bullets (≤200); top-level headings **Background / Methods / Results /
+> Conclusion**; 10 tables; running title 45 chars (≤55); Funding, Author
+> Contributions (CRediT), Conflict of Interest, Data Accessibility; APA references;
+> Figure-captions list. Policy Guidelines companion: **2,500 words** (limit
+> 2,000–3,000) with an unstructured abstract (139 w) and Summary for Policymakers
+> (111 w). Monte Carlo removed (deterministic real estimates only).
+
 > **v5 — Policy Guidelines companion added: `LVC_Policy_Guidelines_Companion_JCCPE.docx`.**
 > A 2,231-word practitioner playbook (JCCPE "Policy Guidelines" type) for municipal
 > finance teams in semi-arid Majority-World cities, in collaboration with LILP, as
