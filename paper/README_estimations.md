@@ -1,5 +1,23 @@
 # LVC Climate Adaptation Paper — Revised estimations (real data)
 
+> **v3 — FINAL submission build: `LVC_Climate_Adaptation_Paper_FINAL_JCCPE.docx`.**
+> Merges the best of (a) my full real-data manuscript and (b) C. Goytia's JCCPE
+> submission package. Adds: JCCPE front matter (title, author = Cynthia Goytia /
+> CIPUV-UTDT, Original Research, Special Issue), a **cover letter to Sarah Lewis
+> (slewis@c40.org)**, a **≤250-word abstract (237 w)**, the required
+> **"Lessons for Policymakers" box (250 w)**, an **Acknowledgments** (LILP), and
+> an **Incidence (who pays / who benefits)** section (§7.4). Headline ex-ante
+> figure reconciled: deterministic near-term floor ≈ USD 3 M/yr (my build-up,
+> kept as calibration) **+ Monte Carlo central USD 8.2 M/yr at 2030 maturity
+> (90% CI 4.3–14.3 M), before leverage** (Goytia's method). Realized evidence
+> (water/sewer 11×; 5,315 vacant lots) kept as the empirical anchor.
+> Motivation strengthened with **Clifton et al. (2025)** — EIB climate finance
+> follows capability, not need ("the green transition's geography problem") — and
+> real **C40 (2026)** + **CCFLA (2024)** citations. Title adopted from Goytia:
+> *Financing Water-Resilient Cities through Multi-Instrument Land Value Capture.*
+> Population reconciled to ~175,000 (2022 census; fixes the 140k+46% mismatch).
+
+
 > **v2 — full editorial rewrite.** The whole manuscript (abstract + Sections 1–9
 > + references) was rewritten in an urban-economics voice (Duranton/Glaeser
 > register: concrete, mechanism-driven, motivating, de-AI-ed), framed for the
