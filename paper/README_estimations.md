@@ -47,12 +47,26 @@ estimated annual collection ≈ ARS 345 M = **USD 277,539** (≈ARS 93,000/lot).
 
 **Combined realized operational revenue ≈ USD 0.97 M/yr.**
 
+**2026 public-works programme (Plan de Obras) — betterment-levy cost base:**
+10 funded projects, total **ARS 6,853,882,500** (~USD 5.51 M). Each carries a
+planning-priority weight (EA): priority-1 = 80%, priority-2 = 20%.
+
+| Priority | Projects | Budget (ARS) |
+| --- | --- | --- |
+| 1 (80%) | Cacique Guaymallén bridge (2,000M); Urban centrality (1,500M); Saenz Peña/Ruta 15 centrality (1,500M); Microplazas (1,200M) | 6,200,000,000 |
+| 2 (20%) | Speed reducers (350M); Infra/stops (200M); Bus shelters (33.75M); Sidewalks Zapiola/Pueyrredón (30.56M); Boulevard T. del Fuego (24.57M); Polideportivo sidewalk (15M) | 653,882,500 |
+| | **Total funded** | **6,853,882,500** |
+| | Priority-weighted (EA 80/20) | 5,090,776,500 |
+| | Betterment-eligible, weighted (excl. ID 1274 bridge) | **3,490,776,500** |
+
+12 further projects carry no separate 2026 budget (operating pavement budget or
+provincial execution) and are excluded.
+
 **Ex-ante value capture (ordinance formulas × real parameters):**
 
-- *Betterment (CPM)* — base = 2026 works programme ≈ ARS 6.85 B; betterment-eligible
-  ≈ ARS 4.85 B (excl. the network-level Cacique Guaymallén bridge);
-  cost-recovery 25–50% (legal caps: ≤ value increment; aggregate ≤ 50% of assessed
-  value) → **ARS 1.21–2.43 B/yr (USD 0.97–1.95 M)**.
+- *Betterment (CPM)* — base = betterment-eligible, EA-weighted works ≈ **ARS 3.49 B
+  (USD 2.81 M)**; cost-recovery 25–50% (legal caps: ≤ value increment; aggregate
+  ≤ 50% of assessed value) → **ARS 0.87–1.75 B/yr (USD 0.70–1.40 M)**.
 - *Differential rent (PVA)* — land-value map; 5,000–50,000 m²/yr × 30–200 UT/m²
   → **ARS 35–2,350 M/yr (USD 0.03–1.89 M)**.
 - *Development rights (Suelo Creado/CEODEC)* — land-value map; 2,000–20,000 m²/yr ×
@@ -61,14 +75,14 @@ estimated annual collection ≈ ARS 345 M = **USD 277,539** (≈ARS 93,000/lot).
 
 | Scenario | Value-capture subtotal | + Realized operational | **Total annual** |
 | --- | --- | --- | --- |
-| Low | USD 1.02 M | 0.97 M | **1.99 M** |
-| Base | USD 2.09 M | 0.97 M | **3.06 M** |
-| High | USD 4.97 M | 0.97 M | **5.94 M** |
+| Low | USD 0.75 M | 0.97 M | **1.72 M** |
+| Base | USD 1.65 M | 0.97 M | **2.62 M** |
+| High | USD 4.42 M | 0.97 M | **5.39 M** |
 
 **Illustrative financing gap:** green-space deficit ≈ 700,000 m²
 (≈6 → 10 m²/hab, pop ≈175,000) × ~USD 80/m² ≈ **USD 56 M** one-off capital.
-Baseline annual revenue covers ≈5–6%/yr pay-as-you-go; a green bond at 3–4× annual
-revenue (~USD 9–12 M) is the leverage mechanism that closes the gap.
+Baseline annual revenue covers ≈4–5%/yr pay-as-you-go; a green bond at 3–4× annual
+revenue (~USD 8–10 M) is the leverage mechanism that closes the gap.
 
 ## What is real vs. still assumed
 
