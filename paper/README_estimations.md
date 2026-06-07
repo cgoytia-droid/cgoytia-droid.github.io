@@ -59,8 +59,28 @@ planning-priority weight (EA): priority-1 = 80%, priority-2 = 20%.
 | | Priority-weighted (EA 80/20) | 5,090,776,500 |
 | | Betterment-eligible, weighted (excl. ID 1274 bridge) | **3,490,776,500** |
 
-12 further projects carry no separate 2026 budget (operating pavement budget or
-provincial execution) and are excluded.
+**Environmental–adaptation classification of the works** (paper Table 4):
+works with high / medium-high environmental impact — aluvional (stormwater)
+drainage in the Ciudad de Luján centrality (395), green microplazas (865),
+the Tierra del Fuego green boulevard (575), and the canal-bridge + metrotranvía
+connection (1274) — total **≈ARS 4.72 B (~69%)** of the funded programme. This
+share is the climate-aligned portion that justifies earmarking betterment revenue
+to the Trust Fund.
+
+**Provincially-financed works** (paper Table 5; separate, excluded from the
+municipal betterment base): new Río Mendoza road bridge + Ciclovía San Martín
+(466); pedestrian overpasses on Acceso Sur at Malabia (467) and Castro Barros
+(468). No municipal budget line → cannot be levied by the municipality.
+
+A further seven projects (bike-lane network + repaving) sit in the operating
+pavement budget and carry no separate line.
+
+**Densification zones** (paper Table 6) — where Suelo Creado / PVA apply:
+1. Metrotranvía / Liniers–San Martín **transit corridor** (TOD; E–W integration, ID 1274);
+2. **Ciudad de Luján centrality** (compact infill; drainage upgrade, ID 395);
+3. **La Carrodilla–Mayor Drummond** (centrality, ID 773; +200% vacant-land priority voids).
+These coincide with the heaviest vacant-land surcharge zones, giving one coherent
+spatial signal. The value-capture m²/yr pipeline is assumed concentrated here.
 
 **Ex-ante value capture (ordinance formulas × real parameters):**
 
