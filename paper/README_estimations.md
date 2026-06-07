@@ -80,29 +80,47 @@ pavement budget and carry no separate line.
 2. **Ciudad de Luján centrality** (compact infill; drainage upgrade, ID 395);
 3. **La Carrodilla–Mayor Drummond** (centrality, ID 773; +200% vacant-land priority voids).
 These coincide with the heaviest vacant-land surcharge zones, giving one coherent
-spatial signal. The value-capture m²/yr pipeline is assumed concentrated here.
+spatial signal. The value-capture m²/yr pipeline is concentrated here.
+
+**Bottom-up buildable-area pipeline (paper Table 7)** — replaces the former
+assumed volume. Developable land anchored to the **319 priority urban-void lots**
+(Ciudad + Drummond, ≈500 m²/lot) + corridor redevelopment ≈ **300,000 m²** (Base);
+× additional buildability **ΔFOT** above the COS base coefficient; × build-out
+absorption ~5%/yr → **≈15,000 m²/yr** of additional buildable area (range
+6,000 / 15,000 / 36,000 m²/yr as land 200k–400k, ΔFOT 0.75–1.5, absorption 4–6%).
+
+| Zone | Developable land (m²) | ΔFOT | Annual pipeline (m²/yr) |
+| --- | --- | --- | --- |
+| Ciudad de Luján centrality | 100,000 | 1.0 | 5,000 |
+| Mayor Drummond | 80,000 | 1.0 | 4,000 |
+| Metrotranvía/San Martín corridor | 120,000 | 1.0 | 6,000 |
+| **Total (Base)** | **300,000** | — | **15,000** |
+
+Pipeline split ~50/50 between Suelo Creado and PVA. Built floor space sells at
+**USD 300–1,200/m²** (built-value map); instruments capture a small fraction
+(CEODEC 50–300 UT/m²; PVA 30–200 UT/m²; UT = ARS 235).
 
 **Ex-ante value capture (ordinance formulas × real parameters):**
 
 - *Betterment (CPM)* — base = betterment-eligible, EA-weighted works ≈ **ARS 3.49 B
   (USD 2.81 M)**; cost-recovery 25–50% (legal caps: ≤ value increment; aggregate
-  ≤ 50% of assessed value) → **ARS 0.87–1.75 B/yr (USD 0.70–1.40 M)**.
-- *Differential rent (PVA)* — land-value map; 5,000–50,000 m²/yr × 30–200 UT/m²
-  → **ARS 35–2,350 M/yr (USD 0.03–1.89 M)**.
-- *Development rights (Suelo Creado/CEODEC)* — land-value map; 2,000–20,000 m²/yr ×
-  50–300 UT/m² → **ARS 24–1,410 M/yr (USD 0.02–1.13 M)**.
+  ≤ 50% of assessed value) → **USD 0.70 / 1.12 / 1.40 M/yr**.
+- *Development rights (Suelo Creado/CEODEC)* — pipeline ~50% × 50–300 UT/m²
+  → **USD 0.03 / 0.17 / 1.02 M/yr**.
+- *Differential rent (PVA)* — pipeline ~50% × 30–200 UT/m²
+  → **USD 0.02 / 0.11 / 0.68 M/yr**.
 - TDR and tax incentives: not separately quantified (untraded market / net cost early on).
 
 | Scenario | Value-capture subtotal | + Realized operational | **Total annual** |
 | --- | --- | --- | --- |
 | Low | USD 0.75 M | 0.97 M | **1.72 M** |
-| Base | USD 1.65 M | 0.97 M | **2.62 M** |
-| High | USD 4.42 M | 0.97 M | **5.39 M** |
+| Base | USD 1.40 M | 0.97 M | **2.37 M** |
+| High | USD 3.10 M | 0.97 M | **4.07 M** |
 
 **Illustrative financing gap:** green-space deficit ≈ 700,000 m²
 (≈6 → 10 m²/hab, pop ≈175,000) × ~USD 80/m² ≈ **USD 56 M** one-off capital.
-Baseline annual revenue covers ≈4–5%/yr pay-as-you-go; a green bond at 3–4× annual
-revenue (~USD 8–10 M) is the leverage mechanism that closes the gap.
+Baseline annual revenue covers ≈4%/yr pay-as-you-go; a green bond at 3–4× annual
+revenue (~USD 7–10 M) is the leverage mechanism that closes the gap.
 
 ## Alignment of investment with the priority index (paper §7.5)
 
@@ -136,12 +154,16 @@ areas (and guards against investing only where revenue is raised).
 ## What is real vs. still assumed
 
 - **Real / measured:** all realized-revenue figures; UT, FX, CPI; the 2026 works
-  programme cost base; the land-value and fiscal-assessment ranges.
-- **Still assumed (pipeline):** the annual volumes of development rights, rezoning
-  demand, and the exact cost-recovery share. These remain scenario parameters
-  because the value-capture instruments are not yet sanctioned/applied; their
-  *unit prices* are now calibrated to real land values, but *transaction volumes*
-  await the development pipeline and the ordinance's Anexo Técnico coefficients.
+  programme cost base; the land-value, built-value and fiscal-assessment ranges;
+  the 319 priority urban-void lot count anchoring developable land; the green-space
+  subindex district results.
+- **Derived bottom-up (no longer a bare assumption):** the buildable-area pipeline
+  (developable land × ΔFOT × absorption, Table 7), which now drives the Suelo
+  Creado and PVA volumes instead of a guessed m²/yr range.
+- **Still parametric:** ΔFOT increment, build-out absorption rate, the 50/50
+  split between the two instruments, and the cost-recovery share. These are
+  documented scenario parameters; the per-zone COS base coefficients and the
+  ordinance's Anexo Técnico unit prices would pin them down further once available.
 
 Point estimates for the ex-ante instruments are therefore illustrative; the
 contribution is the method plus the realized-revenue evidence.
