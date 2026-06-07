@@ -122,7 +122,28 @@ Pipeline split ~50/50 between Suelo Creado and PVA. Built floor space sells at
 Baseline annual revenue covers ≈4%/yr pay-as-you-go; a green bond at 3–4× annual
 revenue (~USD 7–10 M) is the leverage mechanism that closes the gap.
 
+## Priority index — rewritten to the real structure (paper §6)
+
+Section 6 and Table 2 were rewritten to match the municipality's actual index
+(`Índice de Ciudad Deseada` / `Índice de Priorización de Infraestructura`),
+replacing the paper's invented "4 dimensions / 24 indicators / AHP weights
+35-25-22-18". The real index has **six dimensions**: (1) green space &
+biodiversity, (2) mobility & services, (3) compactness & functionality,
+(4) accessibility to community services, (5) equity & community, and
+(6) **basic infrastructure — including water demand (demanda hídrica)**,
+network connectivity, green/recycling points, and public-space energy
+use/self-generation. Scoring uses a **five-level sufficiency scale** (A ≥90%
+… E <25%; lower = higher priority), not fixed weights (weights still pending).
+Water enters the index through three channels (green infrastructure, the
+basic-infrastructure water-demand indicator, and compactness). The abstract was
+updated from "24-indicator" to "six-dimension".
+
 ## Alignment of investment with the priority index (paper §7.5)
+
+A figure was added (**Figure 1**, `paper/figures/fig_alignment_works_vs_priority.png`):
+district green-space need (x, A→E) vs 2026 place-based investment (y, ARS billion),
+showing Ciudad/Carrodilla over-served and the D/E districts under-served.
+
 
 Source: `Índice de Ciudad Deseada` (methodology doc) and `ÍNDICE DE PRIORIZACIÓN
 DE INFRAESTRUCTURA.pdf` (district results, Oct 2025) — ICD folder. The index
