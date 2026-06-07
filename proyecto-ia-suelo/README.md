@@ -38,6 +38,9 @@ proyecto-ia-suelo/
 ├── paper/
 │   ├── ia_tributacion_suelo.html      ← ensayo breve (español)
 │   └── ai_land_taxation.html          ← brief essay (English)
+├── word/
+│   ├── IA_y_tributacion_del_suelo.docx ← ensayo en Word (español)
+│   └── AI_and_land_taxation.docx       ← essay in Word (English)
 ├── notas/
 │   ├── revision_literatura.md         ← qué se ha escrito ya; posicionamiento
 │   └── agenda_investigacion.md        ← preguntas empíricas y próximos pasos
