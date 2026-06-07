@@ -82,45 +82,59 @@ pavement budget and carry no separate line.
 These coincide with the heaviest vacant-land surcharge zones, giving one coherent
 spatial signal. The value-capture m²/yr pipeline is concentrated here.
 
-**Bottom-up buildable-area pipeline (paper Table 7)** — replaces the former
-assumed volume. Developable land anchored to the **319 priority urban-void lots**
-(Ciudad + Drummond, ≈500 m²/lot) + corridor redevelopment ≈ **300,000 m²** (Base);
-× additional buildability **ΔFOT** above the COS base coefficient; × build-out
-absorption ~5%/yr → **≈15,000 m²/yr** of additional buildable area (range
-6,000 / 15,000 / 36,000 m²/yr as land 200k–400k, ΔFOT 0.75–1.5, absorption 4–6%).
+**Buildability from the REAL COS 2026 schedule (paper Table 7)** — replaces the
+earlier ΔFOT assumption. Source: draft COS 2026 (Tabla 10) and the zoning report
+2019–2026. Two-line scheme: **base 10 m** (13 m in ZCM6), permitted without
+instruments → **maximum 36 m** (~8.7 extra floors) reachable only via Derechos de
+Construcción Adicional (Suelo Creado) and PVA. FOS 75–90%. Seven zones
+(ZC, ZCM1, ZCM6, ZR1, ZRM1–3) = **4,491 ha** → **ceiling ≈ 295.15 million m²** of
+additional buildable area (theoretical max, full take-up).
 
-| Zone | Developable land (m²) | ΔFOT | Annual pipeline (m²/yr) |
+| Zone | ha (2022) | FOS | 10→36 m ceiling (m²) |
 | --- | --- | --- | --- |
-| Ciudad de Luján centrality | 100,000 | 1.0 | 5,000 |
-| Mayor Drummond | 80,000 | 1.0 | 4,000 |
-| Metrotranvía/San Martín corridor | 120,000 | 1.0 | 6,000 |
-| **Total (Base)** | **300,000** | — | **15,000** |
+| ZRM2 | 1,356 | 75% | 88,137,947 |
+| ZRM3 | 1,256 | 75% | 81,668,328 |
+| ZRM1 | 901 | 75% | 58,596,637 |
+| ZR1 | 714 | 75% | 46,410,451 |
+| ZCM1 | 232 | 89% | 17,924,965 |
+| ZC | 31 | 90% | 2,413,938 |
+| **Total** | **4,491** | — | **295,152,266** |
 
-Pipeline split ~50/50 between Suelo Creado and PVA. Built floor space sells at
-**USD 300–1,200/m²** (built-value map); instruments capture a small fraction
-(CEODEC 50–300 UT/m²; PVA 30–200 UT/m²; UT = ARS 235).
+Revenue is **demand-constrained**, not ceiling-constrained: modelled annual
+take-up = **20,000 / 50,000 / 80,000 m²/yr** (Low/Base/High, <0.03%/yr of the
+ceiling), split ~50/50. Built space sells at USD 300–1,200/m² (built-value map);
+instruments capture a fraction (Suelo Creado 50–250 UT/m²; PVA 30–180 UT/m²; UT = ARS 235).
 
 **Ex-ante value capture (ordinance formulas × real parameters):**
 
-- *Betterment (CPM)* — base = betterment-eligible, EA-weighted works ≈ **ARS 3.49 B
-  (USD 2.81 M)**; cost-recovery 25–50% (legal caps: ≤ value increment; aggregate
-  ≤ 50% of assessed value) → **USD 0.70 / 1.12 / 1.40 M/yr**.
-- *Development rights (Suelo Creado/CEODEC)* — pipeline ~50% × 50–300 UT/m²
-  → **USD 0.03 / 0.17 / 1.02 M/yr**.
-- *Differential rent (PVA)* — pipeline ~50% × 30–200 UT/m²
-  → **USD 0.02 / 0.11 / 0.68 M/yr**.
+- *Betterment (CPM)* — EA-weighted eligible works ≈ **ARS 3.49 B (USD 2.81 M)**;
+  recovery 25–50% (caps: ≤ value increment; aggregate ≤ 50% of assessed value)
+  → **USD 0.70 / 1.12 / 1.40 M/yr**.
+- *Development rights (Suelo Creado/DCA)* — COS 2026 take-up × 50–250 UT/m²
+  → **USD 0.09 / 0.57 / 1.89 M/yr**.
+- *Differential rent (PVA)* — COS 2026 take-up × 30–180 UT/m²
+  → **USD 0.06 / 0.38 / 1.36 M/yr**.
 - TDR and tax incentives: not separately quantified (untraded market / net cost early on).
 
 | Scenario | Value-capture subtotal | + Realized operational | **Total annual** |
 | --- | --- | --- | --- |
-| Low | USD 0.75 M | 0.97 M | **1.72 M** |
-| Base | USD 1.40 M | 0.97 M | **2.37 M** |
-| High | USD 3.10 M | 0.97 M | **4.07 M** |
+| Low | USD 0.85 M | 0.97 M | **1.82 M** |
+| Base | USD 2.07 M | 0.97 M | **3.04 M** |
+| High | USD 4.65 M | 0.97 M | **5.62 M** |
+
+Long-run: the 295 M m² rights ceiling is a very large capture base that will not
+bind for decades.
 
 **Illustrative financing gap:** green-space deficit ≈ 700,000 m²
 (≈6 → 10 m²/hab, pop ≈175,000) × ~USD 80/m² ≈ **USD 56 M** one-off capital.
-Baseline annual revenue covers ≈4%/yr pay-as-you-go; a green bond at 3–4× annual
-revenue (~USD 7–10 M) is the leverage mechanism that closes the gap.
+Baseline annual revenue covers ≈5%/yr pay-as-you-go; a green bond at 3–4× annual
+revenue (~USD 9–12 M) is the leverage mechanism that closes the gap.
+
+**Trust Fund / fideicomiso (paper §5, expanded):** §5.3 broadened and a new §5.5
+added on the Fideicomiso as a **matching-funds + repayment vehicle** — Leverage
+Account (15%) ≈ USD 0.45 M/yr builds the 10–30% counterpart for GCF/bilateral
+grants; the ring-fenced, audited flows give repayment security for a green bond
+(~USD 9–12 M); real names woven in (BMTI, FEULDC, Ord. 15081/15093-2025).
 
 ## Priority index — rewritten to the real structure (paper §6)
 
