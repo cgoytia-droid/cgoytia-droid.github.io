@@ -67,6 +67,33 @@ producido por el propietario; su gravamen no distorsiona porque la oferta es fij
 
 ---
 
+## 3b. La voz de los constructores de IA (¡muy relevante!)
+
+### Sam Altman — *Moore's Law for Everything* (2021)
+- Tesis: la IA abarata casi todo porque el trabajo es el costo dominante de la cadena;
+  las dos grandes fuentes de riqueza futuras serán **las empresas de IA y el suelo**
+  (único activo de oferta fija).
+- Propuesta: **American Equity Fund**, grava empresas y suelo al **2,5 % anual** y
+  reparte el producto entre la población.
+- **Cita clave para el proyecto:** reconoce que *lo teóricamente óptimo sería gravar solo
+  el valor del suelo, no las mejoras*, pero propone gravar ambos a tasa menor porque
+  valuar el suelo por separado le parece, "en la práctica", demasiado difícil.
+  → Altman **suscribe el ideal georgista** y señala como única objeción **exactamente el
+  cuello de botella que el ensayo sostiene que la IA disuelve.**
+- Cierre del círculo: Altman es el **inversor principal de ValueBase** (la empresa de
+  valuación del suelo de Doucet). El capital de la IA financia la herramienta que vuelve
+  trivial la objeción que el propio Altman invoca.
+
+### Otros desde el mundo de la IA / política
+- **Vinod Khosla** y el **documento de política fiscal de OpenAI**: desplazar la carga del
+  trabajo al capital y a los "retornos sostenidos de la IA"; impuestos a la "automated
+  labor". Empujan en la misma dirección, pero **sin llegar al suelo** con la nitidez de
+  Altman. (Fortune, abril 2026; Newsweek "robot tax".)
+- **Bill (William G.) Gale (Brookings)** — discusión con Altman sobre soluciones
+  tributarias para IA avanzada (GovAI blog). Útil como contrapunto crítico.
+
+---
+
 ## 4. El renacimiento georgista y la valuación
 
 - **Lars Doucet**, *Land Is a Big Deal* (2022) y serie "Does Georgism Work?" en *Astral
