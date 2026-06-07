@@ -1,5 +1,20 @@
 # LVC Climate Adaptation Paper — Revised estimations (real data)
 
+> **v2 — full editorial rewrite.** The whole manuscript (abstract + Sections 1–9
+> + references) was rewritten in an urban-economics voice (Duranton/Glaeser
+> register: concrete, mechanism-driven, motivating, de-AI-ed), framed for the
+> **Journal of City Climate Policy & Economy (JCCPE)** with **C40 / CCFLA /
+> Coalition for Urban Transitions** arguments on the bankability gap, own-source
+> revenue, and creditworthiness. ~6,700 words, 10 tables, 1 figure. All real
+> data, tables and figures from the earlier versions are preserved.
+>
+> **Permits search (take-up parameter):** searched the Drive for a Luján-specific
+> building-permit / approved-m² series to pin the DCA/PVA annual take-up; none
+> exists in the shared material (permit datasets found are AMBA/national, and the
+> DCA/PVA instruments have no transactions yet by definition). The zoning report
+> itself flags the 295 M m² ceiling as theoretical. Take-up therefore remains a
+> documented, bounded scenario parameter.
+
 This note documents how the revenue estimations in **Section 7** of
 `LVC_Climate_Adaptation_Paper_revised_estimations.docx` were rebuilt from the
 real Luján de Cuyo project data held in Google Drive, replacing the original
