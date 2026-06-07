@@ -36,7 +36,8 @@ El proyecto sostiene dos tesis propias, que lo diferencian de la literatura exis
 proyecto-ia-suelo/
 ├── README.md                          ← este archivo
 ├── paper/
-│   └── ia_tributacion_suelo.html      ← ensayo breve (borrador para discusión)
+│   ├── ia_tributacion_suelo.html      ← ensayo breve (español)
+│   └── ai_land_taxation.html          ← brief essay (English)
 ├── notas/
 │   ├── revision_literatura.md         ← qué se ha escrito ya; posicionamiento
 │   └── agenda_investigacion.md        ← preguntas empíricas y próximos pasos
@@ -60,10 +61,14 @@ proyecto-ia-suelo/
 
 ## Cómo leer el ensayo
 
-El ensayo es una página HTML autocontenida. Una vez publicado en GitHub Pages estará
-disponible en:
+El ensayo es una página HTML autocontenida, disponible en dos idiomas. Una vez publicado
+en GitHub Pages estará en:
 
-`https://cgoytia-droid.github.io/proyecto-ia-suelo/paper/ia_tributacion_suelo.html`
+- Español: `https://cgoytia-droid.github.io/proyecto-ia-suelo/paper/ia_tributacion_suelo.html`
+- English: `https://cgoytia-droid.github.io/proyecto-ia-suelo/paper/ai_land_taxation.html`
+
+Ambas versiones están enlazadas desde la sección *Working Papers / Documentos de Trabajo*
+de la página principal (`index.html` e `index_es.html`).
 
 ---
 
