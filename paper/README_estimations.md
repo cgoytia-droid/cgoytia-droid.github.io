@@ -266,3 +266,5 @@ areas (and guards against investing only where revenue is raised).
 
 Point estimates for the ex-ante instruments are therefore illustrative; the
 contribution is the method plus the realized-revenue evidence.
+
+> **v7 — class deck + de-duplication pass.** Added `Lujan_de_Cuyo_Gestion_Suelo_Clase.pptx` (28 slides, Spanish, ~30-min class with speaker notes, instrument-by-instrument, tables + alignment figure). Manuscript tightened: merged the 5 redundant pairs (literature, 11x robustness, single-case justification, incidence/elasticity, transferability), softened "more representative"->"understudied", and cut the Conclusion to 3 paragraphs. Main text 5,066 words (still within 5,000-7,500); abstract/summary unchanged.
