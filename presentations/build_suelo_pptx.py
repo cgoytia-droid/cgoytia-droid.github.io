@@ -116,7 +116,7 @@ def title(s, parts, x=Inches(0.75), y=Inches(1.08), w=Inches(11.8), size=36):
     runs=[[(t, size, c, True, it) for (t,c,it) in parts]]
     text(s, x, y, w, Inches(1.3), runs, line_spacing=1.0, space_after=0)
 
-TOTAL = 28  # total de slides (numeración automática)
+TOTAL = 29  # total de slides (numeración automática)
 def pagenum(s):
     n = len(prs.slides._sldIdLst)  # índice del slide actual (recién creado)
     text(s, Inches(12.2), Inches(6.92), Inches(0.9), Inches(0.4),
@@ -781,6 +781,26 @@ footer(s); pagenum(s)
 notes(s, "El resultado en una imagen: Ciudad y La Puntilla, ya consolidadas, puntúan alto; los distritos "
           "del oeste y el periurbano (Industrial, Vertientes, Cacheuta) puntúan bajo y son, por diseño, "
           "los primeros destinatarios de la inversión. Puntaje sobre 11 puntos.")
+
+# =====================================================================
+# SLIDE (nuevo) — TABLA SÍNTESIS (11 subíndices, tabla real CIPUV)
+# =====================================================================
+s = slide(); base(s); brandbar(s); kicker(s, "Síntesis · 05", color=GREEN)
+title(s, [("Tabla Síntesis: los 11 subíndices por distrito", SLATE, False)], size=30)
+# leyenda de 3 niveles (arriba a la derecha)
+for i,(lab,c) in enumerate([("ÓPTIMO", GREEN), ("MÍNIMO", GOLD), ("CRÍTICO", CLAY)]):
+    chip(s, Inches(8.9)+i*Inches(1.45), Inches(1.12), Inches(1.35), lab, color=c, size=11.5)
+# imagen de la tabla (1318x600) centrada, ajustada sobre el pie
+_tw = Inches(11.6); _th = Emu(int(_tw * 600 / 1318))
+s.shapes.add_picture(os.path.join(ASSETS, "tabla-sintesis-infraestructura.png"),
+                     Inches((13.333-11.6)/2), Inches(1.7), width=_tw, height=_th)
+text(s, Inches(0.75), Inches(6.62), Inches(11.8), Inches(0.32),
+     [[("Cada indicador se pondera sobre 11 puntos: Óptimo 1 · Mínimo 0,5 · Crítico 0 · s/d computa 0.  ", 11.5, MUTED, False, True),
+       ("Fuente: elaboración propia CIPUV–UTDT.", 11.5, SLATE2, False, True)]], space_after=0)
+pagenum(s)
+notes(s, "La tabla completa que sostiene el ranking: 11 subíndices por distrito, cada celda clasificada "
+          "en Óptimo (verde), Mínimo (amarillo) o Crítico (rojo). El indicador 1.1 (infraestructura verde "
+          "pública) queda pendiente por falta de datos. Es la tabla original del ejercicio piloto CIPUV.")
 
 # =====================================================================
 # SLIDE 20 — PRUEBA DE EQUIDAD
