@@ -889,7 +889,7 @@ title(s, [("La regla que decide dónde invertir", SLATE, False)])
 bullets(s, [
     [("Sin regla, la inversión tiende a ir donde ", 21, INK, False), ("ya hay capacidad instalada", 21, WATER, True), (".", 21, INK, False)],
     [("El ICD invierte esa lógica: ", 21, INK, False), ("prioriza los distritos con mayor déficit", 21, GREEN, True), (" (D/E).", 21, INK, False)],
-    [("Primer movimiento: ", 21, INK, False), ("microplazas (ARS 1.200 M) a los barrios que más lo necesitan", 21, GOLD, True), (".", 21, INK, False)],
+    [("Resultado: ", 21, INK, False), ("la obra se dirige a los barrios que más lo necesitan", 21, GOLD, True), (", no a los que ya puntúan bien.", 21, INK, False)],
 ], w=Inches(11.6), gap=22)
 text(s, Inches(0.75), Inches(5.9), Inches(11.7), Inches(0.7),
      [[("El ICD no describe: corrige. Alinea la inversión con la necesidad, no con la capacidad de gasto.",
