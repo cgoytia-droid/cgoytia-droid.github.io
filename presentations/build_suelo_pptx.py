@@ -800,30 +800,29 @@ notes(s, "Este es el motor real del ICD: un tablero que puntúa cada distrito en
 # =====================================================================
 # SLIDE (nuevo) — RANKING DE PRIORIDAD POR DISTRITO (puntaje total)
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "Mapa de prioridades · 05", color=GREEN)
-title(s, [("Dónde va primero la inversión", SLATE, False)])
-# Orden por prioridad (menor puntaje = primero). Barra = prioridad (11 − puntaje);
-# número = puntaje ICD real. Colores según los tramos de la Tabla Síntesis.
+s = slide(); base(s); brandbar(s); kicker(s, "El diagnóstico · 05", color=GREEN)
+title(s, [("Puntaje de infraestructura por distrito", SLATE, False)])
+# Igual que la Tabla Síntesis: mismo orden (mayor a menor puntaje) y mismos tramos de color.
+# Barra proporcional al puntaje ICD.
 ranking = [
-    ("Industrial", 1.0), ("Vertientes de Pedemonte", 1.5), ("Cacheuta", 2.0), ("El Carrizal", 2.5),
-    ("Las Compuertas", 3.0), ("Perdriel", 3.0), ("Potrerillos", 3.0),
-    ("Carrodilla", 3.5), ("Agrelo", 3.5), ("Ugarteche", 3.5), ("Chacras de Coria", 4.0),
-    ("Vistalba", 4.5), ("Mayor Drummond", 4.5), ("La Puntilla", 6.0), ("Ciudad", 7.0),
+    ("Ciudad", 7.0), ("La Puntilla", 6.0), ("Mayor Drummond", 4.5), ("Vistalba", 4.5),
+    ("Chacras de Coria", 4.0), ("Carrodilla", 3.5), ("Agrelo", 3.5), ("Ugarteche", 3.5),
+    ("Las Compuertas", 3.0), ("Perdriel", 3.0), ("Potrerillos", 3.0), ("El Carrizal", 2.5),
+    ("Cacheuta", 2.0), ("Vertientes de Pedemonte", 1.5), ("Industrial", 1.0),
 ]
 def rk_color(v):
     if v >= 5.0: return GREEN     # líderes {6, 7}
     if v >= 3.0: return GOLD      # intermedio {3 … 4,5}
     return CLAY                   # déficit {≤ 2,5}
 bx0 = Inches(3.35)          # inicio de las barras
-bxmax = Inches(7.9)         # ancho máximo (para prioridad 10 = Industrial)
+bxmax = Inches(7.9)         # ancho máximo (para el puntaje máximo = 7)
 ry0 = Inches(2.05); rh = Inches(0.27); rgap = Inches(0.045)
 for i,(name,v) in enumerate(ranking):
     y = ry0 + i*(rh+rgap)
     c = rk_color(v)
-    prio = 11.0 - v           # prioridad: mayor brecha = va primero
     text(s, Inches(0.75), y, Inches(2.5), rh, [[(name, 12.5, INK, True, False)]],
          align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE, space_after=0)
-    bw = int(bxmax * (prio / 10.0))
+    bw = int(bxmax * (v / 7.0))
     rect(s, bx0, y+Emu(15000), Emu(bw), rh-Emu(30000), fill=c,
          shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.35)
     text(s, bx0+Emu(bw)+Inches(0.08), y, Inches(0.95), rh,
@@ -832,20 +831,20 @@ for i,(name,v) in enumerate(ranking):
 rect(s, Inches(11.55), Inches(2.15), Inches(1.6), Inches(2.35), fill=RGBColor(0xEF,0xF1,0xF4),
      shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.08)
 text(s, Inches(11.72), Inches(2.35), Inches(1.35), Inches(2.1),
-     [[("n = puntaje ICD /11", 11.5, SLATE, True, False)],
+     [[("Puntaje ICD /11", 11.5, SLATE, True, False)],
       [("≥5  lidera", 12, GREEN, True, False)],
       [("3–4,5  medio", 12, GOLD, True, False)],
       [("≤2,5  déficit", 12, CLAY, True, False)]], space_after=8, line_spacing=1.15)
 text(s, Inches(9.5), Inches(4.9), Inches(3.6), Inches(2.0),
-     [[("Barra = ", 15, INK, False, False), ("prioridad", 15, CLAY, True, False),
-       (" (mayor brecha, primero).", 15, INK, False, False)],
+     [[("Menor puntaje = ", 15, INK, False, False), ("mayor prioridad", 15, CLAY, True, False),
+       (" de inversión.", 15, INK, False, False)],
       [("", 6, INK, False, False)],
       [("El índice manda el dinero a Industrial, Vertientes y Cacheuta —no a Ciudad.", 14, SLATE, False, True)]],
      space_after=8, line_spacing=1.15)
 footer(s); pagenum(s)
-notes(s, "Lectura correcta: la barra es la prioridad (mayor brecha = va primero), por eso Industrial "
-          "encabeza y Ciudad queda al final. El número es el puntaje ICD de la Tabla Síntesis. "
-          "Colores por tramo: verde líderes (6–7), amarillo intermedio (3–4,5), rojo déficit (≤2,5).")
+notes(s, "Mismo orden y colores que la Tabla Síntesis: Ciudad (7) y La Puntilla (6) lideran (verde); "
+          "el tramo intermedio 3–4,5 en amarillo; el déficit ≤2,5 (El Carrizal, Cacheuta, Vertientes, "
+          "Industrial) en rojo. Menor puntaje = mayor prioridad de inversión.")
 
 # =====================================================================
 # SLIDE (nuevo) — TABLA SÍNTESIS (11 subíndices, tabla real CIPUV)

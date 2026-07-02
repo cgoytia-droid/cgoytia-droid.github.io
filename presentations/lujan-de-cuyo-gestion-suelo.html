@@ -491,18 +491,18 @@ table.syn tr:nth-child(even){ background:#f2f4f6; }
 
 <!-- 19c · RANKING DE PRIORIDAD POR DISTRITO -->
 <section>
-  <span class="kicker v">Mapa de prioridades · 05</span>
-  <h2>Dónde va primero la inversión</h2>
+  <span class="kicker v">El diagnóstico · 05</span>
+  <h2>Puntaje de infraestructura por distrito</h2>
   <div style="display:grid;grid-template-columns:2.4fr 1fr;gap:20px;align-items:center;margin-top:.1em">
     <div id="rk"></div>
     <div>
       <div class="card" style="font-size:.62em;line-height:1.5">
-        <b>n = puntaje ICD /11</b><br>
+        <b>Puntaje ICD /11</b><br>
         <span style="color:var(--green);font-weight:700">≥ 5 · lidera</span><br>
         <span style="color:var(--gold);font-weight:700">3–4,5 · medio</span><br>
         <span style="color:var(--clay);font-weight:700">≤ 2,5 · déficit</span>
       </div>
-      <div style="font-size:.6em;margin-top:.6em">Barra = <em class="c">prioridad</em> (mayor brecha, va primero). El índice manda el dinero a Industrial, Vertientes y Cacheuta — no a Ciudad.</div>
+      <div style="font-size:.6em;margin-top:.6em">Menor puntaje = <em class="c">mayor prioridad</em> de inversión. El índice manda el dinero a Industrial, Vertientes y Cacheuta — no a Ciudad.</div>
     </div>
   </div>
   <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum"></div>
@@ -607,19 +607,19 @@ table.syn tr:nth-child(even){ background:#f2f4f6; }
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
 <script>
-// Mapa de prioridades: barra = prioridad (11 − puntaje); número = puntaje ICD.
-// Orden por prioridad (menor puntaje = primero). Colores según tramos de la Tabla Síntesis.
+// Puntaje de infraestructura por distrito — igual que la Tabla Síntesis:
+// mismo orden (mayor a menor puntaje), barra proporcional al puntaje, tramos de color.
 (function(){
-  const RK=[["Industrial",1],["Vertientes de Pedemonte",1.5],["Cacheuta",2],["El Carrizal",2.5],
-    ["Las Compuertas",3],["Perdriel",3],["Potrerillos",3],
-    ["Carrodilla",3.5],["Agrelo",3.5],["Ugarteche",3.5],["Chacras de Coria",4],
-    ["Vistalba",4.5],["Mayor Drummond",4.5],["La Puntilla",6],["Ciudad",7]];
+  const RK=[["Ciudad",7],["La Puntilla",6],["Mayor Drummond",4.5],["Vistalba",4.5],
+    ["Chacras de Coria",4],["Carrodilla",3.5],["Agrelo",3.5],["Ugarteche",3.5],
+    ["Las Compuertas",3],["Perdriel",3],["Potrerillos",3],["El Carrizal",2.5],
+    ["Cacheuta",2],["Vertientes de Pedemonte",1.5],["Industrial",1]];
   const col=v=>v>=5?'var(--green)':v>=3?'var(--gold)':'var(--clay)';
   const el=document.getElementById('rk');
   if(el){ el.innerHTML=RK.map(([n,v])=>
     `<div style="display:flex;align-items:center;gap:8px;margin:2px 0;font-size:.46em">
       <div style="width:180px;text-align:right;font-weight:700;color:var(--ink)">${n}</div>
-      <div style="flex:1"><span style="display:inline-block;height:15px;border-radius:8px;background:${col(v)};width:${(11-v)/10*100}%"></span></div>
+      <div style="flex:1"><span style="display:inline-block;height:15px;border-radius:8px;background:${col(v)};width:${v/7*100}%"></span></div>
       <div style="width:34px;font-weight:700;color:${col(v)}">${String(v).replace('.',',')}</div>
     </div>`).join(''); }
   // Numeración automática de páginas
