@@ -270,14 +270,15 @@ s = slide(); base(s); brandbar(s); kicker(s, "El contexto · 01", color=WATER)
 title(s, [("Una ciudad que crece con ", SLATE, False), ("presupuesto de agua", WATER, False)])
 bullets(s, [
     [("~175.000 habitantes", 21, INK, True), (" en un oasis semiárido al pie de los Andes.", 21, INK, False)],
-    [("~200 mm de lluvia al año:", 21, INK, True), (" todo el sistema depende del deshielo andino.", 21, INK, False)],
+    [("Todo el sistema productivo y urbano ", 21, INK, False), ("depende del deshielo andino.", 21, INK, True)],
     [("Dos tendencias en colisión:", 21, INK, True), (" menos nieve, más urbanización del periurbano regado.", 21, INK, False)],
 ], w=Inches(8.1), dot=WATER, gap=20)
 stat_card(s, Inches(9.35), Inches(2.45), Inches(3.1), Inches(2.9),
-          "+46%", "crecimiento poblacional 2010–2022", accent=WATER, big_size=52, small_size=15)
+          "~200 mm", "de lluvia al año — el presupuesto de agua de la ciudad", accent=WATER, big_size=44, small_size=15)
 footer(s); pagenum(s)
-notes(s, "El dato duro: crece 46% en doce años sobre 200 mm de lluvia. Cada hectárea que se "
-          "urbaniza suma demanda de agua y resta recarga del acuífero.")
+notes(s, "El dato que define todo: apenas ~200 mm de lluvia al año; el resto llega del deshielo andino. "
+          "Sobre ese presupuesto de agua, la ciudad crece —cuánto y dónde, en la lámina siguiente. "
+          "Cada hectárea urbanizada suma demanda y resta recarga del acuífero.")
 
 # =====================================================================
 # SLIDE (nuevo) — POBLACIÓN: MENDOZA Y LUJÁN DE CUYO (mapa real CIPUV)
