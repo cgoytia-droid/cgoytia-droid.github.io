@@ -269,7 +269,7 @@ notes(s, "Toda la clase cabe en cuatro verbos: capturar, blindar, apalancar, red
 s = slide(); base(s); brandbar(s); kicker(s, "El contexto · 01", color=WATER)
 title(s, [("Una ciudad que crece con ", SLATE, False), ("presupuesto de agua", WATER, False)])
 bullets(s, [
-    [("~175.000 habitantes", 21, INK, True), (" en un oasis semiárido al pie de los Andes.", 21, INK, False)],
+    [("~169.000 habitantes", 21, INK, True), (" (censo 2022) en un oasis semiárido al pie de los Andes.", 21, INK, False)],
     [("Todo el sistema productivo y urbano ", 21, INK, False), ("depende del deshielo andino.", 21, INK, True)],
     [("Dos tendencias en colisión:", 21, INK, True), (" menos nieve, más urbanización del periurbano regado.", 21, INK, False)],
 ], w=Inches(8.1), dot=WATER, gap=20)
