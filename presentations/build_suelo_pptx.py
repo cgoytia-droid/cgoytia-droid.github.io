@@ -905,8 +905,8 @@ s = slide(); base(s); brandbar(s); kicker(s, "Los números reales · 06", color=
 title(s, [("Potencial de recaudación", SLATE, False)])
 nums = [
     ("~USD 1 M", "YA se recauda hoy (2 instrumentos operativos)", GREEN),
-    ("~USD 3 M", "potencial del paquete completo (base)", GOLD),
-    ("USD 56 M", "brecha de espacio verde → la cierra el bono verde", WATER),
+    ("~USD 3 M", "por año, con el paquete completo (base)", GOLD),
+    ("~USD 30 M", "recaudación acumulada a 10 años (~3 M/año)", WATER),
 ]
 cw = Inches(3.85); gx = Inches(0.28); x0 = Inches(0.75); y0 = Inches(2.7)
 for i,(big,small,c) in enumerate(nums):
@@ -919,11 +919,12 @@ for i,(big,small,c) in enumerate(nums):
     text(s, x+Inches(0.3), y0+Inches(1.7), cw-Inches(0.6), Inches(1.0),
          [[(small, 17, SLATE, False, False)]], align=PP_ALIGN.CENTER, space_after=0, line_spacing=1.15)
 text(s, Inches(0.75), Inches(6.15), Inches(11.7), Inches(0.5),
-     [[("De ~1 a ~3 con el paquete; y del recurso propio, un salto a decenas con el bono verde.",
+     [[("De ~1 a ~3 M por año con el paquete; en una década, más de USD 30 M de recurso propio —antes de apalancar.",
         17, MUTED, False, True)]], align=PP_ALIGN.CENTER, space_after=0)
 footer(s); pagenum(s)
-notes(s, "La escala en tres cifras: lo que ya hay, el potencial propio y la brecha que sólo cierra "
-          "el apalancamiento. El fideicomiso es el puente entre la segunda y la tercera.")
+notes(s, "La escala en tres cifras: lo que ya se recauda, el potencial anual del paquete y el acumulado "
+          "realista a diez años (~USD 30 M, a ~3 M/año, de forma conservadora y antes de apalancar con "
+          "el bono verde). El fideicomiso convierte ese flujo en repago y contrapartida.")
 
 # =====================================================================
 # SLIDE 22 — QUIÉN PAGA / QUIÉN SE BENEFICIA
