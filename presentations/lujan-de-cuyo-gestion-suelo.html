@@ -15,6 +15,7 @@
 :root{
   --slate:#4E5869; --slate2:#6F7D94; --slate-dk:#3a4250;
   --gold:#B8860B; --gold-lt:#d4c088;
+  --apple:#8CC63F; --apple-dk:#5E8C1E;
   --ink:#2b3038; --paper:#f7f8fa; --card-bd:#e3e6ea;
   --water:#2f8f9d; --water-bg:#e7f1f3;
   --green:#5a8f6b; --green-bg:#e7f0ea;
@@ -36,14 +37,14 @@
 .reveal ul li::before{ content:"▪"; color:var(--gold); position:absolute; left:0; font-weight:700; }
 
 .brandbar{ position:fixed; top:0; left:0; right:0; height:7px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold)); z-index:60; }
+  background:linear-gradient(90deg,var(--apple),var(--apple-dk),var(--apple)); z-index:60; }
 .foot{ position:fixed; bottom:12px; left:26px; font-size:14px; color:#9aa1ab; z-index:40;
   font-family:Calibri,Arial,sans-serif; letter-spacing:.3px; }
 .foot b{ color:var(--slate2); font-weight:700; }
 .pnum{ position:fixed; bottom:12px; right:26px; font-size:14px; color:#aab0ba; z-index:40; }
 
 .kicker{ display:inline-block; font-size:.5em; letter-spacing:2px; text-transform:uppercase;
-  color:var(--gold); border-left:5px solid var(--gold); padding:2px 0 2px 12px; margin-bottom:.35em; font-weight:700; }
+  color:var(--apple-dk); border-left:5px solid var(--apple); padding:2px 0 2px 12px; margin-bottom:.35em; font-weight:700; }
 .kicker.w{ color:var(--water); border-color:var(--water); }
 .kicker.v{ color:var(--green); border-color:var(--green); }
 .kicker.c{ color:var(--clay); border-color:var(--clay); }
@@ -54,7 +55,7 @@
 section.dark::after{ content:""; }
 .reveal .darkbg{ position:absolute; inset:0; background:var(--slate-dk); z-index:-1; }
 .sidebar{ position:absolute; left:0; top:0; bottom:0; width:14px; background:var(--gold); }
-.cover-eyebrow{ color:var(--gold-lt); font-weight:700; font-size:.5em; letter-spacing:2px; }
+.cover-eyebrow{ color:var(--apple); font-weight:700; font-size:.5em; letter-spacing:2px; }
 .cover-sub{ color:#d8dde4; font-style:italic; font-size:.62em; }
 .chips{ display:flex; gap:12px; flex-wrap:wrap; margin-top:.6em; }
 .chip{ border-radius:40px; padding:8px 18px; font-size:.42em; font-weight:700; color:#fff; }

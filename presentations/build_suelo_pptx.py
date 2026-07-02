@@ -111,9 +111,9 @@ def base(s, dark=False, bg=None):
     b.fill.fore_color.rgb = bg if bg is not None else (SLATE_DK if dark else PAPER)
 
 def brandbar(s):
-    rect(s, 0, 0, EMU_W, Pt(7), fill=GOLD)
+    rect(s, 0, 0, EMU_W, Pt(7), fill=APPLE)
 
-def kicker(s, label, x=Inches(0.75), y=Inches(0.62), color=GOLD):
+def kicker(s, label, x=Inches(0.75), y=Inches(0.62), color=APPLE_DK):
     rect(s, x, y+Emu(24000), Pt(5), Inches(0.30), fill=color)
     text(s, x+Inches(0.16), y, Inches(11), Inches(0.36),
          [[(label.upper(), 15, color, True, False)]], anchor=MSO_ANCHOR.MIDDLE, space_after=0)
@@ -330,7 +330,7 @@ rect(s, Inches(0.75), Inches(5.25), Inches(11.8), Inches(1.15), fill=SLATE_DK,
      shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.08)
 text(s, Inches(1.1), Inches(5.25), Inches(11.1), Inches(1.15),
      [[("→  El incremento de valor es la base natural para financiar la adaptación: ", 20, WHITE, False, False),
-       ("quien causa el costo, financia la respuesta.", 20, GOLD_LT, True, False)]],
+       ("quien causa el costo, financia la respuesta.", 20, APPLE, True, False)]],
      anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.1)
 footer(s); pagenum(s)
 notes(s, "El corazón del caso. Una sola decisión —que otorga el propio Concejo— produce ganancia "
@@ -339,7 +339,7 @@ notes(s, "El corazón del caso. Una sola decisión —que otorga el propio Conce
 # =====================================================================
 # SLIDE 6 — EL MARCO (LVC)
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "El marco · 02", color=GOLD)
+s = slide(); base(s); brandbar(s); kicker(s, "El marco · 02", color=APPLE_DK)
 title(s, [("¿Qué es la captura de valor del suelo?", SLATE, False)])
 bullets(s, [
     [("El precio del suelo capitaliza la inversión pública, la regulación y el crecimiento.", 21, INK, False)],
@@ -360,7 +360,7 @@ notes(s, "El fundamento teórico: la plusvalía del suelo es en buena parte no g
 # =====================================================================
 # SLIDE 7 — POR QUÉ IMPORTA
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "Por qué importa · 02", color=GOLD)
+s = slide(); base(s); brandbar(s); kicker(s, "Por qué importa · 02", color=APPLE_DK)
 title(s, [("El dinero sigue la ", SLATE, False), ("capacidad", CLAY, False),
           (", no la ", SLATE, False), ("necesidad", GREEN, False)])
 stat_card(s, Inches(0.75), Inches(2.45), Inches(3.6), Inches(3.4),
@@ -415,9 +415,9 @@ notes(s, "La tesis central: el valor no está en cada instrumento, sino en encad
 # SLIDE 9 — LOS SEIS INSTRUMENTOS (divisor)
 # =====================================================================
 s = slide(); base(s, bg=SLATE_DK)
-rect(s, 0, 0, Inches(0.32), EMU_H, fill=GOLD)
+rect(s, 0, 0, Inches(0.32), EMU_H, fill=APPLE)
 text(s, Inches(0.95), Inches(1.1), Inches(11), Inches(0.5),
-     [[("SECCIÓN 03", 16, GOLD_LT, True, False)]], space_after=0)
+     [[("SECCIÓN 03", 16, APPLE, True, False)]], space_after=0)
 text(s, Inches(0.95), Inches(1.7), Inches(11.5), Inches(1.2),
      [[("Los seis instrumentos", 44, WHITE, True, False)]], space_after=0)
 text(s, Inches(0.95), Inches(2.85), Inches(11), Inches(0.7),
@@ -515,7 +515,7 @@ notes(s, "La edificabilidad extra deja de ser un regalo del zoning y pasa a comp
           "referencia al mercado y premia el diseño eficiente en agua.")
 
 # SLIDE 14 — Instrumentos 5 y 6
-s = slide(); base(s); brandbar(s); kicker(s, "Instrumentos 5 y 6 · 03", color=GOLD)
+s = slide(); base(s); brandbar(s); kicker(s, "Instrumentos 5 y 6 · 03", color=APPLE_DK)
 title(s, [("Incentivos fiscales · Transferencia de Derechos", SLATE, False)])
 for i,(num,h,body,c,bg) in enumerate([
     ("5","Incentivos fiscales","Un «gradiente verde»: descuentos por eficiencia hídrica, permeabilidad y arbolado. Sin adaptación, cargo pleno; con adaptación, alivio fiscal.",GREEN,GREEN_BG),
@@ -541,9 +541,9 @@ notes(s, "Dos instrumentos que orientan conducta, no sólo recaudan: el gradient
 # SLIDE 15 — INSTRUMENTO ESTRELLA
 # =====================================================================
 s = slide(); base(s, bg=SLATE_DK)
-rect(s, 0, 0, Inches(0.32), EMU_H, fill=GOLD)
+rect(s, 0, 0, Inches(0.32), EMU_H, fill=APPLE)
 text(s, Inches(0.95), Inches(0.75), Inches(11), Inches(0.4),
-     [[("(+) EL INSTRUMENTO ESTRELLA", 15, GOLD_LT, True, False)]], space_after=0)
+     [[("(+) EL INSTRUMENTO ESTRELLA", 15, APPLE, True, False)]], space_after=0)
 text(s, Inches(0.95), Inches(1.25), Inches(11.5), Inches(0.9),
      [[("Aporte de Agua y Cloaca — la evidencia más fuerte", 32, WHITE, True, False)]],
      space_after=0, line_spacing=1.02)
@@ -617,7 +617,7 @@ notes(s, "Cuadro de referencia. Dos ya operativos (verde), el resto diseñados y
 # =====================================================================
 # SLIDE (nuevo) — ¿CUÁNTO PAGO? (traducción al vecino)
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "En concreto · 03", color=GOLD)
+s = slide(); base(s); brandbar(s); kicker(s, "En concreto · 03", color=APPLE_DK)
 title(s, [("¿Y esto a quién le toca?", SLATE, False)])
 casos = [
     ("Un baldío servido y ocioso", "Paga la sobretasa (+100% / +200%). El incentivo es claro: construir o vender, no especular.", CLAY, CLAY_BG),
@@ -706,7 +706,7 @@ notes(s, "La respuesta a las dos preguntas del Concejo: ¿quién controla la pla
 # =====================================================================
 # SLIDE 18 — ESCALERA DE APALANCAMIENTO
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "De recurso propio a capital global · 04", color=GOLD)
+s = slide(); base(s); brandbar(s); kicker(s, "De recurso propio a capital global · 04", color=APPLE_DK)
 title(s, [("La escalera de apalancamiento", SLATE, False)])
 ladder = [
     ("01","Matching","La Cuenta de Apalancamiento (~USD 0,45 M/año) ancla la contrapartida de 10–30%.",WATER),
@@ -900,7 +900,7 @@ notes(s, "En positivo: el valor que agrega el sistema es una regla que, de acá 
 # =====================================================================
 # SLIDE 21 — LOS NÚMEROS REALES
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "Los números reales · 06", color=GOLD)
+s = slide(); base(s); brandbar(s); kicker(s, "Los números reales · 06", color=APPLE_DK)
 title(s, [("Potencial de recaudación", SLATE, False)])
 nums = [
     ("~USD 1 M", "YA se recauda hoy (2 instrumentos operativos)", GREEN),
@@ -945,7 +945,7 @@ rect(s, Inches(0.75), Inches(5.05), Inches(11.8), Inches(1.35), fill=SLATE_DK,
      shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.07)
 text(s, Inches(1.1), Inches(5.05), Inches(11.1), Inches(1.35),
      [[("Con suelo inelástico (límite hídrico), la carga recae en el terrateniente → ", 19, WHITE, False, False),
-       ("un caso deliberadamente progresivo.", 19, GOLD_LT, True, False)]],
+       ("un caso deliberadamente progresivo.", 19, APPLE, True, False)]],
      anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.12)
 footer(s); pagenum(s)
 notes(s, "La respuesta a la pregunta de examen: como el suelo es inelástico por el límite del agua, "
@@ -973,9 +973,9 @@ notes(s, "El bonus: los mismos instrumentos que financian la adaptación tambié
 # SLIDE 24 — PARA DISCUTIR
 # =====================================================================
 s = slide(); base(s, bg=SLATE_DK)
-rect(s, 0, 0, Inches(0.32), EMU_H, fill=GOLD)
+rect(s, 0, 0, Inches(0.32), EMU_H, fill=APPLE)
 text(s, Inches(0.95), Inches(0.85), Inches(11), Inches(0.5),
-     [[("PARA DISCUTIR", 16, GOLD_LT, True, False)]], space_after=0)
+     [[("PARA DISCUTIR", 16, APPLE, True, False)]], space_after=0)
 text(s, Inches(0.95), Inches(1.4), Inches(11.5), Inches(0.9),
      [[("Cinco preguntas para el debate", 34, WHITE, True, False)]], space_after=0)
 qs = [
