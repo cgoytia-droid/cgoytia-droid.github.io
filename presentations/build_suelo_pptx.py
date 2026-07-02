@@ -32,6 +32,12 @@ GREEN_BG= RGBColor(0xE7,0xF0,0xEA)
 CLAY    = RGBColor(0xB1,0x45,0x6A)   # costo / sello del suelo
 CLAY_BG = RGBColor(0xF1,0xE6,0xEA)
 CARD_BD = RGBColor(0xE3,0xE6,0xEA)
+# --- identidad UTDT Escuela de Gobierno / CIPUV (portada) ---
+APPLE   = RGBColor(0x8C,0xC6,0x3F)   # verde manzana
+APPLE_DK= RGBColor(0x5E,0x8C,0x1E)   # verde manzana oscuro
+BLACK   = RGBColor(0x1A,0x1A,0x1A)
+GRAY    = RGBColor(0x6B,0x6B,0x6B)
+GRAY_LT = RGBColor(0x9A,0x9A,0x9A)
 
 FONT = "Calibri"
 FONT_LT = "Calibri Light"
@@ -167,27 +173,35 @@ def chip(s, x, y, w, label, color=GOLD, txtcolor=WHITE, h=Inches(0.42), size=13)
 # =====================================================================
 # SLIDE 1 — PORTADA
 # =====================================================================
-s = slide(); base(s, bg=SLATE_DK)
-# bloque lateral dorado
-rect(s, 0, 0, Inches(0.32), EMU_H, fill=GOLD)
-# franja de acento agua->verde
-rect(s, Inches(0.32), Inches(6.9), EMU_W-Inches(0.32), Inches(0.6), fill=WATER)
-rect(s, Inches(6.8), Inches(6.9), EMU_W-Inches(6.8), Inches(0.6), fill=GREEN)
-text(s, Inches(0.95), Inches(0.85), Inches(11), Inches(0.4),
-     [[("CIPUV–UTDT · LINCOLN INSTITUTE", 15, GOLD_LT, True, False)]], space_after=0)
-text(s, Inches(0.95), Inches(1.35), Inches(11.5), Inches(0.5),
-     [[("LUJÁN DE CUYO · MENDOZA, ARGENTINA", 14, RGBColor(0xC9,0xD0,0xDA), True, False)]], space_after=0)
-text(s, Inches(0.95), Inches(2.15), Inches(11.4), Inches(2.2),
-     [[("Innovación en gestión del suelo", 50, WHITE, True, False, FONT)],
-      [("para financiar la adaptación climática", 50, GOLD_LT, True, False, FONT)]],
+s = slide(); base(s, bg=WHITE)
+# barra institucional verde manzana (izquierda)
+rect(s, 0, 0, Inches(0.28), EMU_H, fill=APPLE)
+# encabezado institucional
+text(s, Inches(0.95), Inches(0.7), Inches(11.6), Inches(0.4),
+     [[("UNIVERSIDAD TORCUATO DI TELLA", 15, BLACK, True, False),
+       ("   ·   ESCUELA DE GOBIERNO", 15, GRAY, True, False)]], space_after=0)
+text(s, Inches(0.95), Inches(1.12), Inches(11.6), Inches(0.4),
+     [[("CIPUV", 13, APPLE_DK, True, False),
+       ("  —  Centro de Investigación de Políticas Urbanas y de Vivienda", 13, GRAY, False, False)]], space_after=0)
+# regla verde manzana
+rect(s, Inches(0.95), Inches(1.72), Inches(2.4), Pt(4), fill=APPLE)
+# título
+text(s, Inches(0.95), Inches(2.35), Inches(11.6), Inches(2.2),
+     [[("Innovación en gestión del suelo", 50, BLACK, True, False, FONT)],
+      [("para financiar la adaptación climática", 50, APPLE_DK, True, False, FONT)]],
      line_spacing=1.02, space_after=2)
-text(s, Inches(0.95), Inches(4.55), Inches(11.2), Inches(0.6),
+text(s, Inches(0.95), Inches(4.75), Inches(11.4), Inches(0.6),
      [[("Seis instrumentos de captura de valor · un Fideicomiso · el Índice de Ciudad Deseada",
-        20, RGBColor(0xD8,0xDD,0xE4), False, True)]], space_after=0)
-# meta chips
-chip(s, Inches(0.95), Inches(5.5), Inches(3.2), "Caso: Mendoza, Argentina", color=WATER)
-chip(s, Inches(4.35), Inches(5.5), Inches(3.5), "Enfoque: Land Value Capture + clima", color=GREEN)
-chip(s, Inches(8.05), Inches(5.5), Inches(3.0), "Clase · 30 minutos", color=GOLD)
+        20, GRAY, False, True)]], space_after=0)
+# meta chips (negro / gris / verde manzana)
+chip(s, Inches(0.95), Inches(5.65), Inches(3.25), "Caso · Luján de Cuyo, Mendoza", color=BLACK)
+chip(s, Inches(4.4), Inches(5.65), Inches(3.6), "Land Value Capture + clima", color=GRAY)
+chip(s, Inches(8.2), Inches(5.65), Inches(2.8), "Clase · 30 minutos", color=APPLE, txtcolor=BLACK)
+# pie institucional
+rect(s, Inches(0.95), Inches(6.72), Inches(11.45), Pt(1.5), fill=RGBColor(0xE0,0xE0,0xE0))
+text(s, Inches(0.95), Inches(6.85), Inches(11.45), Inches(0.4),
+     [[("Cátedra de Economía Urbana · MEU   ·   en colaboración con el Lincoln Institute of Land Policy",
+        12, GRAY_LT, False, False)]], space_after=0)
 notes(s, "Bienvenida. Un caso real de una ciudad intermedia que usa la gestión del suelo "
           "para financiar su propia adaptación climática. Hoy: seis instrumentos, un fideicomiso "
           "y una regla de gasto con equidad.")
