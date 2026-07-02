@@ -37,6 +37,9 @@ FONT = "Calibri"
 FONT_LT = "Calibri Light"
 EMU_W, EMU_H = Inches(13.333), Inches(7.5)
 
+import os
+ASSETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+
 prs = Presentation()
 prs.slide_width  = EMU_W
 prs.slide_height = EMU_H
@@ -113,9 +116,11 @@ def title(s, parts, x=Inches(0.75), y=Inches(1.08), w=Inches(11.8), size=36):
     runs=[[(t, size, c, True, it) for (t,c,it) in parts]]
     text(s, x, y, w, Inches(1.3), runs, line_spacing=1.0, space_after=0)
 
-def pagenum(s, n):
+TOTAL = 28  # total de slides (numeración automática)
+def pagenum(s):
+    n = len(prs.slides._sldIdLst)  # índice del slide actual (recién creado)
     text(s, Inches(12.2), Inches(6.92), Inches(0.9), Inches(0.4),
-         [[(f"{n:02d} / 25", 12, MUTED, False, False)]], align=PP_ALIGN.RIGHT,
+         [[(f"{n:02d} / {TOTAL}", 12, MUTED, False, False)]], align=PP_ALIGN.RIGHT,
          anchor=MSO_ANCHOR.MIDDLE, space_after=0)
 
 def footer(s):
@@ -212,7 +217,7 @@ for i,(n,t,c) in enumerate(road):
          anchor=MSO_ANCHOR.MIDDLE, space_after=0)
     text(s, x+Inches(1.45), y, cw-Inches(1.65), ch, [[(t, 19, INK, True, False)]],
          anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.05)
-footer(s); pagenum(s,2)
+footer(s); pagenum(s)
 notes(s, "El arco de la clase: del problema físico (agua-suelo) a una máquina financiera "
           "que captura valor, lo blinda y lo redistribuye con equidad.")
 
@@ -240,7 +245,7 @@ for i,(h,d,c,bg) in enumerate(ideas):
          [[(h, 27, c, True, False)]], space_after=0)
     text(s, x+Inches(0.28), y0+Inches(1.75), cw2-Inches(0.5), Inches(1.2),
          [[(d, 17, INK, False, False)]], space_after=0, line_spacing=1.12)
-footer(s); pagenum(s,3)
+footer(s); pagenum(s)
 notes(s, "Toda la clase cabe en cuatro verbos: capturar, blindar, apalancar, redistribuir. "
           "Si se recuerda esto, se recuerda el caso.")
 
@@ -256,9 +261,35 @@ bullets(s, [
 ], w=Inches(8.1), dot=WATER, gap=20)
 stat_card(s, Inches(9.35), Inches(2.45), Inches(3.1), Inches(2.9),
           "+46%", "crecimiento poblacional 2010–2022", accent=WATER, big_size=52, small_size=15)
-footer(s); pagenum(s,4)
+footer(s); pagenum(s)
 notes(s, "El dato duro: crece 46% en doce años sobre 200 mm de lluvia. Cada hectárea que se "
           "urbaniza suma demanda de agua y resta recarga del acuífero.")
+
+# =====================================================================
+# SLIDE (nuevo) — POBLACIÓN: MENDOZA Y LUJÁN DE CUYO (mapa real CIPUV)
+# =====================================================================
+s = slide(); base(s); brandbar(s); kicker(s, "El contexto · 01", color=WATER)
+title(s, [("¿Dónde crece Luján de Cuyo?", SLATE, False)])
+# mapa (choropleth por distrito, 2022) a la derecha
+_mapw = Inches(6.9); _maph = Emu(int(_mapw * 540 / 764))
+s.shapes.add_picture(os.path.join(ASSETS, "mapa-poblacion-lujan.png"),
+                     Inches(6.25), Inches(1.95), width=_mapw, height=_maph)
+text(s, Inches(6.25), Inches(1.95)+_maph+Emu(20000), _mapw, Inches(0.3),
+     [[("Población por distrito, 2022 · Gran Mendoza y Luján de Cuyo", 11, MUTED, False, True)]],
+     space_after=0)
+# bullets a la izquierda
+bullets(s, [
+    [("Carrodilla (30.469) y Perdriel (24.922)", 19, INK, True), (" concentran el mayor tamaño y crecimiento.", 19, INK, False)],
+    [("El avance urbano ocurre sobre el ", 19, INK, False), ("periurbano regado", 19, WATER, True), (": Chacras, Vistalba, Vertientes.", 19, INK, False)],
+    [("Cada distrito que crece ", 19, INK, False), ("urbaniza suelo con derecho de agua", 19, GREEN, True), (" → más demanda, menos recarga.", 19, INK, False)],
+], x=Inches(0.75), y=Inches(2.15), w=Inches(5.25), dot=WATER, gap=18, size=19)
+stat_card(s, Inches(0.75), Inches(5.15), Inches(5.25), Inches(1.35),
+          "+42,6%  ·  +50.546 hab.", "crecimiento intercensal 2010–2022 en Luján de Cuyo",
+          accent=WATER, big_size=24, small_size=14)
+footer(s); pagenum(s)
+notes(s, "El mapa de la propia CIPUV: el crecimiento no es uniforme. Se concentra en el este, "
+          "sobre el oasis regado del Gran Mendoza —justo el suelo cuya conversión dispara la paradoja "
+          "agua–suelo. Fuente: elaboración propia en base a Municipalidad de Luján de Cuyo e INDEC.")
 
 # =====================================================================
 # SLIDE 5 — LA PARADOJA AGUA–SUELO
@@ -287,7 +318,7 @@ text(s, Inches(1.1), Inches(5.25), Inches(11.1), Inches(1.15),
      [[("→  El incremento de valor es la base natural para financiar la adaptación: ", 20, WHITE, False, False),
        ("quien causa el costo, financia la respuesta.", 20, GOLD_LT, True, False)]],
      anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.1)
-footer(s); pagenum(s,5)
+footer(s); pagenum(s)
 notes(s, "El corazón del caso. Una sola decisión —que otorga el propio Concejo— produce ganancia "
           "privada y costo colectivo. Ese diferencial de valor es el que puede pagar la adaptación.")
 
@@ -308,7 +339,7 @@ text(s, Inches(0.75), Inches(5.9), Inches(11.7), Inches(0.9),
         15, MUTED, False, True),
        ("La brecha que este caso cierra: unir la LVC con el financiamiento climático (Dunning & Lord, 2020).",
         15, SLATE2, False, True)]], space_after=0, line_spacing=1.12)
-footer(s); pagenum(s,6)
+footer(s); pagenum(s)
 notes(s, "El fundamento teórico: la plusvalía del suelo es en buena parte no ganada. Gravarla es "
           "eficiente (no distorsiona) y justo. La novedad es acoplarla al financiamiento climático.")
 
@@ -326,7 +357,7 @@ bullets(s, [
     [("Las ciudades intermedias quedan atrapadas: ", 20, INK, False), ("sin capacidad no acceden; sin acceso no construyen capacidad.", 20, CLAY, True)],
     [("La salida: ", 20, INK, False), ("generar recurso propio, predecible y blindado", 20, GREEN, True), (" — la «llave» que pide el financista.", 20, INK, False)],
 ], x=Inches(4.75), y=Inches(2.5), w=Inches(7.7), gap=22)
-footer(s); pagenum(s,7)
+footer(s); pagenum(s)
 notes(s, "El problema estructural: el capital climático premia a quien ya puede, no a quien más "
           "lo necesita. La única salida para una ciudad intermedia es traer su propia llave.")
 
@@ -362,7 +393,7 @@ text(s, Inches(0.75), Inches(5.35), Inches(11.8), Inches(0.8),
      [[("La coordinación es lo que convierte 6 cargos modestos en un ", 20, INK, False, False),
        ("sistema bancable", 20, GOLD, True, False), (".", 20, INK, False, False)]],
      anchor=MSO_ANCHOR.MIDDLE, space_after=0)
-footer(s); pagenum(s,8)
+footer(s); pagenum(s)
 notes(s, "La tesis central: el valor no está en cada instrumento, sino en encadenarlos. "
           "Crear → capturar → blindar → redistribuir → apalancar.")
 
@@ -420,7 +451,7 @@ def instrumento(n_page, kick, ttl, num, estado, estado_color, items, extra_stats
             stat_card(s, Inches(9.5), yy, Inches(2.95), Inches(1.35), big, small,
                       accent=c, big_size=26, small_size=13)
             yy += Inches(1.55)
-    footer(s); pagenum(s, n_page)
+    footer(s); pagenum(s)  # n_page ignorado: numeración automática
     return s
 
 # SLIDE 10 — Instrumento 1
@@ -488,7 +519,7 @@ for i,(num,h,body,c,bg) in enumerate([
          [[(h, 22, c, True, False)]], anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.02)
     text(s, x+Inches(0.4), Inches(4.0), Inches(5.05), Inches(1.85),
          [[(body, 18, INK, False, False)]], space_after=0, line_spacing=1.2)
-footer(s); pagenum(s,14)
+footer(s); pagenum(s)
 notes(s, "Dos instrumentos que orientan conducta, no sólo recaudan: el gradiente verde premia el "
           "diseño adaptado, y la TDR protege suelo estratégico sin gasto de compra.")
 
@@ -565,7 +596,7 @@ for i,(a,b,c,st,stc) in enumerate(rows):
         text(s, xx+Inches(0.15), y, cwid-Inches(0.2), Inches(0.55),
              [[(v, 14, vc, vb, False)]], anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.0)
         xx += cwid
-footer(s); pagenum(s,16)
+footer(s); pagenum(s)
 notes(s, "Cuadro de referencia. Dos ya operativos (verde), el resto diseñados y listos. "
           "Nótese la diversidad de disparadores: cada uno cubre un momento distinto.")
 
@@ -591,7 +622,7 @@ for big, small, c in alloc:
     text(s, Inches(10.25), yy, Inches(2.1), Inches(1.1), [[(small, 14, SLATE, False, False)]],
          anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.05)
     yy += Inches(1.25)
-footer(s); pagenum(s,17)
+footer(s); pagenum(s)
 notes(s, "El fideicomiso es la pieza que convierte recaudación en credibilidad. Separado del "
           "presupuesto, auditado, con reglas de reparto fijas: eso es lo que un financista puede confiar.")
 
@@ -617,7 +648,7 @@ for i,(n,h,body,c) in enumerate(ladder):
     text(s, x+Inches(1.25), y+Inches(0.55), Inches(8.3), Inches(0.45), [[(body, 15.5, INK, False, False)]], space_after=0, line_spacing=1.05)
 text(s, Inches(0.75), Inches(6.5), Inches(11.6), Inches(0.4),
      [[("La credibilidad, como el capital, se acumula.", 18, GOLD, True, True)]], space_after=0)
-footer(s); pagenum(s,18)
+footer(s); pagenum(s)
 notes(s, "Cómo un peso local se convierte en muchos dólares globales: usar la recaudación como "
           "contrapartida, emitir deuda verde contra ella, y escalar hacia la banca multilateral.")
 
@@ -653,9 +684,103 @@ text(s, Inches(5.9), Inches(4.6), Inches(6.5), Inches(1.0),
      [[("Escala A (≥90%) … E (<25%).", 18, INK, True, False)],
       [("Menor nota = mayor prioridad: el dinero va a la necesidad.", 17, SLATE, False, False)]],
      anchor=MSO_ANCHOR.MIDDLE, space_after=6, line_spacing=1.1)
-footer(s); pagenum(s,19)
+footer(s); pagenum(s)
 notes(s, "La regla de gasto es tan importante como la recaudación. El ICD mide seis dimensiones "
           "y dirige la inversión a los barrios peor puntuados. Es equidad convertida en algoritmo.")
+
+# =====================================================================
+# SLIDE (nuevo) — ÍNDICE DE PRIORIZACIÓN DE INFRAESTRUCTURA
+# =====================================================================
+s = slide(); base(s); brandbar(s); kicker(s, "La regla de gasto en acción · 05", color=GREEN)
+title(s, [("Índice de Priorización de Infraestructura", SLATE, False)])
+bullets(s, [
+    [("Traduce el ICD en un ", 20, INK, False), ("diagnóstico territorial", 20, GREEN, True),
+     (": 6 ejes, 10 indicadores, distrito por distrito.", 20, INK, False)],
+    [("Cada indicador se compara con un ", 20, INK, False), ("valor deseado", 20, GOLD, True),
+     (" y se clasifica en tres niveles.", 20, INK, False)],
+    [("Orienta la inversión hacia las ", 20, INK, False), ("brechas reales", 20, CLAY, True),
+     (", no hacia la capacidad de gasto.", 20, INK, False)],
+], x=Inches(0.75), y=Inches(2.15), w=Inches(7.5), gap=18, size=20)
+# escala de 3 niveles
+scale = [("ÓPTIMO", GREEN), ("MÍNIMO", GOLD), ("CRÍTICO", CLAY)]
+for i,(lab,c) in enumerate(scale):
+    chip(s, Inches(8.5)+i*Inches(1.55), Inches(2.2), Inches(1.45), lab, color=c, size=12.5)
+# franja de hallazgos
+hall = [
+    ("Compacidad", "la dimensión más crítica", CLAY),
+    ("Movilidad", "la mejor cubierta (80% óptimo)", GREEN),
+    ("Equidad", "ningún distrito llega al óptimo", GOLD),
+]
+hy = Inches(3.05)
+for i,(h,d,c) in enumerate(hall):
+    x = Inches(8.5)
+    rect(s, x, hy, Inches(4.45), Inches(0.92), fill=WHITE, line=CARD_BD, line_w=Pt(1),
+         shadow=True, shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.1)
+    rect(s, x, hy, Inches(0.13), Inches(0.92), fill=c)
+    text(s, x+Inches(0.3), hy, Inches(4.0), Inches(0.92),
+         [[(h+": ", 16, c, True, False), (d, 15, INK, False, False)]],
+         anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.05)
+    hy += Inches(1.05)
+# nota inferior
+text(s, Inches(0.75), Inches(5.75), Inches(7.5), Inches(0.9),
+     [[("Ranking general: ", 16, SLATE, True, False),
+       ("Ciudad y La Puntilla lideran; Industrial y Vertientes de Pedemonte muestran las mayores brechas.",
+        16, INK, False, False)]], space_after=0, line_spacing=1.15)
+text(s, Inches(0.75), Inches(6.45), Inches(7.5), Inches(0.4),
+     [[("Ejercicio piloto CIPUV–UTDT · fuente: Municipalidad de Luján de Cuyo e INDEC.", 11, MUTED, False, True)]],
+     space_after=0)
+footer(s); pagenum(s)
+notes(s, "Este es el motor real del ICD: un tablero que puntúa cada distrito en seis ejes contra un "
+          "valor deseado. No mide capacidad de pago, mide déficit. Es un ejercicio piloto de validación "
+          "metodológica de la CIPUV.")
+
+# =====================================================================
+# SLIDE (nuevo) — RANKING DE PRIORIDAD POR DISTRITO (puntaje total)
+# =====================================================================
+s = slide(); base(s); brandbar(s); kicker(s, "El diagnóstico · 05", color=CLAY)
+title(s, [("Ranking de prioridad por distrito", SLATE, False)])
+ranking = [
+    ("Ciudad", 7.0), ("La Puntilla", 6.0), ("Mayor Drummond", 4.5), ("Vistalba", 4.5),
+    ("Chacras de Coria", 4.0), ("Carrodilla", 3.5), ("Agrelo", 3.5), ("Ugarteche", 3.5),
+    ("Las Compuertas", 3.0), ("Perdriel", 3.0), ("Potrerillos", 3.0), ("El Carrizal", 2.5),
+    ("Cacheuta", 2.0), ("Vertientes de Pedemonte", 1.5), ("Industrial", 1.0),
+]
+def rk_color(v):
+    if v >= 4.0: return GREEN
+    if v >= 2.5: return GOLD
+    return CLAY
+bx0 = Inches(3.15)          # inicio de las barras
+bxmax = Inches(8.3)         # ancho máximo (para valor 7)
+ry0 = Inches(2.05); rh = Inches(0.27); rgap = Inches(0.045)
+for i,(name,v) in enumerate(ranking):
+    y = ry0 + i*(rh+rgap)
+    c = rk_color(v)
+    text(s, Inches(0.75), y, Inches(2.3), rh, [[(name, 12.5, INK, True, False)]],
+         align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE, space_after=0)
+    bw = int(bxmax * (v / 7.0))
+    rect(s, bx0, y+Emu(15000), Emu(bw), rh-Emu(30000), fill=c,
+         shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.35)
+    text(s, bx0+Emu(bw)+Inches(0.08), y, Inches(0.9), rh,
+         [[(f"{v:g}", 12.5, c, True, False)]], anchor=MSO_ANCHOR.MIDDLE, space_after=0)
+# leyenda / mensaje a la derecha
+rect(s, Inches(11.7), Inches(2.05), Inches(1.4), Inches(5.0), fill=None)
+rect(s, Inches(11.65), Inches(2.15), Inches(1.45), Inches(2.15), fill=RGBColor(0xEF,0xF1,0xF4),
+     shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.08)
+text(s, Inches(11.8), Inches(2.35), Inches(1.2), Inches(2.0),
+     [[("Puntaje /11", 12, SLATE, True, False)],
+      [("≥4  bien", 12, GREEN, True, False)],
+      [("2,5–3,9", 12, GOLD, True, False)],
+      [("<2,5  déficit", 12, CLAY, True, False)]], space_after=8, line_spacing=1.1)
+text(s, Inches(9.55), Inches(4.7), Inches(3.4), Inches(2.0),
+     [[("Menor puntaje = ", 15, INK, False, False), ("mayor prioridad", 15, CLAY, True, False),
+       (" de inversión.", 15, INK, False, False)],
+      [("", 6, INK, False, False)],
+      [("El índice manda el dinero a Industrial, Vertientes y Cacheuta —no a Ciudad.", 14, SLATE, False, True)]],
+     space_after=8, line_spacing=1.15)
+footer(s); pagenum(s)
+notes(s, "El resultado en una imagen: Ciudad y La Puntilla, ya consolidadas, puntúan alto; los distritos "
+          "del oeste y el periurbano (Industrial, Vertientes, Cacheuta) puntúan bajo y son, por diseño, "
+          "los primeros destinatarios de la inversión. Puntaje sobre 11 puntos.")
 
 # =====================================================================
 # SLIDE 20 — PRUEBA DE EQUIDAD
@@ -670,7 +795,7 @@ bullets(s, [
 text(s, Inches(0.75), Inches(5.9), Inches(11.7), Inches(0.7),
      [[("El ICD no describe: corrige. Alinea la inversión con la necesidad, no con la capacidad.",
         18, GOLD, True, True)]], space_after=0, line_spacing=1.1)
-footer(s); pagenum(s,20)
+footer(s); pagenum(s)
 notes(s, "La honestidad del caso: sin regla, el dinero va a donde ya está bien. El ICD existe "
           "precisamente para forzar la corrección hacia los distritos D y E.")
 
@@ -697,7 +822,7 @@ for i,(big,small,c) in enumerate(nums):
 text(s, Inches(0.75), Inches(6.15), Inches(11.7), Inches(0.5),
      [[("De ~1 a ~3 con el paquete; y del recurso propio, un salto a decenas con el bono verde.",
         17, MUTED, False, True)]], align=PP_ALIGN.CENTER, space_after=0)
-footer(s); pagenum(s,21)
+footer(s); pagenum(s)
 notes(s, "La escala en tres cifras: lo que ya hay, el potencial propio y la brecha que sólo cierra "
           "el apalancamiento. El fideicomiso es el puente entre la segunda y la tercera.")
 
@@ -724,7 +849,7 @@ text(s, Inches(1.1), Inches(5.05), Inches(11.1), Inches(1.35),
      [[("Con suelo inelástico (límite hídrico), la carga recae en el terrateniente → ", 19, WHITE, False, False),
        ("un caso deliberadamente progresivo.", 19, GOLD_LT, True, False)]],
      anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.12)
-footer(s); pagenum(s,22)
+footer(s); pagenum(s)
 notes(s, "La respuesta a la pregunta de examen: como el suelo es inelástico por el límite del agua, "
           "el impuesto no se traslada, recae en el dueño de la tierra. Es progresivo.")
 
@@ -742,7 +867,7 @@ bullets(s, [
 text(s, Inches(0.75), Inches(5.9), Inches(11.7), Inches(0.7),
      [[("Adaptación y mitigación: la misma palanca, accionada una sola vez.", 19, GOLD, True, True)]],
      space_after=0, line_spacing=1.1)
-footer(s); pagenum(s,23)
+footer(s); pagenum(s)
 notes(s, "El bonus: los mismos instrumentos que financian la adaptación también reducen emisiones. "
           "No hay que elegir entre adaptar y mitigar; aquí es la misma decisión.")
 
@@ -802,7 +927,7 @@ rect(s, Inches(0.75), Inches(5.5), Inches(11.8), Inches(1.0), fill=SLATE_DK,
 text(s, Inches(1.1), Inches(5.5), Inches(11.1), Inches(1.0),
      [[("“Una transición justa no se mide por el tamaño del cheque, sino por dónde aterriza.”",
         20, WHITE, True, True)]], anchor=MSO_ANCHOR.MIDDLE, space_after=0, line_spacing=1.1)
-footer(s); pagenum(s,25)
+footer(s); pagenum(s)
 notes(s, "Cierre. Cuatro ideas para llevarse y una frase: lo que define una transición justa no es "
           "cuánto dinero, sino dónde cae. Gracias.")
 

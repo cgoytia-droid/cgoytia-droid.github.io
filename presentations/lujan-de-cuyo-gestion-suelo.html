@@ -167,7 +167,28 @@ table.syn tr:nth-child(even){ background:#f2f4f6; }
     </ul>
     <div class="card stat"><div class="top" style="background:var(--water)"></div><div class="n" style="color:var(--water);font-size:2.4em">+46%</div><div class="l">crecimiento poblacional 2010–2022</div></div>
   </div>
-  <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum">04 / 25</div>
+  <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum"></div>
+</section>
+
+<!-- 4b · POBLACIÓN MENDOZA / LUJÁN (mapa real CIPUV) -->
+<section>
+  <span class="kicker w">El contexto · 01</span>
+  <h2 style="margin:.1em 0">¿Dónde crece Luján de Cuyo?</h2>
+  <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:center;margin-top:.1em">
+    <div>
+      <ul style="font-size:.92em">
+        <li><strong>Carrodilla (30.469) y Perdriel (24.922)</strong> concentran el mayor tamaño y crecimiento.</li>
+        <li>El avance urbano ocurre sobre el <em class="w">periurbano regado</em>: Chacras, Vistalba, Vertientes.</li>
+        <li>Cada distrito que crece <em class="v">urbaniza suelo con derecho de agua</em> → más demanda, menos recarga.</li>
+      </ul>
+      <div class="card stat" style="margin-top:.3em;padding:10px 16px"><div class="top" style="background:var(--water)"></div><div class="n" style="color:var(--water);font-size:1.0em">+42,6% · +50.546 hab.</div><div class="l">crecimiento intercensal 2010–2022 en Luján de Cuyo</div></div>
+    </div>
+    <div>
+      <img src="assets/mapa-poblacion-lujan.png" alt="Mapa de población por distrito de Luján de Cuyo, 2022" style="width:100%;max-height:410px;object-fit:contain;border-radius:10px;box-shadow:0 8px 22px rgba(40,50,70,.12)">
+      <div class="muted" style="margin-top:.2em;font-size:.5em">Población por distrito, 2022 · Gran Mendoza y Luján de Cuyo · fuente: Municipalidad de Luján de Cuyo e INDEC</div>
+    </div>
+  </div>
+  <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum"></div>
 </section>
 
 <!-- 5 · PARADOJA -->
@@ -400,7 +421,54 @@ table.syn tr:nth-child(even){ background:#f2f4f6; }
     </div>
     <div style="font-size:.6em"><strong>Escala A (≥90%) … E (&lt;25%).</strong> Menor nota = mayor prioridad: el dinero va a la necesidad.</div>
   </div>
-  <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum">19 / 25</div>
+  <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum"></div>
+</section>
+
+<!-- 19b · ÍNDICE DE PRIORIZACIÓN DE INFRAESTRUCTURA -->
+<section>
+  <span class="kicker v">La regla de gasto en acción · 05</span>
+  <h2>Índice de Priorización de Infraestructura</h2>
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:26px;margin-top:.2em">
+    <div>
+      <ul>
+        <li>Traduce el ICD en un <em class="v">diagnóstico territorial</em>: 6 ejes, 10 indicadores, distrito por distrito.</li>
+        <li>Cada indicador se compara con un <em class="g">valor deseado</em> y se clasifica en tres niveles.</li>
+        <li>Orienta la inversión hacia las <em class="c">brechas reales</em>, no hacia la capacidad de gasto.</li>
+      </ul>
+      <div style="display:flex;gap:10px;margin-top:.3em">
+        <span class="chip" style="background:var(--green);font-size:.4em">ÓPTIMO</span>
+        <span class="chip" style="background:var(--gold);font-size:.4em">MÍNIMO</span>
+        <span class="chip" style="background:var(--clay);font-size:.4em">CRÍTICO</span>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="border-left:6px solid var(--clay);margin-bottom:12px"><b style="color:var(--clay)">Compacidad</b><span style="font-size:.6em"> — la dimensión más crítica</span></div>
+      <div class="card" style="border-left:6px solid var(--green);margin-bottom:12px"><b style="color:var(--green)">Movilidad</b><span style="font-size:.6em"> — la mejor cubierta (80% óptimo)</span></div>
+      <div class="card" style="border-left:6px solid var(--gold)"><b style="color:var(--gold)">Equidad</b><span style="font-size:.6em"> — ningún distrito llega al óptimo</span></div>
+    </div>
+  </div>
+  <div style="font-size:.6em;margin-top:.5em"><strong>Ranking general:</strong> Ciudad y La Puntilla lideran; Industrial y Vertientes de Pedemonte muestran las mayores brechas.</div>
+  <div class="muted" style="margin-top:.2em">Ejercicio piloto CIPUV–UTDT · fuente: Municipalidad de Luján de Cuyo e INDEC</div>
+  <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum"></div>
+</section>
+
+<!-- 19c · RANKING DE PRIORIDAD POR DISTRITO -->
+<section>
+  <span class="kicker c">El diagnóstico · 05</span>
+  <h2>Ranking de prioridad por distrito</h2>
+  <div style="display:grid;grid-template-columns:2.4fr 1fr;gap:20px;align-items:center;margin-top:.1em">
+    <div id="rk"></div>
+    <div>
+      <div class="card" style="font-size:.62em;line-height:1.5">
+        <b>Puntaje / 11</b><br>
+        <span style="color:var(--green);font-weight:700">≥ 4 · bien</span><br>
+        <span style="color:var(--gold);font-weight:700">2,5–3,9 · medio</span><br>
+        <span style="color:var(--clay);font-weight:700">&lt; 2,5 · déficit</span>
+      </div>
+      <div style="font-size:.6em;margin-top:.6em">Menor puntaje = <em class="c">mayor prioridad</em> de inversión. El índice manda el dinero a Industrial, Vertientes y Cacheuta — no a Ciudad.</div>
+    </div>
+  </div>
+  <div class="foot">Luján de Cuyo · Gestión del suelo · <b>CIPUV–UTDT / Lincoln Institute</b></div><div class="pnum"></div>
 </section>
 
 <!-- 20 · PRUEBA DE EQUIDAD -->
@@ -486,6 +554,24 @@ table.syn tr:nth-child(even){ background:#f2f4f6; }
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
 <script>
+// Ranking de prioridad por distrito (puntaje /11)
+(function(){
+  const RK=[["Ciudad",7],["La Puntilla",6],["Mayor Drummond",4.5],["Vistalba",4.5],
+    ["Chacras de Coria",4],["Carrodilla",3.5],["Agrelo",3.5],["Ugarteche",3.5],
+    ["Las Compuertas",3],["Perdriel",3],["Potrerillos",3],["El Carrizal",2.5],
+    ["Cacheuta",2],["Vertientes de Pedemonte",1.5],["Industrial",1]];
+  const col=v=>v>=4?'var(--green)':v>=2.5?'var(--gold)':'var(--clay)';
+  const el=document.getElementById('rk');
+  if(el){ el.innerHTML=RK.map(([n,v])=>
+    `<div style="display:flex;align-items:center;gap:8px;margin:2px 0;font-size:.46em">
+      <div style="width:170px;text-align:right;font-weight:700;color:var(--ink)">${n}</div>
+      <div style="flex:1"><span style="display:inline-block;height:15px;border-radius:8px;background:${col(v)};width:${v/7*100}%"></span></div>
+      <div style="width:34px;font-weight:700;color:${col(v)}">${String(v).replace('.',',')}</div>
+    </div>`).join(''); }
+  // Numeración automática de páginas
+  const secs=[...document.querySelectorAll('.slides>section')];
+  secs.forEach((s,i)=>{const p=s.querySelector('.pnum'); if(p) p.textContent=String(i+1).padStart(2,'0')+' / '+secs.length;});
+})();
 Reveal.initialize({
   hash:true, slideNumber:false, controls:true, progress:true,
   center:false, transition:'slide', width:1280, height:720, margin:0.06,
