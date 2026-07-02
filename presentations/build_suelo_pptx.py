@@ -116,7 +116,7 @@ def title(s, parts, x=Inches(0.75), y=Inches(1.08), w=Inches(11.8), size=36):
     runs=[[(t, size, c, True, it) for (t,c,it) in parts]]
     text(s, x, y, w, Inches(1.3), runs, line_spacing=1.0, space_after=0)
 
-TOTAL = 29  # total de slides (numeración automática)
+TOTAL = 31  # total de slides (numeración automática)
 def pagenum(s):
     n = len(prs.slides._sldIdLst)  # índice del slide actual (recién creado)
     text(s, Inches(12.2), Inches(6.92), Inches(0.9), Inches(0.4),
@@ -331,7 +331,7 @@ bullets(s, [
     [("El precio del suelo capitaliza la inversión pública, la regulación y el crecimiento.", 21, INK, False)],
     [("Buena parte de ese incremento es ", 21, INK, False), ("«no ganado»", 21, GOLD, True),
      (" por el propietario (George; Glaeser; Duranton & Puga).", 21, INK, False)],
-    [("Gravarlo es ", 21, INK, False), ("eficiente y justo", 21, GREEN, True),
+    [("Recuperarlo para la ciudad es ", 21, INK, False), ("eficiente y justo", 21, GREEN, True),
      (": recae sobre una ganancia que no produjo quien la recibe.", 21, INK, False)],
 ], w=Inches(11.6), gap=20)
 text(s, Inches(0.75), Inches(5.9), Inches(11.7), Inches(0.9),
@@ -457,7 +457,7 @@ def instrumento(n_page, kick, ttl, num, estado, estado_color, items, extra_stats
 # SLIDE 10 — Instrumento 1
 s = instrumento(10, "Instrumento 1 · 03", "Contribución por Mejoras (betterment)", "1",
     "DISEÑADO", SLATE2, [
-    [("Grava el aumento de valor que una ", 20, INK, False), ("obra pública", 20, WATER, True),
+    [("Recupera parte del mayor valor que una ", 20, INK, False), ("obra pública", 20, WATER, True),
      (" genera en los inmuebles vecinos.", 20, INK, False)],
     [("Tasa: ", 20, INK, False), ("30–50% del incremento", 20, GOLD, True),
      (" en una «zona de beneficio» delimitada por SIG.", 20, INK, False)],
@@ -469,7 +469,7 @@ notes(s, "Instrumento clásico. Si el municipio hace la obra hídrica, captura p
 # SLIDE 11 — Instrumento 2
 s = instrumento(11, "Instrumento 2 · 03", "Participación en la Valoración de Activos", "2",
     "DISEÑADO", SLATE2, [
-    [("Grava la plusvalía por ", 20, INK, False), ("rezonificación o mayor intensidad de uso.", 20, WATER, True)],
+    [("Recupera parte de la plusvalía por ", 20, INK, False), ("rezonificación o mayor intensidad de uso.", 20, WATER, True)],
     [("Tasa: ", 20, INK, False), ("30–50% del diferencial", 20, GOLD, True), (" de valor antes / después.", 20, INK, False)],
     [("Es la lógica del sistema en miniatura: ", 20, INK, False),
      ("el acto que genera el costo es el que paga la respuesta.", 20, GREEN, True)],
@@ -480,7 +480,7 @@ notes(s, "Este es el instrumento emblemático de la paradoja: la conversión de 
 # SLIDE 12 — Instrumento 3
 s = instrumento(12, "Instrumento 3 · 03", "Sobretasa a Inmueble Ocioso (baldíos)", "3",
     "● OPERATIVO", GREEN, [
-    [("Grava parcelas ", 20, INK, False), ("servidas pero ociosas", 20, GREEN, True), (" dentro del perímetro urbano.", 20, INK, False)],
+    [("Aporte de las parcelas ", 20, INK, False), ("servidas pero ociosas", 20, GREEN, True), (" dentro del perímetro urbano.", 20, INK, False)],
     [("Recargo progresivo: ", 20, INK, False), ("+100%", 20, GOLD, True), (" estándar y ", 20, INK, False), ("+200%", 20, CLAY, True), (" en vacíos prioritarios.", 20, INK, False)],
     [("Promueve el ", 20, INK, False), ("desarrollo compacto", 20, GREEN, True), (" usando el padrón que ya existe.", 20, INK, False)],
 ], extra_stats=[
@@ -601,6 +601,34 @@ notes(s, "Cuadro de referencia. Dos ya operativos (verde), el resto diseñados y
           "Nótese la diversidad de disparadores: cada uno cubre un momento distinto.")
 
 # =====================================================================
+# SLIDE (nuevo) — ¿CUÁNTO PAGO? (traducción al vecino)
+# =====================================================================
+s = slide(); base(s); brandbar(s); kicker(s, "En concreto · 03", color=GOLD)
+title(s, [("¿Y esto a quién le toca?", SLATE, False)])
+casos = [
+    ("Un baldío servido y ocioso", "Paga la sobretasa (+100% / +200%). El incentivo es claro: construir o vender, no especular.", CLAY, CLAY_BG),
+    ("Un loteo o rezonificación", "Aporta parte del mayor valor que la ciudad le crea (30–50% del diferencial).", GOLD, RGBColor(0xF6,0xF0,0xE0)),
+    ("Una familia en su vivienda", "No paga ningún cargo nuevo. Y puede acceder a alivios por eficiencia hídrica y arbolado.", GREEN, GREEN_BG),
+]
+cw, gx = Inches(3.95), Inches(0.28); x0 = Inches(0.75); y0 = Inches(2.35); ch = Inches(3.5)
+for i,(h,d,c,bg) in enumerate(casos):
+    x = x0 + i*(cw+gx)
+    rect(s, x, y0, cw, ch, fill=bg, shadow=True, shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.05)
+    rect(s, x, y0, cw, Pt(6), fill=c)
+    text(s, x+Inches(0.3), y0+Inches(0.45), cw-Inches(0.6), Inches(1.1),
+         [[(h, 21, c, True, False)]], space_after=0, line_spacing=1.05)
+    text(s, x+Inches(0.3), y0+Inches(1.55), cw-Inches(0.6), Inches(1.8),
+         [[(d, 17, INK, False, False)]], space_after=0, line_spacing=1.2)
+text(s, Inches(0.75), Inches(6.15), Inches(11.8), Inches(0.6),
+     [[("Paga quien ", 18, INK, False, False), ("se beneficia del cambio de suelo", 18, GOLD, True, False),
+       (" — no el vecino que ya vive en su casa.", 18, INK, False, False)]],
+     anchor=MSO_ANCHOR.MIDDLE, space_after=0)
+footer(s); pagenum(s)
+notes(s, "La pregunta que todos se hacen. Es clave para desactivar el rumor de 'más impuestos': "
+          "el aporte recae sobre baldíos ociosos y sobre quien desarrolla o rezonifica, no sobre la "
+          "familia que habita su vivienda. Al contrario, esa familia puede recibir alivios.")
+
+# =====================================================================
 # SLIDE 17 — ¿POR QUÉ UN FIDEICOMISO?
 # =====================================================================
 s = slide(); base(s); brandbar(s); kicker(s, "La arquitectura · 04", color=SLATE)
@@ -625,6 +653,41 @@ for big, small, c in alloc:
 footer(s); pagenum(s)
 notes(s, "El fideicomiso es la pieza que convierte recaudación en credibilidad. Separado del "
           "presupuesto, auditado, con reglas de reparto fijas: eso es lo que un financista puede confiar.")
+
+# =====================================================================
+# SLIDE (nuevo) — CONTROLES Y PRIMERAS OBRAS (garantías + gestión)
+# =====================================================================
+s = slide(); base(s); brandbar(s); kicker(s, "Garantías y gestión · 04", color=SLATE)
+title(s, [("No es una caja: controles y primeras obras", SLATE, False)])
+# columna izquierda: controles
+rect(s, Inches(0.75), Inches(2.25), Inches(5.7), Inches(4.05), fill=RGBColor(0xEF,0xF1,0xF4),
+     shadow=True, shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.05)
+rect(s, Inches(0.75), Inches(2.25), Inches(5.7), Pt(6), fill=SLATE)
+text(s, Inches(1.05), Inches(2.5), Inches(5.1), Inches(0.5),
+     [[("CONTROLES", 17, SLATE, True, False)]], space_after=0)
+text(s, Inches(1.05), Inches(3.2), Inches(5.15), Inches(3.0),
+     [[("Directorio con un ", 17, INK, False), ("externo del Concejo", 17, WATER, True), (".", 17, INK, False)],
+      [("Auditoría independiente ", 17, INK, False), ("con informe público", 17, GREEN, True), (".", 17, INK, False)],
+      [("Mayoría calificada: ", 17, INK, False), ("blindado entre gestiones", 17, GOLD, True), (".", 17, INK, False)]],
+     space_after=14, line_spacing=1.15)
+# columna derecha: primeras obras
+rect(s, Inches(6.85), Inches(2.25), Inches(5.7), Inches(4.05), fill=GREEN_BG,
+     shadow=True, shape=MSO_SHAPE.ROUNDED_RECTANGLE, round_=0.05)
+rect(s, Inches(6.85), Inches(2.25), Inches(5.7), Pt(6), fill=GREEN)
+text(s, Inches(7.15), Inches(2.5), Inches(5.1), Inches(0.5),
+     [[("PRIMERAS OBRAS", 17, GREEN, True, False)]], space_after=0)
+text(s, Inches(7.15), Inches(3.2), Inches(5.15), Inches(3.0),
+     [[("Microplazas en distritos ", 17, INK, False), ("D/E", 17, CLAY, True), (" (ARS 1.200 M).", 17, INK, False)],
+      [("Red hídrica prioritaria ", 17, INK, False), ("donde más falta", 17, WATER, True), (".", 17, INK, False)],
+      [("Plan de ", 17, INK, False), ("arbolado y permeabilidad", 17, GREEN, True), (".", 17, INK, False)]],
+     space_after=14, line_spacing=1.15)
+text(s, Inches(0.75), Inches(6.5), Inches(11.8), Inches(0.4),
+     [[("Reglas claras + obras visibles el primer año: así se sostiene política y socialmente.", 15, MUTED, False, True)]],
+     space_after=0)
+footer(s); pagenum(s)
+notes(s, "La respuesta a las dos preguntas del Concejo: ¿quién controla la plata? (auditoría, externo "
+          "del Concejo, informe público) y ¿qué se ve el primer año? (microplazas en D/E, red hídrica, "
+          "arbolado). Reglas claras y obras tempranas dan sostenibilidad política.")
 
 # =====================================================================
 # SLIDE 18 — ESCALERA DE APALANCAMIENTO
@@ -737,8 +800,8 @@ notes(s, "Este es el motor real del ICD: un tablero que puntúa cada distrito en
 # =====================================================================
 # SLIDE (nuevo) — RANKING DE PRIORIDAD POR DISTRITO (puntaje total)
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "El diagnóstico · 05", color=CLAY)
-title(s, [("Ranking de prioridad por distrito", SLATE, False)])
+s = slide(); base(s); brandbar(s); kicker(s, "Mapa de prioridades · 05", color=GREEN)
+title(s, [("Dónde va primero la inversión", SLATE, False)])
 ranking = [
     ("Ciudad", 7.0), ("La Puntilla", 6.0), ("Mayor Drummond", 4.5), ("Vistalba", 4.5),
     ("Chacras de Coria", 4.0), ("Carrodilla", 3.5), ("Agrelo", 3.5), ("Ugarteche", 3.5),
@@ -805,19 +868,19 @@ notes(s, "La tabla completa que sostiene el ranking: 11 subíndices por distrito
 # =====================================================================
 # SLIDE 20 — PRUEBA DE EQUIDAD
 # =====================================================================
-s = slide(); base(s); brandbar(s); kicker(s, "La prueba de equidad · 05", color=CLAY)
-title(s, [("¿Dónde se necesita vs. dónde se invierte?", SLATE, False)])
+s = slide(); base(s); brandbar(s); kicker(s, "La regla que corrige · 05", color=GREEN)
+title(s, [("La regla que decide dónde invertir", SLATE, False)])
 bullets(s, [
-    [("Las 2 mayores inversiones caen en distritos que ", 21, INK, False), ("ya puntúan bien", 21, WATER, True), (" en verde.", 21, INK, False)],
-    [("Los más necesitados ", 21, INK, False), ("(Vistalba, Las Compuertas, Industrial)", 21, CLAY, True), (" no reciben obra verde.", 21, INK, False)],
-    [("La palanca: ", 21, INK, False), ("reasignar las microplazas (ARS 1.200 M) a distritos D/E", 21, GREEN, True), (".", 21, INK, False)],
+    [("Sin regla, la inversión tiende a ir donde ", 21, INK, False), ("ya hay capacidad instalada", 21, WATER, True), (".", 21, INK, False)],
+    [("El ICD invierte esa lógica: ", 21, INK, False), ("prioriza los distritos con mayor déficit", 21, GREEN, True), (" (D/E).", 21, INK, False)],
+    [("Primer movimiento: ", 21, INK, False), ("microplazas (ARS 1.200 M) a los barrios que más lo necesitan", 21, GOLD, True), (".", 21, INK, False)],
 ], w=Inches(11.6), gap=22)
 text(s, Inches(0.75), Inches(5.9), Inches(11.7), Inches(0.7),
-     [[("El ICD no describe: corrige. Alinea la inversión con la necesidad, no con la capacidad.",
+     [[("El ICD no describe: corrige. Alinea la inversión con la necesidad, no con la capacidad de gasto.",
         18, GOLD, True, True)]], space_after=0, line_spacing=1.1)
 footer(s); pagenum(s)
-notes(s, "La honestidad del caso: sin regla, el dinero va a donde ya está bien. El ICD existe "
-          "precisamente para forzar la corrección hacia los distritos D y E.")
+notes(s, "En positivo: el valor que agrega el sistema es una regla que, de acá en adelante, dirige la "
+          "inversión a los distritos con mayor déficit (D/E) en vez de a los que ya están bien.")
 
 # =====================================================================
 # SLIDE 21 — LOS NÚMEROS REALES
