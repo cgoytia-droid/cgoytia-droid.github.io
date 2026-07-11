@@ -1,0 +1,12 @@
+# Datos y salidas del análisis (no versionar)
+data/*
+!data/README.md
+output/*
+!output/.gitkeep
+
+# Artefactos de R / RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
