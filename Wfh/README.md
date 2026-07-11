@@ -39,7 +39,8 @@ Wfh/
 ├── R/
 │   ├── Main.R            <- corre el modelo (inversión + baseline + WFH + impactos)
 │   ├── wfh_scenarios.R   <- escenario WFH (matriz de conmutación) + cálculo de impactos
-│   ├── prepare_data.R    <- geojson + ingreso + dólar  ->  Chars.csv + matriz de tiempos
+│   ├── build_chars.R     <- ensambla Chars.csv real (población, Argenprop, empleo, WFH) por radio/fracción
+│   ├── prepare_data.R    <- geojson + ingreso + dólar  ->  área K + matriz de tiempos
 │   └── demo/             <- 10 localidades de ejemplo para correr sin datos propios
 │       ├── Chars.csv
 │       └── MatrixTravelTimes_mins.csv
