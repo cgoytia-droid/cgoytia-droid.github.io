@@ -1,85 +1,121 @@
-# WFH — Spatial models (Goytia & Sanguinetti)
+# WFH en la RMBA — Modelo de Equilibrio Espacial (IGC.CSM)
 
-Código en **R** para estimar modelos de econometría espacial sobre los datos del
-proyecto *"The Impact of Post-COVID Trends in Work from Home on Land Use,
-Property Prices, and Local Tax Revenues in the Buenos Aires Metropolitan
-Region"* (Lincoln Institute of Land Policy).
+Estima el impacto del **Work-from-Home (WFH) post-COVID** sobre precios de
+floorspace, uso del suelo (residentes/trabajadores) y **recaudación local** en
+la Región Metropolitana de Buenos Aires, usando **"el R de IGC"**: el paquete
+[`IGC.CSM`](https://cran.r-project.org/package=IGC.CSM) (International Growth
+Centre — *Cities Spatial Model*), que operacionaliza el modelo estructural de
+**Quantitative Spatial Equilibrium** de Ahlfeldt, Redding, Sturm & Wolf (2015).
 
-El pipeline sigue el flujo estándar (Anselin; LeSage & Pace): OLS → tests de
-autocorrelación → elección de especificación → estimación de SAR / SEM / SDM /
-SLX / SAC → **efectos directos, indirectos y totales** → comparación de modelos.
+Proyecto: Goytia & Sanguinetti — *Lincoln Institute of Land Policy*.
+
+> **Nota:** este es un modelo **estructural de equilibrio general** (inversión +
+> contrafáctico), **no** econometría espacial (SAR/SEM). El scaffold anterior de
+> `spdep`/`spatialreg` fue reemplazado por este, que es el que usa el IGC.
 
 ---
+
+## Cómo funciona el modelo
+
+1. **`inversionModel()`** — a partir de datos observados por localidad
+   (residentes `L_i`, trabajadores `L_j`, precio del floorspace `Q`, área `K`) y
+   la matriz de tiempos de viaje `t_ij`, **recupera los fundamentos** de la
+   ciudad: productividad (`a`/`A`), amenidades (`b`/`B`), salarios (`w`),
+   densidad de desarrollo (`varphi`), precios normalizados (`Q_norm`) y share
+   comercial del floorspace (`ttheta`).
+
+2. **`solveModel()`** — con esos fundamentos resuelve el **equilibrio**. En el
+   baseline reproduce los datos; cambiando un input computa el **contrafáctico**.
+
+**Mapeo del WFH:** teletrabajar *k* días por semana reduce la frecuencia de
+conmutación y por lo tanto el **costo efectivo de viajar** → escalamos la matriz
+`t_ij` por `(semana − k)/semana` (ver `R/wfh_scenarios.R`). El modelo reubica
+residentes y empleo, y devuelve nuevos precios, salarios y bienestar.
 
 ## Estructura
 
 ```
 Wfh/
 ├── R/
-│   ├── _config.R              <- EDITÁ SOLO ESTO (rutas y nombres de columnas)
-│   ├── 00_setup.R             <- instala/carga paquetes
-│   ├── 01_data_and_weights.R  <- carga datos y construye la matriz W
-│   ├── 02_cross_section_models.R  <- OLS, Moran, LM tests, SAR/SEM/SDM/SLX/SAC, impactos
-│   ├── 03_spatial_panel.R     <- panel espacial pre/post-COVID (opcional, splm)
-│   └── run_all.R              <- corre todo de punta a punta
-├── data/                      <- poné acá tu shapefile/CSV (no se versiona)
-└── output/                    <- tablas y objetos estimados (no se versiona)
+│   ├── Main.R            <- corre el modelo (inversión + baseline + WFH + impactos)
+│   ├── wfh_scenarios.R   <- escenario WFH (matriz de conmutación) + cálculo de impactos
+│   ├── prepare_data.R    <- geojson + ingreso + dólar  ->  Chars.csv + matriz de tiempos
+│   └── demo/             <- 10 localidades de ejemplo para correr sin datos propios
+│       ├── Chars.csv
+│       └── MatrixTravelTimes_mins.csv
+├── data/                <- tus insumos reales (no se versiona)
+└── output/              <- resultados (no se versiona)
 ```
 
-## Cómo correrlo
+## Uso
 
-### 1. Prueba sin datos (out-of-the-box)
-Con `CFG$USE_SIMULATED = TRUE` (valor por defecto) el pipeline genera una grilla
-sintética con dependencia espacial real y corre todos los modelos. Sirve para
-verificar que R y los paquetes están OK:
-
+### 1. Probar con el demo (out-of-the-box)
 ```r
-setwd("Wfh")          # o abrí el proyecto en RStudio
-source("R/run_all.R")
+setwd("Wfh")
+source("R/Main.R")      # instala IGC.CSM la 1ra vez y corre las 10 localidades demo
+```
+Imprime el cambio de precios, residentes, trabajadores, bienestar agregado y la
+base imponible local bajo el escenario WFH, y guarda todo en `output/`.
+
+### 2. Con los datos reales de la RMBA
+```r
+setwd("Wfh")
+# 2a. Poné los 3 archivos crudos en data/:
+#     greater_buenos_aires_ar.geojson, ingreso.csv, dolar_blue.xlsx
+source("R/prepare_data.R")   # genera Chars_template.csv + matriz placeholder (agrega a 59 partidos)
+# 2b. Completá L_i, L_j, Q en Chars_template.csv -> renombralo Chars.csv
+#     Reemplazá la matriz placeholder por tiempos reales -> MatrixTravelTimes_mins.csv
+# 2c. En Main.R poné CFG$source_data <- "real"
+source("R/Main.R")
 ```
 
-### 2. Con tus datos reales
-Abrí `R/_config.R` y:
+## Datos: qué hay y qué falta
 
-1. Poné `USE_SIMULATED = FALSE`.
-2. Apuntá `geom_path` a tu shapefile / GeoPackage de unidades (partidos, radios
-   censales, fracciones…) con una columna de ID única (`id_col`).
-3. Si los atributos están en una tabla aparte, completá `attr_path`; si ya vienen
-   dentro del shapefile, dejalo en `NULL`.
-4. Mapeá tus nombres de columnas en `y`, `wfh` y `controls`.
-5. Elegí el tipo de matriz de pesos (`weights_type`: `queen`, `rook`, `knn`, `dist`).
-6. Volvé a correr `source("R/run_all.R")`.
+`prepare_data.R` agrega los **14.954 radios censales** a **~59 partidos/comunas**
+(la matriz de tiempos radio×radio sería inviable) y calcula lo que **sí** es
+derivable de los archivos subidos:
 
-Para el diseño **panel pre/post-COVID**, poné `is_panel = TRUE` y completá
-`time_col`; se activa `03_spatial_panel.R` (efectos fijos de unidad con `splm`).
+| Insumo del modelo | Estado | Fuente |
+|---|---|---|
+| `K` (área) | ✅ calculado | geometría del geojson (`st_area`) |
+| `ipcf` (ingreso) | ✅ calculado | `ingreso.csv` (proxy / amenidad) |
+| `t_ij` | ⚠️ placeholder por distancia | reemplazar por OSRM/Google/GTFS-AMBA |
+| `L_i` (residentes) | ❌ a completar | Censo 2010/2022 por radio |
+| `L_j` (trabajadores) | ❌ a completar | empleo / censo económico |
+| `Q` (precio del m²) | ❌ a completar | listings inmobiliarios / registro |
 
-## Qué modelos estima
+El manual del IGC aclara que la limpieza y armado de datos queda del lado del
+usuario; `L_i`, `L_j` y `Q` requieren tus fuentes de población, empleo y precios.
 
-| Modelo | Estructura | Cuándo |
-|--------|-----------|--------|
-| OLS    | `y = Xβ + e`                         | referencia |
-| SLX    | `y = Xβ + WXθ + e`                   | spillovers solo en covariables |
-| SAR    | `y = ρWy + Xβ + e`                   | rezago de la dependiente (difusión de precios) |
-| SEM    | `y = Xβ + u, u = λWu + e`            | shocks no observados espacialmente correlacionados |
-| SDM    | `y = ρWy + Xβ + WXθ + e`             | anida SAR y SLX; suele ser el más general recomendado |
-| SAC    | `y = ρWy + Xβ + u, u = λWu + e`      | rezago **y** error espacial |
+## Escenario WFH y resultados
 
-La elección se guía por los tests LM/RS y por AIC + LR tests (todo se imprime en
-consola y se guarda en `output/`).
+- **Precios (`Q`)** y **uso del suelo (`L_i`, `L_j`)**: salida directa del contrafáctico.
+- **Recaudación local**: proxy de base imponible `∝ Q · varphi · K` (valor del
+  floorspace desarrollado), comparando baseline vs WFH — el resultado de
+  "*local tax revenues*" del paper. La alícuota (`CFG$tax_rate`) solo escala el
+  nivel; los % de cambio no dependen de ella.
+- **Bienestar**: `%ΔU` agregado, con valoración monetaria aproximada en ingreso
+  equivalente (usando `ybar`).
 
-> **Impactos (clave para interpretar el WFH):** en los modelos con `ρWy` el
-> coeficiente del WFH **no** es el efecto marginal. `02_cross_section_models.R`
-> reporta el efecto **directo** (sobre la propia unidad), **indirecto**
-> (spillover a las vecinas) y **total**.
+Ajustá el escenario en `Main.R`: `CFG$wfh_days_per_week` (días de teletrabajo).
+Para un WFH **heterogéneo por zona**, pasá `telework_share` (share de empleo
+teletrabajable por destino) a `wfh_commuting_matrix()`.
 
-## Requisitos
+## Requisitos y estado de verificación
 
-R (≥ 4.1) con: `sf`, `spdep`, `spatialreg`, `Matrix`, `dplyr`, `ggplot2`,
-`modelsummary` y —para panel— `splm`. `00_setup.R` los instala si faltan.
+- R (≥ 4.2) con `IGC.CSM`; para `prepare_data.R`: `sf`, `dplyr`, `readxl`.
+- Parámetros estructurales por defecto del paquete (`alpha`, `beta=0.7`,
+  `theta=7`, etc.); si tenés estimaciones propias para Buenos Aires, pasalas
+  como argumentos a `inversionModel`/`solveModel`.
+- **Verificado en este entorno:** los scripts parsean y la lógica de
+  `wfh_scenarios.R` pasa sus tests. **No** se pudo ejecutar el modelo completo
+  acá porque CRAN está bloqueado por la política de red de la sesión remota;
+  corré `source("R/Main.R")` en tu máquina (donde CRAN es accesible) para la
+  ejecución end-to-end.
 
-## Nota sobre "el R de IGC"
-
-Si "el R de IGC" es un script/plantilla existente de tu centro con la
-construcción de la matriz `W` o una especificación particular, pasámelo y lo
-integro reemplazando `01_data_and_weights.R` o la fórmula de `_config.R`, en vez
-de este scaffold genérico.
+## Referencias
+- Paquete: <https://cran.r-project.org/package=IGC.CSM> · Fuente:
+  <https://github.com/davidzarruk/IGCities>
+- Ahlfeldt, Redding, Sturm & Wolf (2015), *The Economics of Density: Evidence
+  from the Berlin Wall*, Econometrica 83(6).
+- Delbridge, Gomez Ortis, Tsivanidis & Zarate (2024), *Cities Spatial Model*, IGC.
