@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agenda de investigaci&oacute;n de la Profesora Cynthia Goytia sobre regiones de minerales cr&iacute;ticos: mercados de suelo, financiamiento basado en el suelo, resource urbanism y planificaci&oacute;n de corredores mineros en Argentina, Chile y Per&uacute;.">
+    <meta name="keywords" content="Cynthia Goytia, minerales cr&iacute;ticos, tri&aacute;ngulo del litio, ciudades mineras, resource urbanism, captura de plusval&iacute;as, financiamiento del suelo, econom&iacute;a urbana, Argentina, Chile, Per&uacute;">
+    <meta name="author" content="Cynthia Goytia">
+    <meta property="og:title" content="Regiones de Minerales Cr&iacute;ticos: del boom minero al valor urbano">
+    <meta property="og:description" content="Una agenda de investigaci&oacute;n que conecta mercados de suelo, financiamiento del suelo y resource urbanism en regiones de minerales cr&iacute;ticos.">
+    <meta property="og:url" content="https://cgoytia-droid.github.io/research/regiones-mineras.html">
+    <meta property="og:type" content="article">
+    <link rel="canonical" href="https://cgoytia-droid.github.io/research/regiones-mineras.html">
+    <title>Regiones de Minerales Cr&iacute;ticos: una agenda de investigaci&oacute;n — Cynthia Goytia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.6; color: #333; background: #fff; }
+        .brandbar { height: 6px; background: linear-gradient(90deg, #B8860B, #d4c088, #B8860B); }
+        .header { background: linear-gradient(135deg, #4E5869, #6F7D94); color: #fff; padding: 22px 0; border-bottom: 3px solid #B8860B; }
+        .header-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; position: relative; }
+        .eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #d4c088; margin-bottom: 6px; }
+        .header h1 { font-size: 25px; font-weight: normal; letter-spacing: 0.5px; line-height: 1.2; }
+        .header h1 span { font-weight: bold; }
+        .header .subtitle { font-size: 13px; color: #d0d6e0; margin-top: 8px; }
+        .lang-toggle { position: absolute; top: 0; right: 20px; }
+        .lang-toggle a { color: #fff; text-decoration: none; font-size: 12px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.4); border-radius: 3px; transition: background 0.2s; }
+        .lang-toggle a:hover { background: rgba(255,255,255,0.15); }
+        .topbar { background: #f5f5f5; border-bottom: 1px solid #ddd; }
+        .topbar-inner { max-width: 900px; margin: 0 auto; padding: 8px 20px; }
+        .topbar a { color: #4E5869; font-weight: bold; font-size: 12px; text-decoration: none; }
+        .topbar a:hover { color: #B8860B; }
+        .wrap { max-width: 900px; margin: 0 auto; padding: 30px 20px 10px; }
+        .lede { font-size: 14px; color: #444; text-align: justify; margin-bottom: 14px; }
+        .lede strong { color: #4E5869; }
+        h2 { font-size: 19px; color: #4E5869; border-bottom: 2px solid #B8860B; padding-bottom: 6px; margin: 34px 0 16px; }
+        h3 { font-size: 14px; color: #4E5869; margin: 20px 0 8px; }
+        p { margin-bottom: 12px; text-align: justify; }
+        a { color: #B8860B; text-decoration: none; }
+        a:hover { color: #8B6914; text-decoration: underline; }
+        .themes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .theme { border: 1px solid #e3e3e3; border-left: 3px solid #B8860B; border-radius: 4px; padding: 14px 16px; background: #fafafa; }
+        .theme .num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #4E5869; color: #fff; border-radius: 50%; font-weight: bold; font-size: 13px; margin-bottom: 8px; }
+        .theme h3 { margin-top: 0; font-size: 13.5px; color: #4E5869; }
+        .theme p { font-size: 12px; margin-bottom: 0; color: #555; }
+        .theme ul { margin: 6px 0 0 16px; font-size: 12px; color: #555; }
+        .theme ul li { margin-bottom: 3px; }
+        .pill { display: inline-block; font-size: 10.5px; letter-spacing: 0.5px; text-transform: uppercase; color: #8B6914; background: #f3ead2; border: 1px solid #e2d3a3; border-radius: 3px; padding: 1px 7px; margin-top: 10px; }
+        .findings { background: #f6f8fa; border: 1px solid #e3e8ee; border-radius: 4px; padding: 6px 22px; margin-top: 6px; }
+        .findings li, .gaps li { margin: 8px 0; }
+        ul.plain { margin-left: 20px; }
+        ul.plain li { margin-bottom: 6px; }
+        .agenda { background: linear-gradient(135deg, #4E5869, #5c6779); color: #eef1f5; border-radius: 6px; padding: 22px 26px; margin-top: 10px; }
+        .agenda h2 { color: #fff; border-bottom-color: #d4c088; margin-top: 0; }
+        .agenda p { color: #dfe4ea; }
+        .agenda .title-option { background: rgba(255,255,255,0.08); border-left: 3px solid #d4c088; padding: 12px 16px; margin: 12px 0; border-radius: 3px; font-size: 13.5px; }
+        .agenda .title-option em { color: #f0e6c8; font-style: normal; font-weight: bold; }
+        .agenda strong { color: #fff; }
+        .agenda a { color: #f0e6c8; }
+        .cases { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+        .cases span { font-size: 11.5px; background: #eef1f5; border: 1px solid #dfe4ea; color: #4E5869; border-radius: 3px; padding: 3px 10px; }
+        footer { background: #4E5869; color: #ccc; text-align: center; padding: 18px; font-size: 11px; margin-top: 40px; }
+        footer a { color: #d4c088; text-decoration: none; }
+        .disclaimer { font-size: 11px; color: #999; text-align: center; margin: 24px 0 0; font-style: italic; }
+        @media (max-width: 720px) {
+            .themes { grid-template-columns: 1fr; }
+            .lang-toggle { position: static; display: inline-block; margin-top: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="brandbar"></div>
+
+<div class="header">
+    <div class="header-inner">
+        <div class="eyebrow">Agenda de Investigaci&oacute;n</div>
+        <h1>Regiones de Minerales Cr&iacute;ticos:<br><span>del boom minero al valor urbano</span></h1>
+        <div class="subtitle">Mercados de suelo, financiamiento basado en el suelo y planificaci&oacute;n de corredores mineros</div>
+        <div class="lang-toggle"><a href="critical-mineral-regions.html">EN English</a></div>
+    </div>
+</div>
+
+<div class="topbar">
+    <div class="topbar-inner"><a href="../index_es.html">&larr; Volver al sitio principal</a></div>
+</div>
+
+<div class="wrap">
+
+    <p class="lede">La literatura m&aacute;s reciente (2023&ndash;2026) muestra un cambio importante respecto de la visi&oacute;n cl&aacute;sica de las <strong>&ldquo;mining towns&rdquo;</strong>. El foco ya no est&aacute; solamente en c&oacute;mo alojar el crecimiento poblacional, sino en c&oacute;mo convertir un boom extractivo en desarrollo urbano y territorial de largo plazo. Esta nota sintetiza los consensos emergentes en ocho temas, resume los hallazgos emp&iacute;ricos recientes y los vac&iacute;os de investigaci&oacute;n, y esboza una agenda en el cruce de la econom&iacute;a urbana, el financiamiento del suelo y el desarrollo territorial &mdash; con casos de Argentina, Chile y Per&uacute;.</p>
+
+    <h2>Ocho temas de consenso emergente</h2>
+
+    <div class="themes">
+
+        <div class="theme">
+            <div class="num">1</div>
+            <h3>El mayor riesgo sigue siendo el &ldquo;enclave&rdquo;</h3>
+            <p>Muchos proyectos de cobre, litio o minerales cr&iacute;ticos generan <strong>econom&iacute;as de enclave</strong>:</p>
+            <ul>
+                <li>poca integraci&oacute;n con la econom&iacute;a local;</li>
+                <li>empleo especializado que llega desde otras regiones;</li>
+                <li>escasos encadenamientos productivos;</li>
+                <li>ciudades dependientes de un &uacute;nico ciclo de precios.</li>
+            </ul>
+            <p style="margin-top:8px;">La pregunta central ya no es si habr&aacute; crecimiento urbano, sino <em>qu&eacute; instituciones</em> permiten transformar un enclave extractivo en una ciudad diversificada. Los resultados dependen mucho m&aacute;s de la gobernanza local que del mineral en s&iacute;.</p>
+        </div>
+
+        <div class="theme">
+            <div class="num">2</div>
+            <h3>El nuevo paradigma: &ldquo;resource urbanism&rdquo;</h3>
+            <p>Un campo emergente estudia c&oacute;mo los minerales cr&iacute;ticos reorganizan <strong>sistemas urbanos completos</strong>. La miner&iacute;a se analiza no como un proyecto aislado sino como parte de corredores log&iacute;sticos, infraestructura energ&eacute;tica, puertos, carreteras, ciudades intermedias y cadenas globales de suministro.</p>
+            <p style="margin-top:8px;">En el Tri&aacute;ngulo del Litio se propone el concepto de <strong>corridor urbanism</strong>: las inversiones producen corredores econ&oacute;micos que conectan salares, puertos y ciudades m&aacute;s que nuevas ciudades mineras tradicionales.</p>
+            <span class="pill">Jujuy &middot; Salta &middot; Catamarca &middot; N. Chile &middot; S. Per&uacute;</span>
+        </div>
+
+        <div class="theme">
+            <div class="num">3</div>
+            <h3>La planificaci&oacute;n pas&oacute; de la ciudad al territorio</h3>
+            <p>La unidad de planificaci&oacute;n ya no es &uacute;nicamente la ciudad minera. Ahora se propone planificar la <strong>regi&oacute;n funcional</strong>: redes de ciudades, corredores, cuencas h&iacute;dricas e infraestructura regional.</p>
+            <p style="margin-top:8px;">Esto responde a que trabajadores, proveedores y servicios suelen localizarse en varias ciudades simult&aacute;neamente:</p>
+            <p style="margin-top:6px; color:#4E5869; font-weight:bold; font-size:12px;">mina &rarr; ciudad de servicios &rarr; aeropuerto &rarr; puerto &rarr; capital regional.</p>
+        </div>
+
+        <div class="theme">
+            <div class="num">4</div>
+            <h3>El agua es el principal condicionante urbano</h3>
+            <p>En litio especialmente, el agua aparece como el principal l&iacute;mite al desarrollo. La planificaci&oacute;n urbana debe incorporar:</p>
+            <ul>
+                <li>disponibilidad h&iacute;drica y derechos de agua;</li>
+                <li>infraestructura de reutilizaci&oacute;n;</li>
+                <li>protecci&oacute;n de acu&iacute;feros;</li>
+                <li>monitoreo ambiental.</li>
+            </ul>
+            <p style="margin-top:8px;">La <strong>licencia social</strong> depende tanto de la gesti&oacute;n del agua como del empleo generado.</p>
+        </div>
+
+        <div class="theme">
+            <div class="num">5</div>
+            <h3>Las ciudades mineras exitosas son las que diversifican</h3>
+            <p>El objetivo no deber&iacute;a ser construir una &ldquo;mining city&rdquo;, sino una ciudad capaz de sobrevivir cuando termine el boom. Las estrategias usan el boom para crear <strong>activos permanentes</strong>:</p>
+            <ul>
+                <li>universidades y centros tecnol&oacute;gicos;</li>
+                <li>hospitales regionales y parques industriales;</li>
+                <li>energ&iacute;as renovables, turismo, econom&iacute;a del conocimiento.</li>
+            </ul>
+        </div>
+
+        <div class="theme">
+            <div class="num">6</div>
+            <h3>Nuevo inter&eacute;s por las ciudades intermedias</h3>
+            <p>Las grandes beneficiarias no son necesariamente las ciudades junto a la mina, sino <strong>ciudades intermedias de 50.000&ndash;500.000</strong> habitantes que concentran servicios especializados, vivienda, educaci&oacute;n, log&iacute;stica y comercio.</p>
+            <p style="margin-top:8px;">En Chile crece una literatura sobre Antofagasta, Calama y otras que busca c&oacute;mo evitar un crecimiento desordenado y dependiente de la miner&iacute;a.</p>
+        </div>
+
+        <div class="theme">
+            <div class="num">7</div>
+            <h3>La captura de rentas urbanas como tema central</h3>
+            <p>Parte de la renta minera se capitaliza en <strong>suelo urbano, vivienda, parques industriales e infraestructura</strong> &mdash; pero muy pocos gobiernos locales capturan ese incremento. Empiezan a aparecer propuestas sobre:</p>
+            <ul>
+                <li>Land Value Capture y contribuciones por mejoras;</li>
+                <li>impuestos a las plusval&iacute;as;</li>
+                <li>fondos soberanos y de estabilizaci&oacute;n territorial locales;</li>
+                <li>un property tax fortalecido.</li>
+            </ul>
+            <p style="margin-top:8px;">El campo est&aacute; poco desarrollado: casi no existen modelos integrados de captura de valor del suelo en regiones mineras.</p>
+        </div>
+
+        <div class="theme">
+            <div class="num">8</div>
+            <h3>Resiliencia frente al ciclo minero</h3>
+            <p>Un tema muy reciente dise&ntilde;a ciudades capaces de soportar ca&iacute;das del precio del cobre y del litio, cierre de minas y automatizaci&oacute;n. Se habla de <strong>adaptive mining cities</strong>, <strong>resilient mining regions</strong> y <strong>post-extractive urbanism</strong>.</p>
+            <p style="margin-top:8px;">El objetivo es evitar que la infraestructura quede sobredimensionada tras el fin del ciclo extractivo.</p>
+        </div>
+
+    </div>
+
+    <h2>Hallazgos emp&iacute;ricos recientes</h2>
+    <ul class="findings">
+        <li>Los booms mineros <strong>s&iacute;</strong> aumentan la poblaci&oacute;n urbana, pero menos de lo que tradicionalmente se supon&iacute;a.</li>
+        <li>El empleo nuevo se concentra principalmente en <strong>servicios y comercio</strong>, m&aacute;s que en manufactura.</li>
+        <li>La <strong>calidad institucional</strong> explica gran parte de las diferencias entre regiones mineras exitosas y fallidas.</li>
+        <li>La <strong>planificaci&oacute;n regional temprana</strong> reduce significativamente la formaci&oacute;n de asentamientos informales y los d&eacute;ficits de infraestructura.</li>
+    </ul>
+
+    <h2>Vac&iacute;os importantes de investigaci&oacute;n</h2>
+    <p>Desde la econom&iacute;a urbana y la planificaci&oacute;n, todav&iacute;a faltan estudios que integren:</p>
+    <ol class="gaps" style="margin-left:20px;">
+        <li>mercados de suelo en regiones mineras;</li>
+        <li>mecanismos de captura de plusval&iacute;as;</li>
+        <li>financiamiento urbano asociado a minerales cr&iacute;ticos;</li>
+        <li>vivienda asequible para trabajadores temporales;</li>
+        <li>gobernanza metropolitana de corredores mineros;</li>
+        <li>efectos distributivos entre municipios productores y no productores;</li>
+        <li>adaptaci&oacute;n clim&aacute;tica en ciudades extractivas.</li>
+    </ol>
+
+    <div class="agenda">
+        <h2>Una oportunidad de investigaci&oacute;n</h2>
+        <p>Existe un nicho claro para una agenda que combine <strong>econom&iacute;a urbana, financiamiento del suelo y desarrollo territorial</strong> &mdash; un cruce entre las literaturas de land markets, land-based financing, resource urbanism y ciudades intermedias que sigue escasamente desarrollado a nivel internacional.</p>
+
+        <div class="title-option">
+            <em>From Mining Boom to Urban Value:</em> Land Markets, Land-Based Financing and the Planning of Critical Mineral Regions
+        </div>
+        <div class="title-option">
+            <em>Planning Mining Corridors:</em> Land Markets, Urban Growth and Land Value Capture in Critical Mineral Regions
+        </div>
+
+        <p>Esa agenda conectar&iacute;a directamente land markets, land-based financing, resource urbanism y ciudades intermedias &mdash; un cruce a&uacute;n escasamente desarrollado en la literatura internacional y donde es posible una contribuci&oacute;n original, especialmente con casos de:</p>
+        <div class="cases">
+            <span>Argentina &middot; Jujuy, Salta, Catamarca</span>
+            <span>Chile &middot; Antofagasta, Calama</span>
+            <span>Per&uacute; &middot; regiones mineras del sur</span>
+        </div>
+    </div>
+
+    <p class="disclaimer">S&iacute;ntesis de trabajo de la literatura 2023&ndash;2026. Preparada como nota de agenda de investigaci&oacute;n &mdash; comentarios bienvenidos en <a href="mailto:cgoytia@utdt.edu">cgoytia@utdt.edu</a>.</p>
+
+</div>
+
+<footer>
+    &copy; 2026 Cynthia Goytia &middot; Universidad Torcuato Di Tella &middot; Buenos Aires, Argentina
+    <br><a href="mailto:cgoytia@utdt.edu">cgoytia@utdt.edu</a> &middot; <a href="https://www.utdt.edu/cipuv" target="_blank">www.utdt.edu/cipuv</a> &middot; <a href="../index_es.html">Inicio</a>
+</footer>
+
+</body>
+</html>
