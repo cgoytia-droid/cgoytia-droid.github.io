@@ -58,6 +58,16 @@
         .agenda a { color: #f0e6c8; }
         .cases { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
         .cases span { font-size: 11.5px; background: #eef1f5; border: 1px solid #dfe4ea; color: #4E5869; border-radius: 3px; padding: 3px 10px; }
+        .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0 10px; }
+        .data-stat { background: #fff; border: 1px solid #e6e8ec; border-top: 3px solid #B8860B; border-radius: 6px; padding: 12px 13px; }
+        .data-stat .n { font-size: 20px; font-weight: bold; color: #4E5869; line-height: 1.05; }
+        .data-stat .n small { font-size: 12px; color: #B8860B; font-weight: bold; }
+        .data-stat .l { font-size: 11px; color: #5c636e; margin-top: 5px; line-height: 1.35; }
+        .prov-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 6px 0 4px; }
+        .prov-card { background: #fafafa; border: 1px solid #e6e8ec; border-left: 3px solid #B8860B; border-radius: 5px; padding: 9px 12px; font-size: 11.5px; line-height: 1.4; }
+        .prov-card b { color: #4E5869; }
+        .src-note { font-size: 11px; color: #999; margin-top: 8px; font-style: italic; }
+        @media (max-width: 720px) { .data-grid { grid-template-columns: 1fr 1fr; } .prov-row { grid-template-columns: 1fr; } }
         footer { background: #4E5869; color: #ccc; text-align: center; padding: 18px; font-size: 11px; margin-top: 40px; }
         footer a { color: #d4c088; text-decoration: none; }
         .disclaimer { font-size: 11px; color: #999; text-align: center; margin: 24px 0 0; font-style: italic; }
@@ -81,7 +91,7 @@
 </div>
 
 <div class="topbar">
-    <div class="topbar-inner"><a href="../index_es.html">&larr; Volver al sitio principal</a></div>
+    <div class="topbar-inner"><a href="../index_es.html">&larr; Volver al sitio principal</a> &nbsp;&middot;&nbsp; <a href="../presentations/minerales-criticos-valor-urbano.html">Presentaci&oacute;n: Del boom minero al valor urbano &rarr;</a></div>
 </div>
 
 <div class="wrap">
@@ -173,6 +183,28 @@
         </div>
 
     </div>
+
+    <h2>Argentina: el boom en n&uacute;meros (PDAC 2026)</h2>
+    <p>La evidencia reciente de la principal convenci&oacute;n minera del mundo (PDAC 2026, Toronto) muestra la escala del ciclo de inversi&oacute;n que hoy llega a las provincias de minerales cr&iacute;ticos de Argentina &mdash; y lo poco que el debate geopol&iacute;tico dominante dice sobre la dimensi&oacute;n urbana y del suelo.</p>
+    <div class="data-grid">
+        <div class="data-stat"><div class="n">USD&nbsp;47<small>MIL M</small></div><div class="l">pipeline minero bajo el r&eacute;gimen de inversiones RIGI</div></div>
+        <div class="data-stat"><div class="n">310</div><div class="l">proyectos metal&iacute;feros en cartera &mdash; solo <strong>26 en producci&oacute;n</strong></div></div>
+        <div class="data-stat"><div class="n">USD&nbsp;6,04<small>MIL M</small></div><div class="l">exportaciones mineras r&eacute;cord en 2025 (+29% i.a.)</div></div>
+        <div class="data-stat"><div class="n">USD&nbsp;16&ndash;18<small>MIL M</small></div><div class="l">Vic&uacute;&ntilde;a (San Juan) &mdash; la mayor inversi&oacute;n minera de la historia argentina</div></div>
+    </div>
+    <p><strong>La paradoja estructural.</strong> En 2024, oro y plata a&uacute;n fueron el <strong>82%</strong> de las exportaciones mineras (oro solo, 68%); el r&eacute;cord de 2025 fue en gran medida efecto del precio del oro sobre una producci&oacute;n en declive. El litio, en cambio, se derrumb&oacute; de unos <strong>USD 80.000/t (2022) a USD 10.000&ndash;11.000 (2024)</strong> &mdash; recordatorio de que una ciudad dimensionada en el pico del precio queda sobredimensionada en el valle. El cobre y el litio se plantean menos como crecimiento que como <em>diversificaci&oacute;n</em> frente a esa volatilidad.</p>
+    <h3>Un mapa territorial, no una &uacute;nica ciudad minera</h3>
+    <p>Bajo el Art&iacute;culo 124 de la Constituci&oacute;n las provincias son due&ntilde;as de su subsuelo, de modo que cada una hace su propia &ldquo;paradiplomacia minera&rdquo; &mdash; lo que refuerza la lectura de corredores por sobre la de ciudad &uacute;nica:</p>
+    <div class="prov-row">
+        <div class="prov-card"><b>San Juan</b> &mdash; capital del cobre: Vic&uacute;&ntilde;a, El Pach&oacute;n, Los Azules.</div>
+        <div class="prov-card"><b>Catamarca</b> &mdash; litio + cobre; el corredor Agua Rica&ndash;Alumbrera (MARA), +10.000 empleos en obra.</div>
+        <div class="prov-card"><b>Salta</b> &mdash; el epicentro del litio y &ldquo;puerta del Tri&aacute;ngulo&rdquo;.</div>
+        <div class="prov-card"><b>Jujuy</b> &mdash; Cauchari-Olaroz, la mayor operaci&oacute;n de litio (34.100 t en 2025).</div>
+        <div class="prov-card"><b>Mendoza</b> &mdash; una <em>ciudad de servicios</em> del corredor andino central (ingenier&iacute;a, log&iacute;stica, universidades) sin explotar su propio subsuelo.</div>
+        <div class="prov-card"><b>Patagonia</b> &mdash; uranio, tierras raras, vanadio y potencial nuclear/SMR (Neuqu&eacute;n, R&iacute;o Negro, Chubut, Santa Cruz).</div>
+    </div>
+    <p>Mendoza es la ilustraci&oacute;n m&aacute;s clara del argumento de las ciudades intermedias (tema 6): la principal beneficiaria de un ciclo minero suele ser una ciudad de servicios de la red, no el asentamiento junto al yacimiento. Lo que este mapa de inversiones <em>no</em> resuelve &mdash; qui&eacute;n captura la plusval&iacute;a del suelo, c&oacute;mo se gobiernan los corredores, c&oacute;mo se aloja a los trabajadores temporales &mdash; es justamente el vac&iacute;o de investigaci&oacute;n que sigue.</p>
+    <p class="src-note">Fuente: Straface, F. (2026). <em>Argentina in the New Era of Critical Minerals: A Perspective from PDAC 2026.</em> CARI (Consejo Argentino para las Relaciones Internacionales), Strategic Comments N&ordm; 54.</p>
 
     <h2>Hallazgos emp&iacute;ricos recientes</h2>
     <ul class="findings">

@@ -58,6 +58,16 @@
         .agenda a { color: #f0e6c8; }
         .cases { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
         .cases span { font-size: 11.5px; background: #eef1f5; border: 1px solid #dfe4ea; color: #4E5869; border-radius: 3px; padding: 3px 10px; }
+        .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0 10px; }
+        .data-stat { background: #fff; border: 1px solid #e6e8ec; border-top: 3px solid #B8860B; border-radius: 6px; padding: 12px 13px; }
+        .data-stat .n { font-size: 20px; font-weight: bold; color: #4E5869; line-height: 1.05; }
+        .data-stat .n small { font-size: 12px; color: #B8860B; font-weight: bold; }
+        .data-stat .l { font-size: 11px; color: #5c636e; margin-top: 5px; line-height: 1.35; }
+        .prov-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 6px 0 4px; }
+        .prov-card { background: #fafafa; border: 1px solid #e6e8ec; border-left: 3px solid #B8860B; border-radius: 5px; padding: 9px 12px; font-size: 11.5px; line-height: 1.4; }
+        .prov-card b { color: #4E5869; }
+        .src-note { font-size: 11px; color: #999; margin-top: 8px; font-style: italic; }
+        @media (max-width: 720px) { .data-grid { grid-template-columns: 1fr 1fr; } .prov-row { grid-template-columns: 1fr; } }
         footer { background: #4E5869; color: #ccc; text-align: center; padding: 18px; font-size: 11px; margin-top: 40px; }
         footer a { color: #d4c088; text-decoration: none; }
         .disclaimer { font-size: 11px; color: #999; text-align: center; margin: 24px 0 0; font-style: italic; }
@@ -81,7 +91,7 @@
 </div>
 
 <div class="topbar">
-    <div class="topbar-inner"><a href="../index.html">&larr; Back to main site</a></div>
+    <div class="topbar-inner"><a href="../index.html">&larr; Back to main site</a> &nbsp;&middot;&nbsp; <a href="../presentations/minerales-criticos-valor-urbano.html">Slide deck: From Mining Boom to Urban Value &rarr;</a></div>
 </div>
 
 <div class="wrap">
@@ -173,6 +183,28 @@
         </div>
 
     </div>
+
+    <h2>Argentina: the boom in numbers (PDAC 2026)</h2>
+    <p>Recent evidence from the world's leading mining convention (PDAC 2026, Toronto) shows the scale of the investment cycle now reaching Argentina's critical-mineral provinces — and how little of the urban and land dimension the prevailing geopolitical debate addresses.</p>
+    <div class="data-grid">
+        <div class="data-stat"><div class="n">USD&nbsp;47<small>bn</small></div><div class="l">mining pipeline under the RIGI investment regime</div></div>
+        <div class="data-stat"><div class="n">310</div><div class="l">metal projects in the pipeline &mdash; only <strong>26 in production</strong></div></div>
+        <div class="data-stat"><div class="n">USD&nbsp;6.04<small>bn</small></div><div class="l">record mining exports in 2025 (+29% year-on-year)</div></div>
+        <div class="data-stat"><div class="n">USD&nbsp;16&ndash;18<small>bn</small></div><div class="l">Vic&uacute;&ntilde;a (San Juan) &mdash; the largest mining investment in Argentine history</div></div>
+    </div>
+    <p><strong>The structural paradox.</strong> In 2024, gold and silver still made up <strong>82%</strong> of mining exports (gold alone 68%); the 2025 record was largely a gold-price effect over declining output. Lithium, meanwhile, collapsed from about <strong>USD 80,000/t (2022) to USD 10,000&ndash;11,000 (2024)</strong> — a vivid reminder that a city sized at the price peak is oversized in the trough. Copper and lithium are framed less as growth than as <em>diversification</em> away from that volatility.</p>
+    <h3>A territorial map, not a single mining town</h3>
+    <p>Under Article 124 of the Constitution the provinces own their subsoil, so each runs its own "mining paradiplomacy" — reinforcing the corridor, rather than single-city, reading of the boom:</p>
+    <div class="prov-row">
+        <div class="prov-card"><b>San Juan</b> &mdash; copper capital: Vic&uacute;&ntilde;a, El Pach&oacute;n, Los Azules.</div>
+        <div class="prov-card"><b>Catamarca</b> &mdash; lithium + copper; the Agua Rica&ndash;Alumbrera corridor (MARA), 10,000+ construction jobs.</div>
+        <div class="prov-card"><b>Salta</b> &mdash; the lithium epicentre and "gateway to the Triangle."</div>
+        <div class="prov-card"><b>Jujuy</b> &mdash; Cauchari-Olaroz, the largest lithium operation (34,100 t in 2025).</div>
+        <div class="prov-card"><b>Mendoza</b> &mdash; a <em>services city</em> for the central Andean corridor (engineering, logistics, universities) without mining its own subsoil.</div>
+        <div class="prov-card"><b>Patagonia</b> &mdash; uranium, rare earths, vanadium and SMR/nuclear potential (Neuqu&eacute;n, R&iacute;o Negro, Chubut, Santa Cruz).</div>
+    </div>
+    <p>Mendoza is the clearest illustration of the intermediate-city argument (theme 6): the main beneficiary of a mining cycle is often a services city in the network, not the settlement next to the deposit. What this investment map does <em>not</em> resolve — who captures the land-value uplift, how corridors are governed, how temporary workers are housed — is precisely the research gap below.</p>
+    <p class="src-note">Source: Straface, F. (2026). <em>Argentina in the New Era of Critical Minerals: A Perspective from PDAC 2026.</em> CARI (Argentine Council for International Relations), Strategic Comments No. 54.</p>
 
     <h2>Recent empirical findings</h2>
     <ul class="findings">

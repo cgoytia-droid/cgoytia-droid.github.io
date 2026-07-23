@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Del boom minero al valor urbano — Prof. Cynthia Goytia</title>
+<meta name="description" content="Presentación interactiva: regiones de minerales críticos, mercados de suelo, financiamiento basado en el suelo y planificación de corredores mineros. Datos de PDAC 2026 (CARI, 2026) y agenda de investigación para el Triángulo del Litio.">
+
+<!-- reveal.js core (CDN — requiere conexión al abrir) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+<style>
+/* ====== Identidad visual (paleta del sitio de la autora) ====== */
+:root{
+  --slate:#4E5869; --slate2:#6F7D94; --slate-dk:#3a4250;
+  --gold:#B8860B; --gold-lt:#d4c088;
+  --ink:#2b3038; --paper:#f7f8fa;
+  --copper:#b1456a; --li:#2f8f9d; --land:#5a8f6b; --au:#c79a2e;
+}
+.reveal{ font-family:Verdana, Arial, Helvetica, sans-serif; color:var(--ink); font-size:30px; }
+.reveal h1,.reveal h2,.reveal h3,.reveal h4{ font-family:Verdana, Arial, sans-serif; color:var(--slate); text-transform:none; letter-spacing:.2px; line-height:1.12; font-weight:700; }
+.reveal h1{ font-size:1.95em; } .reveal h2{ font-size:1.45em; } .reveal h3{ font-size:1.05em; }
+.reveal section{ text-align:left; }
+.reveal a{ color:var(--gold); }
+.reveal strong{ color:var(--slate-dk); }
+.reveal em.gold{ color:var(--gold); font-style:normal; font-weight:700; }
+.reveal .muted{ color:#7a828e; font-size:.62em; }
+.reveal ul{ display:block; }
+.reveal li{ margin:.28em 0; }
+
+.brandbar{ position:fixed; top:0; left:0; right:0; height:6px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold)); z-index:60; }
+.foot{ position:fixed; bottom:10px; left:24px; font-size:13px; color:#9aa1ab; z-index:40;
+  font-family:Verdana,Arial,sans-serif; letter-spacing:.3px; }
+.foot b{ color:var(--slate2); font-weight:700; }
+.kicker{ display:inline-block; font-size:.5em; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); border-left:4px solid var(--gold); padding:2px 0 2px 12px; margin-bottom:.4em; font-weight:700; }
+
+/* ====== PORTADA ====== */
+.cover-wrap{ position:relative; }
+.cover-bg{ position:absolute; inset:-40px -60px; z-index:-1; overflow:hidden; border-radius:8px; }
+.delta{ width:100%; height:100%; opacity:.92; }
+.cover-card{ background:rgba(255,255,255,.86); backdrop-filter:blur(2px);
+  border-left:6px solid var(--gold); padding:26px 32px; border-radius:6px; box-shadow:0 18px 50px rgba(40,50,70,.25); }
+.cover-card h1{ margin:.1em 0 .15em; }
+.cover-meta{ font-size:.6em; color:var(--slate); line-height:1.7; }
+.cover-author{ margin-top:.7em; font-size:.62em; }
+.cover-author b{ color:var(--slate-dk); }
+
+/* ====== Números grandes ====== */
+.statgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px 28px; margin-top:.2em; }
+.statgrid.three{ grid-template-columns:repeat(3,1fr); }
+.stat{ background:#fff; border:1px solid #e6e8ec; border-top:4px solid var(--gold);
+  border-radius:8px; padding:16px 18px; box-shadow:0 6px 18px rgba(40,50,70,.06); }
+.stat .n{ font-size:1.5em; font-weight:800; color:var(--slate); line-height:1; }
+.stat .n small{ font-size:.5em; color:var(--gold); font-weight:800; }
+.stat .l{ font-size:.5em; color:#5c636e; margin-top:.35em; line-height:1.35; }
+.stat.alt{ border-top-color:var(--copper); } .stat.alt .n{ color:var(--copper); }
+.stat.li{ border-top-color:var(--li); } .stat.li .n{ color:var(--li); }
+.stat.land{ border-top-color:var(--land); } .stat.land .n{ color:var(--land); }
+
+/* hero */
+.hero-n{ font-size:4.6em; font-weight:800; color:var(--gold); line-height:.9; }
+
+/* ====== shift (de / a) ====== */
+.shift{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px; margin:.3em 0 .5em; }
+.shift .box{ border-radius:10px; padding:14px 16px; font-size:.62em; line-height:1.4; }
+.shift .from{ background:#f1e9e6; border:1px solid #e3cdc6; }
+.shift .to{ background:#e7f0ea; border:1px solid #c5ddcd; }
+.shift .from b{ color:var(--copper); } .shift .to b{ color:var(--land); }
+.shift .arrow{ font-size:1.8em; color:var(--gold); font-weight:800; }
+
+/* ====== cadena / corredor ====== */
+.chain{ display:flex; align-items:stretch; gap:8px; margin:.5em 0; flex-wrap:wrap; }
+.chain .node{ flex:1; min-width:120px; background:#fff; border:1px solid #e6e8ec; border-bottom:3px solid var(--slate2);
+  border-radius:8px; padding:12px 10px; text-align:center; font-size:.42em; line-height:1.3; }
+.chain .node b{ display:block; color:var(--gold); font-size:1.35em; margin-bottom:3px; }
+.chain .arw{ display:flex; align-items:center; color:var(--gold); font-weight:800; font-size:1.1em; }
+
+/* ====== mapa de provincias ====== */
+.provmap{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:.4em; }
+.prov{ background:#fff; border:1px solid #e6e8ec; border-left:4px solid var(--gold); border-radius:8px;
+  padding:11px 13px; font-size:.4em; line-height:1.35; transition:transform .2s, box-shadow .2s; }
+.prov:hover{ transform:translateY(-4px); box-shadow:0 10px 22px rgba(40,50,70,.12); }
+.prov h4{ font-size:1.35em; color:var(--slate); margin:0 0 3px; }
+.prov .tag{ display:inline-block; font-size:.85em; font-weight:700; padding:1px 7px; border-radius:10px; margin-bottom:5px; }
+.prov .tag.cu{ background:#f4dde6; color:var(--copper); } .prov .tag.li{ background:#d9edf1; color:var(--li); }
+.prov .tag.mix{ background:#efe7d6; color:#8B6914; } .prov .tag.u{ background:#e6e8ec; color:var(--slate); }
+
+/* ====== themes / grid genérica ====== */
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+.card{ background:#fff; border:1px solid #e6e8ec; border-top:3px solid var(--gold); border-radius:8px; padding:14px 16px; font-size:.6em; line-height:1.45; }
+.card h4{ font-size:1.25em; color:var(--slate); margin:0 0 .3em; }
+.card.dark{ background:var(--slate-dk); border-top-color:var(--gold-lt); color:#e7ebf0; }
+.card.dark h4{ color:#fff; } .card.dark strong{ color:#fff; }
+
+/* gaps list */
+.gaps{ font-size:.6em; columns:2; column-gap:34px; }
+.gaps li{ margin:.3em 0; break-inside:avoid; }
+
+/* pill / chips */
+.reveal .pill{ display:inline-block; background:var(--slate); color:#fff; font-size:.5em; padding:3px 12px; border-radius:20px; letter-spacing:1px; }
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.5em; }
+.chips span{ font-size:.46em; background:#eef1f5; border:1px solid #dfe4ea; color:var(--slate); border-radius:20px; padding:4px 12px; }
+
+.src{ font-size:.42em; color:#9aa1ab; margin-top:.6em; }
+.tip{ position:fixed; bottom:10px; right:18px; font-size:12px; color:#aab0b9; z-index:40; font-family:Verdana,Arial; }
+.quote{ font-size:1.1em; line-height:1.4; color:var(--slate); border-left:5px solid var(--gold); padding-left:24px; max-width:26ch; }
+
+.reveal .progress{ color:var(--gold); height:5px; }
+.reveal .controls{ color:var(--slate2); }
+.reveal .slide-number{ background:transparent; color:#aab0b9; font-family:Verdana,Arial; }
+</style>
+</head>
+<body>
+<div class="brandbar"></div>
+<div class="foot">Del boom minero al valor urbano · <b>CIPUV — UTDT</b></div>
+<div class="tip">← → navegar · <b>S</b> notas · <b>F</b> pantalla completa · <b>Esc</b> índice</div>
+
+<div class="reveal"><div class="slides">
+
+<!-- ============ 1. PORTADA ============ -->
+<section id="cover" data-background-color="#3a4250">
+  <div class="cover-wrap">
+    <div class="cover-bg">
+      <svg class="delta" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <radialGradient id="g1" cx="40%" cy="36%" r="72%">
+            <stop offset="0%" stop-color="#7d8a72"/><stop offset="55%" stop-color="#586a4f"/><stop offset="100%" stop-color="#33454c"/>
+          </radialGradient>
+          <linearGradient id="road" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e6d9b3"/><stop offset="100%" stop-color="#c7a86b"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="700" fill="url(#g1)"/>
+        <!-- salares (rombos) -->
+        <g fill="#ffffff" opacity=".14">
+          <path d="M250 250 l60 34 -60 34 -60 -34z"/>
+          <path d="M410 330 l52 30 -52 30 -52 -30z"/>
+          <path d="M330 430 l46 26 -46 26 -46 -26z"/>
+        </g>
+        <!-- corredor (ruta) mina -> puerto -->
+        <g fill="none" stroke="url(#road)" stroke-linecap="round" opacity=".9">
+          <path d="M280 300 C480 340 620 420 820 400 C980 384 1080 360 1240 380" stroke-width="20" stroke-dasharray="2 26"/>
+          <path d="M280 300 C420 300 520 260 640 250" stroke-width="10"/>
+        </g>
+        <!-- nodos urbanos -->
+        <g fill="#e6d9b3">
+          <circle cx="280" cy="300" r="10"/><circle cx="640" cy="250" r="8"/>
+          <circle cx="820" cy="400" r="9"/><circle cx="1120" cy="372" r="12"/>
+        </g>
+        <circle cx="430" cy="300" r="320" fill="#ffffff" opacity=".05"/>
+      </svg>
+    </div>
+    <div class="cover-card">
+      <span class="kicker">Regiones de minerales críticos · Agenda de investigación</span>
+      <h1>Del boom minero<br>al valor urbano</h1>
+      <div class="cover-meta">
+        Mercados de <strong>suelo</strong>, <strong>financiamiento basado en el suelo</strong><br>
+        y planificación de <strong>corredores mineros</strong>
+      </div>
+      <div class="cover-author">
+        <b>Prof. Cynthia Goytia</b> (PhD) · Economía Urbana · UTDT — CIPUV<br>
+        <span class="muted">Casos: Argentina · Chile · Perú &nbsp;·&nbsp; Datos de PDAC 2026 (CARI, 2026)</span>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Encuadre: los minerales críticos —cobre y litio— están reorganizando sistemas urbanos enteros en el norte argentino y el arco andino. La pregunta no es si habrá crecimiento, sino quién captura su valor y cómo se planifica el territorio. Meta: 18–22 min.
+  </aside>
+</section>
+
+<!-- ============ 2. EL BOOM EN NÚMEROS ============ -->
+<section>
+  <span class="kicker">El boom, en números · PDAC 2026</span>
+  <h2>Argentina, foco de interés inversor global</h2>
+  <div class="statgrid">
+    <div class="stat fragment fade-up"><div class="n">USD 47<small>MIL M</small></div><div class="l">pipeline minero bajo el <strong>RIGI</strong> (régimen de grandes inversiones)</div></div>
+    <div class="stat fragment fade-up"><div class="n">310</div><div class="l">proyectos metalíferos en cartera; <strong>solo 26 en producción</strong> → enorme margen de urbanización</div></div>
+    <div class="stat li fragment fade-up"><div class="n">USD 6,04<small>MIL M</small></div><div class="l">exportaciones mineras récord <strong>2025</strong> (+29% i.a.)</div></div>
+    <div class="stat alt fragment fade-up"><div class="n">USD 16–18<small>MIL M</small></div><div class="l"><strong>Vicuña</strong> (BHP/Lundin, San Juan): la mayor inversión minera de la historia argentina</div></div>
+  </div>
+  <div class="src fragment">Fuente: Straface, F. (2026), <em>Argentina in the New Era of Critical Minerals</em>, CARI, Strategic Comments Nº 54, sobre PDAC 2026.</div>
+  <aside class="notes">
+    PDAC 2026: 32.155 asistentes de 141 países, récord histórico. El lenguaje de la industria dejó de ser el del mercado y pasó al de la seguridad económica. Argentina llegó como uno de los destinos más observados. El dato clave para nosotros: 310 proyectos y solo 26 en producción — la ola de urbanización todavía no ocurrió.
+  </aside>
+</section>
+
+<!-- ============ 3. LA PARADOJA DEL ORO ============ -->
+<section>
+  <span class="kicker">La paradoja del punto de partida</span>
+  <h2>Récord de exportaciones… sobre una base <em class="gold">frágil</em></h2>
+  <div style="display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center;">
+    <div>
+      <ul style="font-size:.66em;">
+        <li class="fragment">En 2024, oro y plata fueron el <strong>82%</strong> de las exportaciones mineras (oro 68%).</li>
+        <li class="fragment">El récord de 2025 fue <strong>efecto precio del oro</strong>, con producción en declive desde 2020.</li>
+        <li class="fragment">El litio se derrumbó: de <strong>USD 80.000/t</strong> (2022) a <strong>10–11.000</strong> (2024).</li>
+      </ul>
+      <p class="fragment muted" style="font-size:.62em;">Depender del ciclo del oro es, por definición, insostenible sin renovar la cartera. Cobre y litio son la vía de <strong>diversificación</strong>.</p>
+    </div>
+    <div class="fragment">
+      <div class="stat alt"><div class="n">82<small>%</small></div><div class="l">oro + plata en la matriz exportadora minera 2024</div></div>
+      <div class="stat li" style="margin-top:14px;"><div class="n">×8</div><div class="l">caída del precio del litio 2022 → 2024</div></div>
+    </div>
+  </div>
+  <div class="src fragment">Fuente: CARI (2026) sobre datos oficiales.</div>
+  <aside class="notes">
+    Éste es el puente conceptual con mi tema de resiliencia al ciclo (tema 8): la volatilidad no es un riesgo futuro, ya la vivimos con el litio. Una ciudad minera que se dimensiona en el pico del precio queda sobredimensionada en el valle.
+  </aside>
+</section>
+
+<!-- ============ 4. EL CAMBIO DE MIRADA ============ -->
+<section>
+  <span class="kicker">El giro en la literatura · 2023–2026</span>
+  <h2>De la <em>mining town</em> al <em class="gold">resource urbanism</em></h2>
+  <div class="shift">
+    <div class="box from"><b>Ciudad minera clásica</b><br>Cómo <strong>alojar</strong> el crecimiento poblacional junto a la mina. Riesgo: <strong>enclave</strong>.</div>
+    <div class="arrow">➜</div>
+    <div class="box to"><b>Urbanismo de recursos</b><br>Cómo convertir el boom en <strong>desarrollo territorial</strong> de largo plazo: redes de ciudades y corredores.</div>
+  </div>
+  <p style="font-size:.6em; max-width:34ch;" class="fragment">El resultado depende mucho más de la <strong>gobernanza local</strong> que del mineral en sí. La unidad de planificación ya no es la ciudad: es la <em class="gold">región funcional</em>.</p>
+  <aside class="notes">
+    El mayor riesgo sigue siendo el enclave: poca integración local, empleo que llega de afuera, escasos encadenamientos, dependencia de un solo ciclo de precios. La pregunta central: qué instituciones transforman un enclave en una ciudad diversificada.
+  </aside>
+</section>
+
+<!-- ============ 5. EL CORREDOR ============ -->
+<section>
+  <span class="kicker">Corridor urbanism</span>
+  <h2>El litio no crea ciudades mineras: crea <em class="gold">corredores</em></h2>
+  <div class="chain">
+    <div class="node fragment fade-right"><b>◆</b>Salar / mina<br><span class="muted">Extracción</span></div>
+    <div class="arw fragment">➜</div>
+    <div class="node fragment fade-right"><b>▣</b>Ciudad de servicios<br><span class="muted">Vivienda · proveedores</span></div>
+    <div class="arw fragment">➜</div>
+    <div class="node fragment fade-right"><b>✈</b>Aeropuerto<br><span class="muted">Fly-in / fly-out</span></div>
+    <div class="arw fragment">➜</div>
+    <div class="node fragment fade-right"><b>⚓</b>Puerto<br><span class="muted">Salida exportadora</span></div>
+    <div class="arw fragment">➜</div>
+    <div class="node fragment fade-right"><b>◉</b>Capital regional<br><span class="muted">Decisión · finanzas</span></div>
+  </div>
+  <p style="font-size:.6em; max-width:36ch; margin-top:.3em;" class="fragment">Las inversiones producen <strong>corredores económicos</strong> que conectan salares, puertos y ciudades. Trabajadores, proveedores y servicios se localizan en varias ciudades a la vez.</p>
+  <div class="chips fragment">
+    <span>Triángulo del litio · Arg–Bol–Chile</span>
+    <span>Corredor de cobre andino · Arg–Chile–Perú</span>
+  </div>
+  <aside class="notes">
+    Éste es el corazón del marco de "corridor urbanism": el valor y los problemas se distribuyen a lo largo de una cadena, no en un punto. Eso obliga a pensar gobernanza metropolitana/regional de corredores — uno de los vacíos de la literatura.
+  </aside>
+</section>
+
+<!-- ============ 6. EL MAPA DEL BOOM ============ -->
+<section>
+  <span class="kicker">El mapa del boom · Art. 124 CN</span>
+  <h2>Las provincias son dueñas del subsuelo</h2>
+  <div class="provmap">
+    <div class="prov fragment fade-up"><h4>San Juan</h4><span class="tag cu">Cobre</span><br>Vicuña · El Pachón (USD 9,5 mil M) · Los Azules. La <strong>capital del cobre</strong>.</div>
+    <div class="prov fragment fade-up"><h4>Catamarca</h4><span class="tag mix">Litio + Cobre</span><br>18 proyectos de litio · corredor <strong>Agua Rica–Alumbrera</strong> (MARA): +10.000 empleos en obra.</div>
+    <div class="prov fragment fade-up"><h4>Salta</h4><span class="tag li">Litio</span><br>Mayor concentración de proyectos · <strong>puerta del Triángulo</strong>. Rincón (Rio Tinto).</div>
+    <div class="prov fragment fade-up"><h4>Jujuy</h4><span class="tag li">Litio</span><br>Cauchari-Olaroz, la mayor operación (34.100 t en 2025). Fuerte presencia de <strong>Ganfeng</strong>.</div>
+    <div class="prov fragment fade-up"><h4>Mendoza</h4><span class="tag u">Hub de servicios</span><br>Ingeniería, logística, universidades: <strong>ciudad de servicios</strong> del corredor andino central.</div>
+    <div class="prov fragment fade-up"><h4>Patagonia</h4><span class="tag u">Uranio · TR · SMR</span><br>Neuquén, Río Negro (INVAP + potasio), Chubut (uranio), Santa Cruz (vanadio).</div>
+  </div>
+  <div class="src fragment">Bajo el Art. 124 CN las provincias hacen su propia <strong>paradiplomacia minera</strong> → riesgo de fragmentación regulatoria. Fuente: CARI (2026).</div>
+  <aside class="notes">
+    Cada provincia tiene delegación propia en PDAC y firma acuerdos con inversores. Esto es central para los efectos distributivos entre jurisdicciones productoras y no productoras y para la coordinación nación–provincias.
+  </aside>
+</section>
+
+<!-- ============ 7. MENDOZA: LA CIUDAD DE SERVICIOS ============ -->
+<section>
+  <span class="kicker">El caso que ilustra la tesis</span>
+  <h2>Mendoza: la <em class="gold">ciudad intermedia</em> que capta el valor sin la mina</h2>
+  <div class="grid2">
+    <div class="card fragment fade-up">
+      <h4>La beneficiaria no siempre está junto a la mina</h4>
+      Mendoza da soporte a proyectos de San Juan, La Rioja y Neuquén con una red de <strong>ingeniería, logística, servicios ambientales, consultoría legal y financiera</strong>, universidades (Cuyo, IANIGLA-CONICET) y sedes regionales de las mineras.
+    </div>
+    <div class="card dark fragment fade-up">
+      <h4>La lección urbana</h4>
+      Las grandes ganadoras suelen ser <strong>ciudades intermedias de 50.000–500.000 hab.</strong> que concentran servicios, vivienda, educación y logística — no los campamentos junto al yacimiento.
+      <div class="chips" style="margin-top:.5em;"><span>Antofagasta</span><span>Calama</span><span>Salta capital</span></div>
+    </div>
+  </div>
+  <div class="src fragment">Fuente: CARI (2026), §3.5; literatura sobre ciudades intermedias en Chile.</div>
+  <aside class="notes">
+    Mendoza es el ejemplo perfecto de mi tema 6: provee servicios a la minería regional sin explotar su propio subsuelo. Es la evidencia de que la captura de valor urbano se juega en la red de ciudades, no en un punto.
+  </aside>
+</section>
+
+<!-- ============ 8. EL AGUA ============ -->
+<section data-background-color="#20323a">
+  <span class="kicker" style="color:var(--gold-lt); border-color:var(--gold-lt);">El condicionante que ordena todo</span>
+  <h2 style="color:#fff;">El <em style="color:#7fd0dd; font-style:normal;">agua</em> es el principal límite urbano</h2>
+  <p style="color:#d7e3e7; font-size:.72em; max-width:32ch;" class="fragment">
+    En litio, la planificación urbana debe incorporar <strong style="color:#fff;">disponibilidad y derechos de agua</strong>, reutilización, protección de acuíferos y monitoreo ambiental.
+  </p>
+  <p style="color:#d7e3e7; font-size:.72em; max-width:32ch;" class="fragment">
+    En cobre, la reforma de la <strong style="color:var(--gold-lt);">Ley de Glaciares</strong> es "el factor regulatorio de mayor impacto" sobre la viabilidad de los megaproyectos.
+  </p>
+  <p style="color:#fff; font-size:.86em; margin-top:.4em;" class="fragment">La <strong>licencia social</strong> depende tanto del agua como del empleo.</p>
+  <div class="src" style="color:#9fb4bb;">Fuente: CARI (2026), §1.2 y §2.</div>
+  <aside class="notes">
+    Fondo oscuro a propósito. El agua es donde lo ambiental, lo regulatorio y lo urbano se cruzan. Sin gestión creíble del agua no hay licencia social, y sin licencia social no hay corredor.
+  </aside>
+</section>
+
+<!-- ============ 9. LO QUE LA AGENDA NO VE ============ -->
+<section>
+  <span class="kicker">El punto ciego</span>
+  <h2>Lo que la agenda geopolítica <em class="gold">no discute</em></h2>
+  <p style="font-size:.62em; max-width:38ch;" class="fragment">El diagnóstico dominante —inversión, RIGI, geopolítica, seguridad de suministro— documenta la <strong>escala</strong> del boom y su distribución territorial, pero guarda silencio sobre lo urbano:</p>
+  <div class="grid2" style="margin-top:.3em;">
+    <div class="card fragment fade-up"><h4>Renta que se capitaliza en el suelo</h4>Parte de la renta minera se capitaliza en <strong>suelo urbano, vivienda, parques industriales e infraestructura</strong>… pero casi ningún gobierno local captura ese incremento.</div>
+    <div class="card fragment fade-up"><h4>Instrumentos ausentes</h4><strong>Land value capture</strong>, contribución por mejoras, impuesto a plusvalías, fondos de estabilización territorial, property tax fortalecido. Campo <strong>poco desarrollado</strong>.</div>
+  </div>
+  <div class="src fragment">Casi no existen modelos integrados de captura de valor del suelo en regiones mineras.</div>
+  <aside class="notes">
+    Ésta es la bisagra de la charla: el paper del CARI es excelente en geopolítica y política exterior, pero no dice una palabra de mercados de suelo ni de quién captura el valor. Ese silencio es exactamente nuestro aporte.
+  </aside>
+</section>
+
+<!-- ============ 10. VACÍOS DE INVESTIGACIÓN ============ -->
+<section>
+  <span class="kicker">Vacíos de investigación</span>
+  <h2>Lo que falta integrar</h2>
+  <ol class="gaps">
+    <li class="fragment">Mercados de suelo en regiones mineras</li>
+    <li class="fragment">Mecanismos de captura de plusvalías</li>
+    <li class="fragment">Financiamiento urbano asociado a minerales críticos</li>
+    <li class="fragment">Vivienda asequible para trabajadores temporales</li>
+    <li class="fragment">Gobernanza metropolitana de corredores</li>
+    <li class="fragment">Efectos distributivos entre municipios productores y no productores</li>
+    <li class="fragment">Adaptación climática en ciudades extractivas</li>
+  </ol>
+  <aside class="notes">
+    Estos siete vacíos son la hoja de ruta. Cada uno es un paper posible. El cruce con land-based financing es donde tenemos ventaja comparativa.
+  </aside>
+</section>
+
+<!-- ============ 11. HALLAZGOS EMPÍRICOS ============ -->
+<section>
+  <span class="kicker">Evidencia reciente</span>
+  <h2>Cuatro hallazgos que ordenan la política</h2>
+  <div class="statgrid">
+    <div class="stat land fragment fade-up"><div class="n">+</div><div class="l">Los booms <strong>sí</strong> aumentan la población urbana, pero <strong>menos</strong> de lo supuesto</div></div>
+    <div class="stat fragment fade-up"><div class="n">Serv.</div><div class="l">El empleo nuevo se concentra en <strong>servicios y comercio</strong>, no en manufactura</div></div>
+    <div class="stat li fragment fade-up"><div class="n">Instit.</div><div class="l">La <strong>calidad institucional</strong> explica gran parte del éxito o fracaso regional</div></div>
+    <div class="stat land fragment fade-up"><div class="n">Temprano</div><div class="l">La <strong>planificación regional temprana</strong> reduce informalidad y déficit de infraestructura</div></div>
+  </div>
+  <aside class="notes">
+    El cuarto hallazgo es el más accionable: planificar antes —no después— reduce asentamientos informales y sobrecostos. Es donde la economía urbana tiene algo concreto para aportar hoy.
+  </aside>
+</section>
+
+<!-- ============ 12. LA AGENDA ============ -->
+<section data-background-color="#3a4250">
+  <span class="kicker" style="color:var(--gold-lt); border-color:var(--gold-lt);">La oportunidad de investigación</span>
+  <h2 style="color:#fff;">Una agenda en el cruce de cuatro literaturas</h2>
+  <div class="chips" style="margin:.2em 0 .6em;">
+    <span style="background:#54606f; color:#fff; border-color:#54606f;">Land markets</span>
+    <span style="background:#54606f; color:#fff; border-color:#54606f;">Land-based financing</span>
+    <span style="background:#54606f; color:#fff; border-color:#54606f;">Resource urbanism</span>
+    <span style="background:#54606f; color:#fff; border-color:#54606f;">Ciudades intermedias</span>
+  </div>
+  <div style="background:rgba(255,255,255,.08); border-left:4px solid var(--gold-lt); border-radius:6px; padding:14px 18px; font-size:.62em; color:#eef1f5;" class="fragment">
+    <em style="color:#f0e6c8; font-style:normal; font-weight:700;">From Mining Boom to Urban Value:</em> Land Markets, Land-Based Financing and the Planning of Critical Mineral Regions
+  </div>
+  <div style="background:rgba(255,255,255,.08); border-left:4px solid var(--gold-lt); border-radius:6px; padding:14px 18px; font-size:.62em; color:#eef1f5; margin-top:12px;" class="fragment">
+    <em style="color:#f0e6c8; font-style:normal; font-weight:700;">Planning Mining Corridors:</em> Land Markets, Urban Growth and Land Value Capture in Critical Mineral Regions
+  </div>
+  <p style="color:#cfd5dd; font-size:.58em; margin-top:.6em;" class="fragment">Contribución original con casos de <strong style="color:#fff;">Argentina, Chile y Perú</strong> — un cruce aún escasamente desarrollado a nivel internacional.</p>
+  <aside class="notes">
+    Dos títulos candidatos para la agenda. El aporte es conectar lo que la literatura tiene separado: mercados de suelo + financiamiento del suelo + urbanismo de recursos + ciudades intermedias, con evidencia del arco andino.
+  </aside>
+</section>
+
+<!-- ============ 13. CIERRE ============ -->
+<section>
+  <span class="kicker">La idea-ancla</span>
+  <blockquote class="quote">
+    El boom minero pasa por el territorio una sola vez. La pregunta es si deja <em class="gold">valor urbano permanente</em> — o solo infraestructura sobredimensionada.
+  </blockquote>
+  <p style="font-size:.64em; max-width:32ch; margin-top:.6em;" class="fragment">La ventana de oportunidad es estrecha. Planificar <strong>temprano</strong> el suelo, el agua y la captura de valor es lo que separa un enclave de una ciudad diversificada.</p>
+  <aside class="notes">
+    Cerrar conectando con mi agenda: el instrumento —captura de plusvalías, financiamiento basado en el suelo— es la vía para que el boom financie activos permanentes. Se decide hoy, en el pico del ciclo.
+  </aside>
+</section>
+
+<!-- ============ 14. GRACIAS ============ -->
+<section>
+  <span class="kicker">Gracias</span>
+  <h2>Conversemos</h2>
+  <p style="font-size:.8em;"><strong>Prof. Cynthia Goytia</strong> (PhD)<br>
+  <span class="muted">Economía Urbana · Universidad Torcuato Di Tella · CIPUV</span></p>
+  <p style="font-size:.66em; margin-top:.3em;">
+    ✉️ <a href="mailto:cgoytia@utdt.edu">cgoytia@utdt.edu</a> &nbsp;·&nbsp;
+    🌐 <a href="https://cgoytia-droid.github.io/research/regiones-mineras.html">cgoytia-droid.github.io</a>
+  </p>
+  <p class="src" style="margin-top:1em;">Datos de PDAC 2026: Straface, F. (2026). <em>Argentina in the New Era of Critical Minerals: A Perspective from PDAC 2026.</em> CARI, Strategic Comments Nº 54. · Síntesis de la literatura 2023–2026 sobre resource urbanism, captura de plusvalías y ciudades intermedias.</p>
+  <aside class="notes">
+    Abrir preguntas con: "¿Qué instrumento de captura de valor creen que Jujuy, Salta o Catamarca podrían aplicar hoy?" Tener a mano ejemplos de contribución por mejoras y property tax.
+  </aside>
+</section>
+
+</div></div>
+
+<!-- reveal.js scripts -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
+<script>
+Reveal.initialize({
+  hash:true, history:true, slideNumber:'c/t', controls:true, progress:true,
+  center:true, transition:'slide', backgroundTransition:'fade',
+  width:1280, height:760, margin:0.06, minScale:0.2, maxScale:1.6,
+  plugins:[ RevealNotes, RevealZoom ]
+});
+</script>
+</body>
+</html>
