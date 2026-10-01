@@ -100,7 +100,7 @@ def len_ok(pos, clen):
     return all((w[i] in OPT[int(B[pos + 4 + i])]) if B[pos + 4 + i] < 0 else B[pos + 4 + i] == w[i] for i in range(4))
 
 recs, pos, rn, nhi, N_EXP, repaired = [], 100, 1, 0, 1734, False
-CANDS = []
+CANDS, P0 = [], []
 while len(recs) < N_EXP:
     c = pos + 8
     found, fallback = None, None
@@ -148,9 +148,9 @@ while len(recs) < N_EXP:
     for k in range(1, npts):
         if k > k0 + 2 and abs(xs[k] - xs[k0]) < 0.05 and abs(ys[k] - ys[k0]) < 0.05 and k + 1 < npts:
             parts.append(k + 1); k0 = k + 1
-    recs.append((rn, parts, xs, ys, nparts)); CANDS.append(LASTC); pos = end; rn += 1
+    recs.append((rn, parts, xs, ys, nparts)); CANDS.append(LASTC); P0.append((c + 44 + 4 * nparts, npts)); pos = end; rn += 1
     if rn % 200 == 0: print(rn, pos, flush=True)
-import pickle; pickle.dump((recs, CANDS), open(out + '.pkl', 'wb'))
+import pickle; pickle.dump((recs, CANDS), open(out + '.pkl', 'wb')); np.save(out + '.B.npy', B); pickle.dump(P0, open(out + '.p0.pkl', 'wb'))
 print('registros', len(recs), 'bytes altos ambiguos resueltos', nhi)
 # a GeoJSON en EPSG:5382 (SIRGAS-ROU98 UTM 21S)
 import json
