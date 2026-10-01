@@ -1,0 +1,6 @@
+# Productos con datos del proyecto: no se publican en el sitio
+figuras/
+tablas/
+*.docx
+*.csv
+*.gpkg
