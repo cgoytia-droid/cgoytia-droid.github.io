@@ -63,18 +63,26 @@ def decode_fast(p0, npts):
 RANGO = {0: (4.5e5, 6.7e5), 1: (6.0e6, 6.3e6)}
 
 def cands(pos, eje):
-    """Todos los valores posibles de una coordenada dentro del rango del AMM."""
-    bs = [int(x) for x in B[pos:pos + 8]]
-    hi = [i for i in range(4, 8) if bs[i] < 0]
-    kinds = [bs[i] for i in hi]
-    for i in range(8):
-        if bs[i] < 0: bs[i] = 0x0A if bs[i] == -2 else 0
-    out = []
-    for combo in itertools.product(*[OPT[k] for k in kinds]):
-        for i, v in zip(hi, combo): bs[i] = v
-        x = struct.unpack('<d', bytes(bs))[0]
-        if RANGO[eje][0] < x < RANGO[eje][1]: out.append(x)
-    return out or [1e9], len(hi)  # fuera de rango: valor absurdo, lo descarta la validación
+    """Valores posibles de una coordenada: se enumeran todos los bytes ambiguos y se
+    conservan los que caen en el rango del AMM y sobre la grilla de 0,0001 m de la capa
+    (todas las coordenadas no ambiguas son múltiplos exactos de 0,0001 m)."""
+    bs = np.array([int(x) for x in B[pos:pos + 8]])
+    amb = [i for i in range(8) if bs[i] < 0]
+    if not amb:
+        return [struct.unpack('<d', bytes(bs.astype(np.uint8)))[0]], 0
+    opts = [OPT[int(bs[i])] for i in amb]
+    if np.prod([len(o) for o in opts]) > 3e6:
+        amb, opts = amb[-3:], opts[-3:]
+        for i in range(8):
+            if bs[i] < 0 and i not in amb: bs[i] = 0
+    grid = np.array(np.meshgrid(*opts, indexing='ij')).reshape(len(amb), -1).T
+    arr = np.tile(bs, (len(grid), 1)); arr[:, amb] = grid
+    vals = arr.astype(np.uint8).copy().view('<f8').ravel()
+    lo, hi = RANGO[eje]
+    v = vals[(vals > lo) & (vals < hi)]
+    f = v * 1e4
+    ok = v[np.abs(f - np.round(f)) < 2e-5]
+    return (sorted(set(ok.tolist())) or [1e9]), int(sum(i >= 4 for i in amb))
 
 def decode_pts(p0, npts):
     """Viterbi: elige, entre los candidatos de cada vértice, la secuencia de menor longitud total."""
