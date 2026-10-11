@@ -2,6 +2,9 @@
 import sys, pandas as pd, numpy as np, matplotlib, matplotlib.ticker
 matplotlib.use('Agg'); import matplotlib.pyplot as plt
 T, OUT = sys.argv[1], sys.argv[2]
+PRORRATEO = len(sys.argv) > 3 and sys.argv[3] == 'prorrateo'
+METODO = ('Viviendas de cada segmento prorrateadas por superficie (polígonos DINOT) entre entornos de 800 m recortados por la estación más cercana.'
+          if PRORRATEO else 'Cada segmento se asigna a la estación más cercana si su centroide está a 800 m o menos.')
 t = pd.read_csv(f'{T}/t8_por_estacion.csv')
 CATS = [('Alquiler o venta', '#000000'), ('Construcción o reparación', '#4D4D4D'), ('Ignorado', '#9A9A9A'),
         ('Vacante', '#8DB600'), ('Degradada', '#5C7A00'), ('Temporada', '#D6D6D6')]
@@ -34,8 +37,8 @@ def figura(modo, nombre, titulo, xlab, nota):
     h, l = axs[0].get_legend_handles_labels()
     fig.legend(h, l, ncol=3, fontsize=7.5, frameon=False, loc='lower center', bbox_to_anchor=(.5, .035))
     fig.suptitle(titulo, x=.02, ha='left', fontsize=11, fontweight='bold')
-    fig.text(.02, .005, 'Fuente: elaboración propia con DINOT-MVOT, ocupación de la vivienda por segmento censal (Censo 2023). Cada segmento se asigna a la estación más cercana\n'
-             'si su centroide está a 800 m o menos; el troncal compartido se muestra con la línea A. ' + nota + ' * Entorno con 1 o 2 segmentos.', fontsize=6.3, color='#555555')
+    fig.text(.02, .005, 'Fuente: elaboración propia con DINOT-MVOT, ocupación de la vivienda por segmento censal (Censo 2023). ' + METODO + '\n'
+             'El troncal compartido se muestra con la línea A. ' + nota + ' * Entorno con 1 o 2 segmentos.', fontsize=6.3, color='#555555')
     plt.tight_layout(rect=(0, .08, 1, .97)); fig.savefig(f'{OUT}/{nombre}.png', dpi=220, facecolor='white'); plt.close(fig)
 
 figura('conteo', 'G3_motivo_conteo_por_estacion', 'Gráfico 3. Viviendas desocupadas por condición y motivo, por entorno de estación BRT, 2023',

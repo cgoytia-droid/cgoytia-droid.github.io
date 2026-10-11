@@ -2,6 +2,9 @@
 import sys, pandas as pd, matplotlib
 matplotlib.use('Agg'); import matplotlib.pyplot as plt
 T, OUT = sys.argv[1], sys.argv[2]
+PRORRATEO = len(sys.argv) > 3 and sys.argv[3] == 'prorrateo'
+METODO = ('Viviendas de cada segmento prorrateadas por superficie (polígonos DINOT) entre entornos de 800 m recortados por la estación más cercana.'
+          if PRORRATEO else 'Cada segmento se asigna a la estación más cercana si su centroide está a 800 m o menos.')
 VERDE, OSC = '#8DB600', '#5C7A00'
 t = pd.read_csv(f'{T}/t8_por_estacion.csv')
 fig, axs = plt.subplots(1, 2, figsize=(11, 10), sharex=True)
@@ -18,6 +21,6 @@ for ax, lin, tit in [(axs[0], 'A', 'Troncal y línea A: 18 de Julio, 8 de Octubr
     ax.set_xlabel('Viviendas vacantes o degradadas\n(entre paréntesis, % del stock del entorno)', fontsize=7.5)
 axs[0].legend(fontsize=7.5, frameon=False, loc='lower right'); axs[0].set_xlim(0, 380)
 fig.suptitle('Gráfico 2. Vacancia estructural por entorno de estación BRT (800 m), 2023', x=.02, ha='left', fontsize=11, fontweight='bold')
-fig.text(.02, .005, 'Fuente: elaboración propia con DINOT-MVOT (Censo 2023). Cada segmento se asigna a la estación más cercana si su centroide está a 800 m o menos; el troncal compartido se muestra con la línea A.\n'
-         '* Entorno con 1 o 2 segmentos: tasa poco estable. Seis estaciones (Ruta 8 oriental y Giannattasio / Guenoas) no reciben segmentos.', fontsize=6.5, color='#555555')
+fig.text(.02, .005, 'Fuente: elaboración propia con DINOT-MVOT (Censo 2023). ' + METODO + ' El troncal compartido se muestra con la línea A.\n'
+         '' + ('* Entorno con aporte de 1 o 2 segmentos: tasa poco estable.' if PRORRATEO else '* Entorno con 1 o 2 segmentos: tasa poco estable. Seis estaciones (Ruta 8 oriental y Giannattasio / Guenoas) no reciben segmentos.') + '', fontsize=6.5, color='#555555')
 plt.tight_layout(rect=(0, .03, 1, .97)); fig.savefig(f'{OUT}/G2_vacancia_por_estacion.png', dpi=220, facecolor='white')
